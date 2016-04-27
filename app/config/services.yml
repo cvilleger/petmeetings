@@ -1,0 +1,8 @@
+parameters:
+
+services:
+
+    controller.pre_execute_listener:
+        class: AppBundle\Listener\ControllerListener
+        tags:
+          -  { name: kernel.event_listener, event: kernel.controller, method: onCoreController }
