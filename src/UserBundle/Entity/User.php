@@ -78,9 +78,9 @@ class User extends BaseUser
     protected $city;
 
     /**
-     * @var date
+     * @var \DateTime
      *
-     * @ORM\Column(name="birthday", type="date")
+     * @ORM\Column(name="birthday", type="datetime")
      *
      * @Assert\Type(
      *     type = "datetime",
@@ -90,7 +90,7 @@ class User extends BaseUser
     protected $birthday;
 
     /**
-     * @var text
+     * @var string
      *
      * @ORM\Column(name="biography", type="text")
      *
@@ -155,6 +155,104 @@ class User extends BaseUser
      * )
      */
     protected $gender;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="orientation", type="string")
+     *
+     * @Assert\Type(
+     *     type = "string",
+     *     message = "La donnée attendue n'est pas valide."
+     * )
+     * @Assert\NotBlank(
+     *     message = "Cette donnée ne peut être vide."
+     * )
+     * @Assert\Choice(
+     *     choices = {"hétéro", "homo", "bi", "autre"},
+     *     message = "Votre orientation sexuelle n'est pas valide."
+     * )
+     */
+    protected $orientation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meetingtype", type="string")
+     *
+     * @Assert\Type(
+     *     type = "string",
+     *     message = "La donnée attendue n'est pas valide."
+     * )
+     * @Assert\NotBlank(
+     *     message = "Cette donnée ne peut être vide."
+     * )
+     * @Assert\Choice(
+     *     choices = {"amicale", "amoureuse", "aucune"},
+     *     message = "Votre type de rencontre désiré n'est pas valide."
+     * )
+     */
+    protected $meetingtype;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="startsub", type="datetime")
+     *
+     * @Assert\Type(
+     *     type = "datetime",
+     *     message = "La donnée attendue n'est pas valide."
+     * )
+     */
+    protected $startsub;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="endsub", type="datetime")
+     *
+     * @Assert\Type(
+     *     type = "datetime",
+     *     message = "La donnée attendue n'est pas valide."
+     * )
+     */
+    protected $endsub;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="likes", type="integer")
+     *
+     * @Assert\Type(
+     *     type = "integer",
+     *     message = "La donnée attendue n'est pas valide."
+     * )
+     * @Assert\Range(
+     *     min = 0,
+     *     max = 5,
+     *     minMessage = "Votre nombre de likes ne peut pas être inferieur à {{limit}}.",
+     *     maxMessage = "Votre nombre de likes ne peut pas être superieur à{{limit}}."
+     * )
+     */
+    protected $likes;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="likesleft", type="integer")
+     *
+     * @Assert\Type(
+     *     type = "integer",
+     *     message = "La donnée attendue n'est pas valide."
+     * )
+     * @Assert\Range(
+     *     min = 0,
+     *     max = 5,
+     *     minMessage = "Votre nombre de likes restants ne peut pas être inferieur à {{limit}}.",
+     *     maxMessage = "Votre nombre de likes restants ne peut pas être superieur à{{limit}}."
+     * )
+     */
+    protected $likesleft;
 
     /**
      * Get id
@@ -356,5 +454,149 @@ class User extends BaseUser
     public function getGender()
     {
         return $this->gender;
+    }
+
+    /**
+     * Set orientation
+     *
+     * @param string $orientation
+     *
+     * @return User
+     */
+    public function setOrientation($orientation)
+    {
+        $this->orientation = $orientation;
+
+        return $this;
+    }
+
+    /**
+     * Get orientation
+     *
+     * @return string
+     */
+    public function getOrientation()
+    {
+        return $this->orientation;
+    }
+
+    /**
+     * Set meetingtype
+     *
+     * @param string $meetingtype
+     *
+     * @return User
+     */
+    public function setMeetingtype($meetingtype)
+    {
+        $this->meetingtype = $meetingtype;
+
+        return $this;
+    }
+
+    /**
+     * Get meetingtype
+     *
+     * @return string
+     */
+    public function getMeetingtype()
+    {
+        return $this->meetingtype;
+    }
+
+    /**
+     * Set startsub
+     *
+     * @param \DateTime $startsub
+     *
+     * @return User
+     */
+    public function setStartsub($startsub)
+    {
+        $this->startsub = $startsub;
+
+        return $this;
+    }
+
+    /**
+     * Get startsub
+     *
+     * @return \DateTime
+     */
+    public function getStartsub()
+    {
+        return $this->startsub;
+    }
+
+    /**
+     * Set endsub
+     *
+     * @param \DateTime $endsub
+     *
+     * @return User
+     */
+    public function setEndsub($endsub)
+    {
+        $this->endsub = $endsub;
+
+        return $this;
+    }
+
+    /**
+     * Get endsub
+     *
+     * @return \DateTime
+     */
+    public function getEndsub()
+    {
+        return $this->endsub;
+    }
+
+    /**
+     * Set likes
+     *
+     * @param integer $likes
+     *
+     * @return User
+     */
+    public function setLikes($likes)
+    {
+        $this->likes = $likes;
+
+        return $this;
+    }
+
+    /**
+     * Get likes
+     *
+     * @return integer
+     */
+    public function getLikes()
+    {
+        return $this->likes;
+    }
+
+    /**
+     * Set likesleft
+     *
+     * @param integer $likesleft
+     *
+     * @return User
+     */
+    public function setLikesleft($likesleft)
+    {
+        $this->likesleft = $likesleft;
+
+        return $this;
+    }
+
+    /**
+     * Get likesleft
+     *
+     * @return integer
+     */
+    public function getLikesleft()
+    {
+        return $this->likesleft;
     }
 }
