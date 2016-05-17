@@ -7,15 +7,15 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    /* @var Request */
-    protected $request;
+	/* @var Request */
+	protected $request;
 
-    public function preExecute(Request $request) {
-        $this->request = $request;
-    }
+	public function preExecute(Request $request) {
+		$this->request = $request;
+	}
 
-    public function indexAction()
-    {
-        return $this->render('default/index.html.twig');
-    }
+	public function indexAction()
+	{
+		return $this->render('AppBundle::profil.html.twig');
+	}
 }

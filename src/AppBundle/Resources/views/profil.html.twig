@@ -1,35 +1,86 @@
-<div class="container">
-	<div class="row">
-		<div class="col s6 ">
-			<img src="img/profil.png" alt="Photo de profil" id="profilPhoto">
-			<img src="img/animal.png" alt="Animal de compagnie" id="petPhoto">
-		</div>
-		<div class="col s6 ">
-			<div class="profilBioTitle blue">
-				<span class="name"></span>
-			</div>
-			<span class="subProfil"></span>
-			<br>
-			<br>
-			<div class="profilBioTitle blue">
-				<span class="name"></span>
-			</div>
-			<span class="subProfil"></span>
+{% extends 'base.html.twig' %}
 
-			<span class="subProfil blue"></span>
-		</div>
+{% block body %}
+
+<div class="row">
+	<div class="col s4 profilPhotos">
+		<img src="{{ asset('bundles/app/images/photo1.jpg') }}" alt="" id="profilPhoto">
+		<img src="{{ asset('bundles/app/images/chat1.png') }}" alt="" id="petPhoto">
 	</div>
-	<div class="row">
-		<div class="col s12 ">
-			<div id="cptLikes">
-				<span class="fa fa-"></span>
-				<span class="">
+	<div class="col s7 ">
+		<div class="profilBioTitle bleu">
+			<span class="iam">Salut, je suis</span>
+			<span class="name">Yassine</span>
+		</div>
+		<span class="subProfil"><b>24 ans</b>, étudiant en philosophie</span>
 
-					<span class="">
-						Likes
-					</span>
+		<br>
+
+		<div class="profilBioTitle rose">
+			<span class="iam">Salut, je suis</span>
+			<span class="name">Pépito</span>
+		</div>
+		<span class="subProfil"><b>Chat tigré</b>, étudiant en philosophie</span>
+		<br>
+		<span class="subProfil bleu">On habite à <b>Villetaneuse</b></span>
+		<br><br>
+		<div class="col s12 card-panel">
+			<div id="cptLikes">
+				<span class="cpt">
+					134
+				</span>
+				<span class="fa fa-thumbs-o-up ">
+
 				</span>
 			</div>
+			<a class="waves-effect waves-light btn" id="likeBtn"> <span class="fa fa-thumbs-o-up ">
+			</span> Je WoOof !</a>
 		</div>
 	</div>
 </div>
+
+<div class="row" id="infosProfil">
+	<div class="col  s5 card-panel bleuPanel">
+		<div class="row" >
+			<div class="col s12">
+				<h4><span>Informations de Yassine </span></h4>
+			</div>
+		</div>
+		<div class="row" >
+
+			<div class="col s5 informationName">
+				<span>Age</span>
+				<span>Ville</span>
+				<span>Age</span>
+				<span>Age</span>
+				<span>Age</span>
+			</div>
+			<div class="col s6 informationValue">
+				<span>18 ans</span>
+				<span>Villetaneuse</span>
+				<span>Age</span>
+				<span>Age</span>
+				<span>Age</span>
+				<span>Age</span>
+			</div>
+		</div>
+
+	</div>
+	<div class="col  s2">
+
+	</div>
+	<div class="col s5 card-panel rosePanel">
+		<div class="row" >
+			<div class="col s12">
+				<h4><span>Informations de Pépito</span></h4>
+			</div>
+		</div>
+		<div class="col s6 informationName">
+		</div>
+		<div class="col s6 informationValue">
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}
