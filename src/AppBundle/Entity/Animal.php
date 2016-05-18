@@ -3,11 +3,13 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Animal
  *
  * @ORM\Table(name="animal")
+ * @ORM\Entity()
  */
 class Animal
 {
@@ -24,6 +26,7 @@ class Animal
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\Length(min = 3, minMessage = "The name of your animal must contain at least 3 characters")
      */
     private $name;
 
@@ -31,13 +34,14 @@ class Animal
      * @var string
      *
      * @ORM\Column(name="gender", type="string", length=255, nullable=true)
+     * @Assert\Choice(choices = {"male", "female"}, message = "Choose a valid gender.")
      */
     private $gender;
 
     /**
-     * @var integer
+     * @var float
      *
-     * @ORM\Column(name="age", type="integer", nullable=true)
+     * @ORM\Column(name="age", type="decimal", precision=3, scale=1, nullable=true)
      */
     private $age;
 
@@ -45,6 +49,7 @@ class Animal
      * @var string
      *
      * @ORM\Column(name="kind", type="string", length=255)
+     * @Assert\NotBlank(message="You must specified a kind for your animal")
      */
     private $kind;
 
