@@ -81,7 +81,21 @@ class AnimalTest extends KernelTestCase
         $animalTest = new Animal();
         $animalTest->setName('Haru');
         $animalTest->setKind('chat');
-        $animalTest->setGender('un');
+        $animalTest->setAge('un');
+
+        $errors = $this->validator->validate($animalTest);
+        $this->assertEquals(0, count($errors), $errors);
+
+        $this->manager->persist($animalTest);
+        $this->manager->flush();
+    }
+
+    public function testAnimalWithAge2()
+    {
+        $animalTest = new Animal();
+        $animalTest->setName('Haru');
+        $animalTest->setKind('chat');
+        $animalTest->setAge(36);
 
         $errors = $this->validator->validate($animalTest);
         $this->assertEquals(0, count($errors), $errors);

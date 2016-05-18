@@ -42,6 +42,7 @@ class Animal
      * @var float
      *
      * @ORM\Column(name="age", type="decimal", precision=3, scale=1, nullable=true)
+     * @Assert\Range(min=0, max=20, minMessage = "Your animal must be at least {{ limit }}", maxMessage = "Your animal cannot be more old than {{ limit }}")
      */
     private $age;
 
