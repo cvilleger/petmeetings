@@ -59,9 +59,9 @@ class Animal
     /**
      * @var string
      *
-     * @ORM\Column(name="character", type="string", length=255, nullable=true)
+     * @ORM\Column(name="behavior", type="string", length=255, nullable=true)
      */
-    private $character;
+    private $behavior;
 
     /**
      * @var string
@@ -209,27 +209,27 @@ class Animal
     }
 
     /**
-     * Set character
+     * Set behavior
      *
-     * @param string $character
+     * @param string $behavior
      *
      * @return Animal
      */
-    public function setCharacter($character)
+    public function setBehavior($behavior)
     {
-        $this->character = $character;
+        $this->behavior = $behavior;
 
         return $this;
     }
 
     /**
-     * Get character
+     * Get behavior
      *
      * @return string
      */
-    public function getCharacter()
+    public function getBehavior()
     {
-        return $this->character;
+        return $this->behavior;
     }
 
     /**
