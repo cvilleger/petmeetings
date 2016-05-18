@@ -229,9 +229,7 @@ class User extends BaseUser
      * )
      * @Assert\Range(
      *     min = 0,
-     *     max = 5,
      *     minMessage = "Votre nombre de likes ne peut pas être inferieur à {{limit}}.",
-     *     maxMessage = "Votre nombre de likes ne peut pas être superieur à{{limit}}."
      * )
      */
     protected $likes;
@@ -363,11 +361,11 @@ class User extends BaseUser
     /**
      * Set biography
      *
-     * @param \textarea $biography
+     * @param String $biography
      *
      * @return User
      */
-    public function setBiography(\textarea $biography)
+    public function setBiography($biography)
     {
         $this->biography = $biography;
 
@@ -377,7 +375,7 @@ class User extends BaseUser
     /**
      * Get biography
      *
-     * @return \textarea
+     * @return String
      */
     public function getBiography()
     {
