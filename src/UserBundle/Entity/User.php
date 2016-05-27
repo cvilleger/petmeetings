@@ -26,7 +26,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=20)
+     * @ORM\Column(name="firstname", type="string", length=20, nullable=true)
      *
      * @Assert\Type(
      *     type = "string",
@@ -44,7 +44,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="lastname", type="string", length=20)
+     * @ORM\Column(name="lastname", type="string", length=20, nullable=true)
      *
      * @Assert\Type(
      *     type = "string",
@@ -80,7 +80,7 @@ class User extends BaseUser
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthday", type="datetime")
+     * @ORM\Column(name="birthday", type="datetime", nullable=true)
      *
      * @Assert\Type(
      *     type = "datetime",
@@ -92,7 +92,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="biography", type="text")
+     * @ORM\Column(name="biography", type="text", nullable=true)
      *
      * @Assert\Length(
      *     max = 400,
@@ -104,7 +104,7 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="size", type="integer")
+     * @ORM\Column(name="size", type="integer", nullable=true)
      *
      * @Assert\Type(
      *     type = "integer",
@@ -122,7 +122,7 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="weight", type="integer")
+     * @ORM\Column(name="weight", type="integer", nullable=true)
      *
      * @Assert\Type(
      *     type = "integer",
@@ -140,7 +140,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="gender", type="string")
+     * @ORM\Column(name="gender", type="string", nullable=true)
      *
      * @Assert\Type(
      *     type = "string",
@@ -159,7 +159,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="orientation", type="string")
+     * @ORM\Column(name="orientation", type="string", nullable=true)
      *
      * @Assert\Type(
      *     type = "string",
@@ -178,7 +178,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="meetingtype", type="string")
+     * @ORM\Column(name="meetingtype", type="string", nullable=true)
      *
      * @Assert\Type(
      *     type = "string",
@@ -197,7 +197,7 @@ class User extends BaseUser
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="startsub", type="datetime")
+     * @ORM\Column(name="startsub", type="datetime", nullable=true)
      *
      * @Assert\Type(
      *     type = "datetime",
