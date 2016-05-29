@@ -17,18 +17,26 @@ security:
         submit: 'Connexion'
 profile:
     show:
-        username: 'Nom d''utilisateur'
-        email: 'Adresse e-mail'
-        age: 'Age'
-        gender: 'Sexe'
-        birthday: 'Date d''anniversaire'
-        biography: 'Biographie'
-        size: 'Taille'
-        weight: 'Poids'
-        startsub: 'Date d''inscription'
-        city: 'Ville'
-        orientation: 'Orientation sexuelle'
-        meetingtype: 'Type de rencontres recherchées'
+        user:
+            username: 'Nom d''utilisateur'
+            email: 'Adresse e-mail'
+            firstname: 'Prénom'
+            lastname: 'Nom'
+            gender: 'Sexe'
+            birthday: 'Date d''anniversaire'
+            biography: 'Biographie'
+            size: 'Taille'
+            weight: 'Poids'
+            startsub: 'Date d''inscription'
+            city: 'Ville'
+            orientation: 'Orientation sexuelle'
+            meetingtype: 'Type de rencontres recherchées'
+        animal:
+            name: 'Nom'
+            age: 'Age'
+            gender: 'Sexe'
+            kind: 'Type'
+            race: 'Race'
     edit:
         submit: 'Mettre à jour'
     flash:
@@ -67,30 +75,45 @@ layout:
     register: 'Inscription'
     logged_in_as: 'Connecté en tant que %username%'
 form:
-    username: 'Nom d''utilisateur'
-    email: 'Adresse e-mail'
-    current_password: 'Mot de passe actuel'
-    new_password: 'Nouveau mot de passe'
-    new_password_confirmation: 'Vérification'
-    firstname : 'Prénom'
-    lastname: 'Nom'
-    city: 'Ville'
-    birthday: 'Date d''anniversaire'
-    biography: 'Biographie'
-    size: 'Taille'
-    weight: 'Poids'
-    gender: 'Sexe'
-    orientation: 'Orientation sexuelle'
-    meetingtype: 'Type de relations recherchées'
+    user:
+        username: 'Nom d''utilisateur'
+        email: 'Adresse e-mail'
+        current_password: 'Mot de passe actuel'
+        new_password: 'Nouveau mot de passe'
+        new_password_confirmation: 'Vérification'
+        firstname : 'Prénom'
+        lastname: 'Nom'
+        city: 'Ville'
+        birthday: 'Date d''anniversaire'
+        biography: 'Biographie'
+        size: 'Taille'
+        weight: 'Poids'
+        gender: 'Sexe'
+        orientation: 'Orientation sexuelle'
+        meetingtype: 'Type de relations recherchées'
+    animal:
+        name: 'Nom'
+        age: 'Age'
+        gender: 'Sexe'
+        kind: 'Type'
+        race: 'Race'
 choice:
-    gender:
-        1: 'Homme'
-        2: 'Femme'
-    orientation:
-        1: 'Hétérosexuel'
-        2: 'Homosexuel'
-        3: 'Bisexuel'
-        4: 'Ne souhaite pas se prononcer'
-    meetingtype:
-        1: 'Amicale'
-        2: 'Amoureuse'
+    user:
+        gender:
+            1: 'Homme'
+            2: 'Femme'
+        orientation:
+            1: 'Hétérosexuel'
+            2: 'Homosexuel'
+            3: 'Bisexuel'
+            4: 'Ne souhaite pas se prononcer'
+        meetingtype:
+            1: 'Amicale'
+            2: 'Amoureuse'
+    animal:
+        gender:
+            1: 'Mâle'
+            2: 'Femelle'
+        kind:
+            1: 'Chat'
+            2: 'Chien'

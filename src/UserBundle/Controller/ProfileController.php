@@ -14,9 +14,19 @@ use UserBundle\Form\UserEditType;
 class ProfileController extends BaseController
 {
 
-    /**
-     * Edit the user
-     */
+    public function showAction()
+    {
+        $user = $this->getUser();
+        $animal = $user->getAnimal();
+        $locale = 'fr';
+
+        return $this->render('UserBundle:Profile:show.html.twig', array(
+            'user' => $user,
+            'animal' => $animal,
+            'locale' => $locale
+        ));
+    }
+
     public function editAction(Request $request)
     {
         $user = $this->getUser();

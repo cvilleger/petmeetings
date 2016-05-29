@@ -1,6 +1,6 @@
 <?php
 
-namespace UserBundle\Form;
+namespace UserBundleBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,88 +12,88 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
-use UserBundle\Form\AnimalEditType;
+use Symfony\Component\Security\Core\Validator\Constraints\UserBundlePassword;
+use UserBundleBundle\Form\AnimalEditType;
 
-class UserEditType extends AbstractType
+class UserBundleEditType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('username', TextType::class, array(
-                'label' => 'form.username',
-                'translation_domain' => 'User'
+                'label' => 'form.user.username',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('email', EmailType::class, array(
-                'label' => 'form.email',
-                'translation_domain' => 'User'
+                'label' => 'form.user.email',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('current_password', PasswordType::class, array(
-                'label' => 'form.current_password',
-                'translation_domain' => 'User',
+                'label' => 'form.user.current_password',
+                'translation_domain' => 'UserBundle',
                 'mapped' => false,
                 'constraints' => new UserPassword(),
             ))
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
-                'options' => array('translation_domain' => 'User'),
-                'first_options' => array('label' => 'form.new_password'),
-                'second_options' => array('label' => 'form.new_password_confirmation'),
+                'options' => array('translation_domain' => 'UserBundle'),
+                'first_options' => array('label' => 'form.user.new_password'),
+                'second_options' => array('label' => 'form.user.new_password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
             ->add('firstname', TextType::class, array(
-                'label' => 'form.firstname',
-                'translation_domain' => 'User'
+                'label' => 'form.user.firstname',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('lastname', TextType::class, array(
-                'label' => 'form.lastname',
-                'translation_domain' => 'User'
+                'label' => 'form.user.lastname',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('city', TextType::class, array(
-                'label' => 'form.city',
-                'translation_domain' => 'User'
+                'label' => 'form.user.city',
+                'translation_domain' => 'UserBundle'
             ))
             ->add ('birthday', DateType::class, array(
-                'label' => 'form.birthday',
-                'translation_domain' => 'User'
+                'label' => 'form.user.birthday',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('biography', TextareaType::class, array(
-                'label' => 'form.biography',
-                'translation_domain' => 'User'
+                'label' => 'form.user.biography',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('size', TextType::class, array(
-                'label' => 'form.size',
-                'translation_domain' => 'User'
+                'label' => 'form.user.size',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('weight', TextType::class, array(
-                'label' => 'form.weight',
-                'translation_domain' => 'User'
+                'label' => 'form.user.weight',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('gender', ChoiceType::class, array(
                 'choices' => array(
-                    'choice.gender.1' => 'choice.gender.1',
-                    'choice.gender.2' => 'choice.gender.2'
+                    'choice.user.gender.1' => 'choice.user.gender.1',
+                    'choice.user.gender.2' => 'choice.user.gender.2'
                 ),
-                'label' => 'form.gender',
-                'translation_domain' => 'User'
+                'label' => 'form.user.gender',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('orientation', ChoiceType::class, array(
                 'choices' => array(
-                    'choice.orientation.1' => 'choice.orientation.1',
-                    'choice.orientation.2' => 'choice.orientation.2',
-                    'choice.orientation.3' => 'choice.orientation.3',
-                    'choice.orientation.4' => 'choice.orientation.4'
+                    'choice.user.orientation.1' => 'choice.user.orientation.1',
+                    'choice.user.orientation.2' => 'choice.user.orientation.2',
+                    'choice.user.orientation.3' => 'choice.user.orientation.3',
+                    'choice.user.orientation.4' => 'choice.user.orientation.4'
                 ),
-                'label' => 'form.orientation',
-                'translation_domain' => 'User'
+                'label' => 'form.user.orientation',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('meetingtype', ChoiceType::class, array(
                 'choices' => array(
-                    'choice.meetingtype.1' => 'choice.meetingtype.1',
-                    'choice.meetingtype.2' => 'choice.meetingtype.2'
+                    'choice.user.meetingtype.1' => 'choice.user.meetingtype.1',
+                    'choice.user.meetingtype.2' => 'choice.user.meetingtype.2'
                 ),
-                'label' => 'form.meetingtype',
-                'translation_domain' => 'User'
+                'label' => 'form.user.meetingtype',
+                'translation_domain' => 'UserBundle'
             ))
             ->add('animal', AnimalEditType::class)
         ;
@@ -102,7 +102,7 @@ class UserEditType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'UserBundle\Entity\User'
+            'data_class' => 'UserBundleBundle\Entity\User'
         ));
     }
 

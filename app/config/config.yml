@@ -9,6 +9,12 @@ imports:
 parameters:
     locale: fr
 
+services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+
 framework:
     #esi:             ~
     translator:      { fallbacks: ["%locale%"] }
