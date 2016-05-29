@@ -1,0 +1,23 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+<div class="fos_user_user_show">
+    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <p>{{ 'profile.show.age'|trans }}: {{ user.age }}</p>
+    <p>{{ 'profile.show.birthday'|trans }}: {{ user.birthday }}</p>
+    <p>{{ 'profile.show.gender'|trans }}: {{ user.gender }}</p>
+    <p>{{ 'profile.show.city'|trans }}: {{ user.city }}</p>
+    <p>{{ 'profile.show.size'|trans }}: {{ user.size }}</p>
+    <p>{{ 'profile.show.weight'|trans }}: {{ user.weight }}</p>
+    <p>{{ 'profile.show.biography'|trans }}: {{ user.biography }}</p>
+    <p>{{ 'profile.show.orientation'|trans }}: {{ user.orientation }}</p>
+    <p>{{ 'profile.show.meetingtype'|trans }}: {{ user.meetingtype }}</p>
+    <p>{{ 'profile.show.startsub'|trans }}: {{ user.startsub }}</p>
+</div>
+<div class="fos_user_animal_show">
+    <p>{{ 'profile.show.name'|trans }}: {{ animal.name }}</p>
+    <p>{{ 'profile.show.age'|trans }}: {{ animal.age }}</p>
+    <p>{{ 'profile.show.gender'|trans }}: {{ animal.gender }}</p>
+    <p>{{ 'profile.show.kind'|trans }}: {{ animal.kind }}</p>
+    <p>{{ 'profile.show.race'|trans }}: {{ animal.race }}</p>
+</div>

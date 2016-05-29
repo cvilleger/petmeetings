@@ -5,6 +5,7 @@ namespace UserBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -21,6 +22,10 @@ class UserEditType extends AbstractType
         $builder
             ->add('username', TextType::class, array(
                 'label' => 'form.username',
+                'translation_domain' => 'User'
+            ))
+            ->add('email', EmailType::class, array(
+                'label' => 'form.email',
                 'translation_domain' => 'User'
             ))
             ->add('current_password', PasswordType::class, array(
@@ -66,26 +71,26 @@ class UserEditType extends AbstractType
             ))
             ->add('gender', ChoiceType::class, array(
                 'choices' => array(
-                    'profile.edit.gender.choice1' => 'profile.edit.gender.choice1',
-                    'profile.edit.gender.choice2' => 'profile.edit.gender.choice2'
+                    'choice.gender.1' => 'choice.gender.1',
+                    'choice.gender.2' => 'choice.gender.2'
                 ),
                 'label' => 'form.gender',
                 'translation_domain' => 'User'
             ))
             ->add('orientation', ChoiceType::class, array(
                 'choices' => array(
-                    'profile.edit.orientation.choice1' => 'profile.edit.orientation.choice1',
-                    'profile.edit.orientation.choice2' => 'profile.edit.orientation.choice2',
-                    'profile.edit.orientation.choice3' => 'profile.edit.orientation.choice3',
-                    'profile.edit.orientation.choice4' => 'profile.edit.orientation.choice4'
+                    'choice.orientation.1' => 'choice.orientation.1',
+                    'choice.orientation.2' => 'choice.orientation.2',
+                    'choice.orientation.3' => 'choice.orientation.3',
+                    'choice.orientation.4' => 'choice.orientation.4'
                 ),
                 'label' => 'form.orientation',
                 'translation_domain' => 'User'
             ))
             ->add('meetingtype', ChoiceType::class, array(
                 'choices' => array(
-                    'profile.edit.meetingtype.choice1' => 'profile.edit.meetingtype.choice1',
-                    'profile.edit.meetingtype.choice2' => 'profile.edit.meetingtype.choice2'
+                    'choice.meetingtype.1' => 'choice.meetingtype.1',
+                    'choice.meetingtype.2' => 'choice.meetingtype.2'
                 ),
                 'label' => 'form.meetingtype',
                 'translation_domain' => 'User'

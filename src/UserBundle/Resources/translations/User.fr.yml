@@ -19,18 +19,17 @@ profile:
     show:
         username: 'Nom d''utilisateur'
         email: 'Adresse e-mail'
+        age: 'Age'
+        gender: 'Sexe'
+        birthday: 'Date d''anniversaire'
+        biography: 'Biographie'
+        size: 'Taille'
+        weight: 'Poids'
+        startsub: 'Date d''inscription'
+        city: 'Ville'
+        orientation: 'Orientation sexuelle'
+        meetingtype: 'Type de rencontres recherchées'
     edit:
-        gender:
-            choice1: 'Homme'
-            choice2: 'Femme'
-        orientation:
-            choice1: 'Hétérosexuel'
-            choice2: 'Homosexuel'
-            choice3: 'Bisexuel'
-            choice4: 'Ne souhaite pas se prononcer'
-        meetingtype:
-            choice1: 'Amicale'
-            choice2: 'Amoureuse'
         submit: 'Mettre à jour'
     flash:
         updated: 'Le profil a été mis à jour'
@@ -83,3 +82,15 @@ form:
     gender: 'Sexe'
     orientation: 'Orientation sexuelle'
     meetingtype: 'Type de relations recherchées'
+choice:
+    gender:
+        1: 'Homme'
+        2: 'Femme'
+    orientation:
+        1: 'Hétérosexuel'
+        2: 'Homosexuel'
+        3: 'Bisexuel'
+        4: 'Ne souhaite pas se prononcer'
+    meetingtype:
+        1: 'Amicale'
+        2: 'Amoureuse'
