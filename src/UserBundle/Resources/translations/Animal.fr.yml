@@ -1,0 +1,14 @@
+form:
+    name: 'Nom'
+    age: 'Age'
+    gender: 'Sexe'
+    kind: 'Type'
+    race: 'Race'
+
+choice:
+    gender:
+        1: 'Mâle'
+        2: 'Femelle'
+    kind:
+        1: 'Chat'
+        2: 'Chien'

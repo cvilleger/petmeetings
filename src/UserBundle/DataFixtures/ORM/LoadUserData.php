@@ -72,8 +72,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user->setSize(180);
         $user->setWeight(80);
         $user->setGender('masculin');
-        $user->setOrientation('hétéro');
-        $user->setMeetingtype('amoureuse');
+        $user->setOrientation('Hétérosexuel');
+        $user->setMeetingtype('Amoureuse');
         $user->setStartsub(new \DateTime(date('Y-m-01 00:00:00')));
         $user->setEndsub(new \DateTime(date('Y-m-01 00:00:00',strtotime('+3 month'))));
         $user->setLikes(5);

@@ -253,6 +253,11 @@ class User extends BaseUser
     protected $likesleft;
 
     /**
+     * @ORM\OneToOne(targetEntity="UserBundle\Entity\Animal", cascade={"persist"})
+     */
+    private $animal;
+
+    /**
      * Get id
      *
      * @return integer
@@ -596,5 +601,29 @@ class User extends BaseUser
     public function getLikesleft()
     {
         return $this->likesleft;
+    }
+
+    /**
+     * Set animal
+     *
+     * @param \UserBundle\Entity\Animal $animal
+     *
+     * @return User
+     */
+    public function setAnimal(\AppBundle\Entity\Animal $animal = null)
+    {
+        $this->animal = $animal;
+
+        return $this;
+    }
+
+    /**
+     * Get animal
+     *
+     * @return \UserBundle\Entity\Animal
+     */
+    public function getAnimal()
+    {
+        return $this->animal;
     }
 }
