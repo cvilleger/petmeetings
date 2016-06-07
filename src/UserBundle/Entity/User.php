@@ -82,10 +82,7 @@ class User extends BaseUser
      *
      * @ORM\Column(name="birthday", type="datetime", nullable=true)
      *
-     * @Assert\Type(
-     *     type = "datetime",
-     *     message = "La donnée attendue n'est pas valide."
-     * )
+     * @Assert\DateTime(message = "La donnée attendue n'est pas valide.")
      */
     protected $birthday;
 
@@ -95,7 +92,7 @@ class User extends BaseUser
      * @ORM\Column(name="biography", type="text", nullable=true)
      *
      * @Assert\Length(
-     *     max = 400,
+     *     max = 500,
      *     maxMessage = "Votre biographie ne peut pas dépasser {{limit}} caractères."
      * )
      */
@@ -149,10 +146,6 @@ class User extends BaseUser
      * @Assert\NotBlank(
      *     message = "Cette donnée ne peut être vide."
      * )
-     * @Assert\Choice(
-     *     choices = {"masculin", "féminin", "autre"},
-     *     message = "Votre genre n'est pas valide."
-     * )
      */
     protected $gender;
 
@@ -164,9 +157,6 @@ class User extends BaseUser
      * @Assert\Type(
      *     type = "string",
      *     message = "La donnée attendue n'est pas valide."
-     * )
-     * @Assert\NotBlank(
-     *     message = "Cette donnée ne peut être vide."
      * )
      * @Assert\Choice(
      *     choices = {"hétéro", "homo", "bi", "autre"},
@@ -183,9 +173,6 @@ class User extends BaseUser
      * @Assert\Type(
      *     type = "string",
      *     message = "La donnée attendue n'est pas valide."
-     * )
-     * @Assert\NotBlank(
-     *     message = "Cette donnée ne peut être vide."
      * )
      * @Assert\Choice(
      *     choices = {"amicale", "amoureuse", "aucune"},

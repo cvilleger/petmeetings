@@ -32,6 +32,15 @@ class ProfileController extends BaseController
         $user = $this->getUser();
         $form = $this->createForm(UserEditType::class, $user);
 
+        $form->handleRequest($request);
+        if($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('fos_user_profile_show'));
+        }
+
         return $this->render('UserBundle:Profile:edit.html.twig', array(
             'form' => $form->createView()
         ));

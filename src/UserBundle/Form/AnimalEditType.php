@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class UserBundleEditType extends AbstractType
+class AnimalEditType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -20,7 +20,8 @@ class UserBundleEditType extends AbstractType
             ))
             ->add('age', TextType::class, array(
                 'label' => 'form.animal.age',
-                'translation_domain' => 'UserBundle'
+                'translation_domain' => 'UserBundle',
+                'required' => false
             ))
             ->add('gender', ChoiceType::class, array(
                 'choices' => array(
@@ -28,7 +29,8 @@ class UserBundleEditType extends AbstractType
                   'choice.animal.gender.2' => 'choice.animal.gender.2'
                 ),
                 'label' => 'form.animal.gender',
-                'translation_domain' => 'UserBundle'
+                'translation_domain' => 'UserBundle',
+                'required' => false
             ))
             ->add('kind', ChoiceType::class, array(
                 'choices' => array(
@@ -40,7 +42,8 @@ class UserBundleEditType extends AbstractType
             ))
             ->add('race', TextType::class, array(
                 'label' => 'form.animal.race',
-                'translation_domain' => 'UserBundle'
+                'translation_domain' => 'UserBundle',
+                'required' => false
             ))
         ;
     }
