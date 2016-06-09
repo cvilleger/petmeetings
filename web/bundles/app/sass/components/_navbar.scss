@@ -1,12 +1,12 @@
 nav {
-  color: $navbar-font-color;
+  color: $primary-color;
   @extend .z-depth-1;
-  background-color: $primary-color;
+  background-color: $navbar-font-color;
   width: 100%;
   height: $navbar-height-mobile;
   line-height: $navbar-height-mobile;
 
-  a { color: $navbar-font-color; }
+  a { color: $primary-color; }
 
   i,
   [class^="mdi-"], [class*="mdi-"],
@@ -95,7 +95,7 @@ nav {
     a {
       transition: background-color .3s;
       font-size: 1rem;
-      color: $navbar-font-color;
+      color: $primary-color;
       display: inline-block;
       padding: 0 15px;
       cursor: pointer;
