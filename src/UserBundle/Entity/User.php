@@ -62,7 +62,11 @@ class User extends BaseUser
     /**
      * @var string
      *
+<<<<<<< HEAD
      * @ORM\Column(name="city", type="string", length=20)
+=======
+     * @ORM\Column(name="city", type="string", length=20, nullable=true)
+>>>>>>> master
      *
      * @Assert\Type(
      *     type = "string",
@@ -209,7 +213,7 @@ class User extends BaseUser
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="endsub", type="datetime")
+     * @ORM\Column(name="endsub", type="datetime", nullable=true)
      *
      * @Assert\Type(
      *     type = "datetime",
@@ -221,7 +225,7 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="likes", type="integer")
+     * @ORM\Column(name="likes", type="integer", nullable=true)
      *
      * @Assert\Type(
      *     type = "integer",
@@ -237,7 +241,7 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="likesleft", type="integer")
+     * @ORM\Column(name="likesleft", type="integer", nullable=true)
      *
      * @Assert\Type(
      *     type = "integer",
@@ -251,6 +255,11 @@ class User extends BaseUser
      * )
      */
     protected $likesleft;
+
+    /**
+     * @ORM\OneToOne(targetEntity="UserBundle\Entity\Animal", cascade={"persist"})
+     */
+    private $animal;
 
     /**
      * Get id
@@ -596,5 +605,29 @@ class User extends BaseUser
     public function getLikesleft()
     {
         return $this->likesleft;
+    }
+
+    /**
+     * Set animal
+     *
+     * @param \UserBundle\Entity\Animal $animal
+     *
+     * @return User
+     */
+    public function setAnimal(\UserBundle\Entity\Animal $animal = null)
+    {
+        $this->animal = $animal;
+
+        return $this;
+    }
+
+    /**
+     * Get animal
+     *
+     * @return \UserBundle\Entity\Animal
+     */
+    public function getAnimal()
+    {
+        return $this->animal;
     }
 }

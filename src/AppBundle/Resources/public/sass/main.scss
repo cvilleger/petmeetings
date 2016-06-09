@@ -1,0 +1,131 @@
+@import "compass";
+@import "components/mixins";
+@import "components/color";
+
+// Variables;
+@import "components/variables";
+
+$font-stack:    Helvetica, sans-serif;
+
+
+@mixin cover-background($img-uri) {
+	background: url($img-uri) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
+	@include cover-background('../images/fond.jpg');
+}
+
+nav {
+	margin-bottom: 2rem;
+}
+
+.bleu {
+	color: $primary-color;
+}
+
+.rose {
+	color: $secondary-color;
+}
+
+#profilPhoto
+{
+	width: 100%;
+	height: auto;
+	border: 3px solid white;
+	@include box-shadow(rgba(#4C4A4E, 0.4) 0 0 25px, rgba(#302F31, 0.2) 0 0 3px 1px inset);
+}
+
+
+#petPhoto
+{
+	z-index: 500;
+	position: relative;
+	margin-top: -25%;
+	width: 50%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	@include box-shadow(rgba(#4C4A4E, 0.3) 0 0 10px);
+	border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.bleuPanel {
+	border-top: 3px solid $primary-color;
+}
+
+.rosePanel {
+	border-top: 3px solid $secondary-color;
+}
+
+.iam {
+	font-size: 2rem;
+}
+
+.profilBioTitle {
+	span {
+
+	}
+	.name {
+		font-size: 2.5rem;
+		font-weight: bold;
+	}
+}
+
+.profilPhotos {
+	text-align: center;
+}
+
+#infosProfil {
+
+	text-align : center;
+
+	.s5 {
+		text-align : center;
+		margin: 0 3%;
+	}
+
+	span{
+		display: block;
+		text-align: left;
+		padding: 1rem 0.5rem ;
+		border-bottom: 1px	solid #CEC9D3;
+	}
+	.informationName span {
+		color: lighten($primary-color, 15%) ;
+	}
+	.informationValue span {
+		color : #272628;
+	}
+
+}
+
+#cptLikes {
+	color : $primary-color;
+	padding: 0.5rem;
+	display: inline-block;
+	vertical-align: middle;
+
+	.fa {
+		font-weight: 500;
+		font-size: 3rem;
+		color: darken($primary-color, 15%) ;
+		margin: 0 0.5rem ;
+	}
+
+	span, div, #likeBtn {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.cpt {
+		font-weight: 700;
+		font-size: 2.6rem;
+	}
+}
+
+

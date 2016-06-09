@@ -1,0 +1,119 @@
+group:
+    edit:
+        submit: 'Mettre à jour le groupe'
+    show:
+        name: 'Nom du groupe'
+    new:
+        submit: 'Créer le groupe'
+    flash:
+        updated: 'Le groupe a été mis à jour'
+        created: 'Le groupe a été créé'
+        deleted: 'Le groupe a été supprimé'
+security:
+    login:
+        username: 'Nom d''utilisateur'
+        password: 'Mot de passe'
+        remember_me: 'Se souvenir de moi'
+        submit: 'Connexion'
+profile:
+    show:
+        user:
+            username: 'Nom d''utilisateur'
+            email: 'Adresse e-mail'
+            firstname: 'Prénom'
+            lastname: 'Nom'
+            gender: 'Sexe'
+            birthday: 'Date d''anniversaire'
+            biography: 'Biographie'
+            size: 'Taille'
+            weight: 'Poids'
+            startsub: 'Date d''inscription'
+            city: 'Ville'
+            orientation: 'Orientation sexuelle'
+            meetingtype: 'Type de rencontres recherchées'
+        animal:
+            name: 'Nom'
+            age: 'Age'
+            gender: 'Sexe'
+            kind: 'Type'
+            race: 'Race'
+    edit:
+        submit: 'Mettre à jour'
+    flash:
+        updated: 'Le profil a été mis à jour'
+change_password:
+    submit: 'Modifier le mot de passe'
+    flash:
+        success: 'Le mot de passe a été modifié'
+registration:
+    check_email: 'Un e-mail a été envoyé à l''adresse %email%. Il contient un lien d''activation sur lequel il vous faudra cliquer afin d''activer votre compte.'
+    confirmed: 'Félicitations %username%, votre compte est maintenant activé.'
+    back: 'Retour à la page d''origine.'
+    submit: 'Créer un compte'
+    flash:
+        user_created: 'L''utilisateur a été créé avec succès'
+    email:
+        subject: 'Bienvenue %username% !'
+        message: "Bonjour %username% !\n\nPour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%\n\nCordialement,\nL'équipe.\n"
+resetting:
+    password_already_requested: 'Un nouveau mot de passe a déjà été demandé pour cet utilisateur dans les dernières 24 heures.'
+    check_email: 'Un e-mail a été envoyé à l''adresse %email%. Il contient un lien sur lequel il vous faudra cliquer afin de réinitialiser votre mot de passe.'
+    request:
+        invalid_username: 'Le nom d''utilisateur ou l''adresse e-mail "%username%" n''existe pas.'
+        username: 'Nom d''utilisateur ou adresse e-mail'
+        submit: 'Réinitialiser le mot de passe'
+    reset:
+        submit: 'Modifier le mot de passe'
+    flash:
+        success: 'Le mot de passe a été réinitialisé avec succès'
+    email:
+        subject: 'Réinitialisation de votre mot de passe'
+        message: "Bonjour %username% !\n\nPour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%\n\nCordialement,\nL'équipe.\n"
+layout:
+    logout: 'Déconnexion'
+    login: 'Connexion'
+    register: 'Inscription'
+    logged_in_as: 'Connecté en tant que %username%'
+form:
+    user:
+        username: 'Nom d''utilisateur'
+        email: 'Adresse e-mail'
+        current_password: 'Mot de passe actuel'
+        new_password: 'Nouveau mot de passe'
+        new_password_confirmation: 'Vérification'
+        firstname : 'Prénom'
+        lastname: 'Nom'
+        city: 'Ville'
+        birthday: 'Date d''anniversaire'
+        biography: 'Biographie'
+        size: 'Taille'
+        weight: 'Poids'
+        gender: 'Sexe'
+        orientation: 'Orientation sexuelle'
+        meetingtype: 'Type de relations recherchées'
+    animal:
+        name: 'Nom'
+        age: 'Age'
+        gender: 'Sexe'
+        kind: 'Type'
+        race: 'Race'
+choice:
+    user:
+        gender:
+            1: 'Homme'
+            2: 'Femme'
+        orientation:
+            1: 'Hétérosexuel'
+            2: 'Homosexuel'
+            3: 'Bisexuel'
+            4: 'Ne souhaite pas se prononcer'
+        meetingtype:
+            1: 'Amicale'
+            2: 'Amoureuse'
+    animal:
+        gender:
+            1: 'Mâle'
+            2: 'Femelle'
+        kind:
+            1: 'Chat'
+            2: 'Chien'

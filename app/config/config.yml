@@ -7,7 +7,10 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
+    # Assetic
+    assetic.filter.compass.images_dir: %kernel.root_dir%/../web/images
+    assetic.filter.compass.http_path:  /images
 
 framework:
     #esi:             ~
@@ -68,11 +71,21 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ ]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        sass:
+            bin: /usr/local/bin/sass
+        compass:
+            bin: /usr/local/bin/compass
+
 #FOSuserBundle config
 fos_user:
     db_driver:     orm
     firewall_name: main
     user_class:    UserBundle\Entity\User
-
-
 

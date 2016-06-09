@@ -1,5 +1,4 @@
 <?php
-
 namespace UserBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -8,14 +7,11 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use UserBundle\Entity\User;
-
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface{
-
     /**
      * @var ContainerInterface
      */
     private $container;
-
     /**
      * @param ObjectManager $manager
      */
@@ -33,7 +29,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $userManager = $this->container->get('fos_user.user_manager');
         $encoder = $this->container->get('security.password_encoder');
         $biography = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
         /** @var User $user */
         $user = $userManager->createUser();
         $user->setRoles(array('ROLE_ADMIN'));
@@ -57,7 +52,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $password = $encoder->encodePassword($user, 'admin');
         $user->setPassword($password);
         $userManager->updateUser($user);
-
         /** @var User $user */
         $user = $userManager->createUser();
         $user->setRoles(array('ROLE_USER'));
@@ -81,7 +75,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $password = $encoder->encodePassword($user, 'password');
         $user->setPassword($password);
         $userManager->updateUser($user);
-
         /** @var User $user */
         $user = $userManager->createUser();
         $user->setEnabled(true);
@@ -106,13 +99,10 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user->setPassword($password);
         $userManager->updateUser($user);
     }
-
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
     }
-
-
     public function getOrder(){
         return 1;
     }
