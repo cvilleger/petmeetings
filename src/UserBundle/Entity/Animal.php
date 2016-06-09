@@ -34,7 +34,6 @@ class Animal
      * @var string
      *
      * @ORM\Column(name="gender", type="string", length=255, nullable=true)
-     * @Assert\Choice(choices = {"male", "female"}, message = "Choose a valid gender.")
      */
     private $gender;
 
@@ -42,6 +41,11 @@ class Animal
      * @var float
      *
      * @ORM\Column(name="age", type="decimal", precision=3, scale=1, nullable=true)
+     *
+     * @Assert\Type(
+     *     type = "integer",
+     *     message = "La donnée attendue n'est pas valide."
+     * )
      * @Assert\Range(min=0, max=20, minMessage = "Your animal must be at least {{ limit }}", maxMessage = "Your animal cannot be more old than {{ limit }}")
      */
     private $age;

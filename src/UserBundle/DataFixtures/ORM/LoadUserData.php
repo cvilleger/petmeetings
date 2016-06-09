@@ -47,7 +47,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user->setBiography($biography);
         $user->setSize(180);
         $user->setWeight(80);
-        $user->setGender('masculin');
+        $user->setGender('Homme');
         $user->setOrientation('hétéro');
         $user->setMeetingtype('amoureuse');
         $user->setStartsub(new \DateTime(date('Y-m-01 00:00:00')));
@@ -71,7 +71,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user->setBiography($biography);
         $user->setSize(180);
         $user->setWeight(80);
-        $user->setGender('masculin');
+        $user->setGender('Homme');
         $user->setOrientation('Hétérosexuel');
         $user->setMeetingtype('Amoureuse');
         $user->setStartsub(new \DateTime(date('Y-m-01 00:00:00')));
@@ -95,7 +95,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user->setBiography($biography);
         $user->setSize(180);
         $user->setWeight(80);
-        $user->setGender('féminin');
+        $user->setGender('Femme');
         $user->setOrientation('bi');
         $user->setMeetingtype('amicale');
         $user->setStartsub(new \DateTime(date('Y-m-01 00:00:00')));
