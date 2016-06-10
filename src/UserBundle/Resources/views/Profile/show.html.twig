@@ -18,11 +18,11 @@
     <p>{{ 'profile.show.user.startsub'|trans }}: {{ user.startsub|localizeddate('medium', 'none', locale) }}</p>
 </div>
 <div class="fos_user_animal_show">
-    <p>{{ 'profile.show.animal.name'|trans }}: {{ animal.name }}</p>
-    <p>{{ 'profile.show.animal.age'|trans }}: {{ animal.age }}</p>
-    <p>{{ 'profile.show.animal.gender'|trans }}: {{ animal.gender|trans }}</p>
-    <p>{{ 'profile.show.animal.kind'|trans }}: {{ animal.kind|trans }}</p>
-    <p>{{ 'profile.show.animal.race'|trans }}: {{ animal.race }}</p>
+    <p>{{ 'profile.show.animal.name'|trans }}: {{ user.animal.name }}</p>
+    <p>{{ 'profile.show.animal.age'|trans }}: {{ user.animal.age }}</p>
+    <p>{{ 'profile.show.animal.gender'|trans }}: {{ user.animal.gender|trans }}</p>
+    <p>{{ 'profile.show.animal.kind'|trans }}: {{ user.animal.kind|trans }}</p>
+    <p>{{ 'profile.show.animal.race'|trans }}: {{ user.animal.race }}</p>
 </div>
 
 {% endblock %}

@@ -14,15 +14,22 @@ use UserBundle\Form\UserEditType;
 class ProfileController extends BaseController
 {
 
+    public function findAction(User $user)
+    {
+        $locale = 'fr';
+
+        return $this->render('UserBundle:Profile:profile.html.twig', array(
+            'user' => $user,
+            'locale' => $locale
+        ));
+    }
     public function showAction()
     {
         $user = $this->getUser();
-        $animal = $user->getAnimal();
         $locale = 'fr';
 
         return $this->render('UserBundle:Profile:show.html.twig', array(
             'user' => $user,
-            'animal' => $animal,
             'locale' => $locale
         ));
     }

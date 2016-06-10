@@ -1,4 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends "UserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'UserBundle' %}
 
 {% block body %}
 
@@ -10,24 +12,30 @@
 	<div class="col s7 ">
 		<div class="profilBioTitle bleu">
 			<span class="iam">Salut, je suis</span>
-			<span class="name">Yassine</span>
+			<span class="name">
+				{% if user.firstname is defined %}
+					{{ user.firstname }}
+				{% else %}
+					{{ user.username }}
+				{% endif %}
+			</span>
 		</div>
-		<span class="subProfil"><b>24 ans</b>, étudiant en philosophie</span>
+		<span class="subProfil"><b>age</b></span>
 
 		<br>
 
 		<div class="profilBioTitle rose">
 			<span class="iam">Salut, je suis</span>
-			<span class="name">Pépito</span>
+			<span class="name">{{ user.animal.name }}</span>
 		</div>
-		<span class="subProfil"><b>Chat tigré</b>, étudiant en philosophie</span>
+		<span class="subProfil"><b>{{ user.animal.kind|trans }} {{ user.animal.race }}</b></span>
 		<br>
-		<span class="subProfil bleu">On habite à <b>Villetaneuse</b></span>
+		<span class="subProfil bleu">On habite à <b>{{ user.city }}</b></span>
 		<br><br>
 		<div class="col s12 card-panel">
 			<div id="cptLikes">
 				<span class="cpt">
-					134
+					{{ user.likes }}
 				</span>
 				<span class="fa fa-thumbs-o-up ">
 
@@ -43,7 +51,14 @@
 	<div class="col  s5 card-panel bleuPanel">
 		<div class="row" >
 			<div class="col s12">
-				<h4><span>Informations de Yassine </span></h4>
+				<h4><span>
+						Informations de
+						{% if user.firstname is defined %}
+							{{ user.firstname }}
+						{% else %}
+							{{ user.username }}
+						{% endif %}
+					</span></h4>
 			</div>
 		</div>
 		<div class="row" >
@@ -57,7 +72,7 @@
 			</div>
 			<div class="col s6 informationValue">
 				<span>18 ans</span>
-				<span>Villetaneuse</span>
+				<span>{{ user.city }}</span>
 				<span>Age</span>
 				<span>Age</span>
 				<span>Age</span>
@@ -72,7 +87,7 @@
 	<div class="col s5 card-panel rosePanel">
 		<div class="row" >
 			<div class="col s12">
-				<h4><span>Informations de Pépito</span></h4>
+				<h4><span>Informations de {{ user.animal.name }}</span></h4>
 			</div>
 		</div>
 		<div class="col s6 informationName">
