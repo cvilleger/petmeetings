@@ -9,10 +9,23 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\UserBundle\Controller\ProfileController as BaseController;
 use UserBundle\Entity\User;
 use UserBundle\Form\UserEditType;
+use AppBundle\Service\UploadService;
 
 
 class ProfileController extends BaseController
 {
+    /** @var UploadService uploadService */
+    private $uploadService;
+    /** @var  Request $request */
+    private $request;
+
+    /**
+     * @param Request $request
+     */
+    public function preExecute(Request $request){
+        $this->uploadService = $this->container->get('UploadService');
+        $this->request = $request;
+    }
 
     public function showAction()
     {
@@ -34,6 +47,18 @@ class ProfileController extends BaseController
 
         $form->handleRequest($request);
         if($form->isValid()) {
+            $file = $form->get('picture')->getData();
+            $fileAnimal = $form->get('animal')->get('picture')->getData();
+
+            if(!empty($file)) {
+                $uniqueFileName = $this->uploadService->uploadFile($file);
+                $user->setPictureName($uniqueFileName);
+            }
+            if(!empty($fileAnimal)) {
+                $uniqueFileNameAnimal = $this->uploadService->uploadFile($file);
+                $user->getAnimal()->setPictureName($uniqueFileNameAnimal);
+            }
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();

@@ -3,6 +3,7 @@
 namespace UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,6 +19,11 @@ class AnimalEditType extends AbstractType
             ->add('name', TextType::class, array(
                 'label' => 'form.animal.name',
                 'translation_domain' => 'UserBundle'
+            ))
+            ->add('picture', FileType::class, array(
+                'label' => 'form.animal.picture',
+                'translation_domain' => 'UserBundle',
+                'required' => false
             ))
             ->add('age', IntegerType::class, array(
                 'label' => 'form.animal.age',

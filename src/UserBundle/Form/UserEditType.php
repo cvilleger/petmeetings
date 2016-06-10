@@ -3,6 +3,7 @@
 namespace UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -50,6 +51,11 @@ class UserEditType extends AbstractType
             ))
             ->add('lastname', TextType::class, array(
                 'label' => 'form.user.lastname',
+                'translation_domain' => 'UserBundle',
+                'required' => false
+            ))
+            ->add('picture', FileType::class, array(
+                'label' => 'form.user.picture',
                 'translation_domain' => 'UserBundle',
                 'required' => false
             ))

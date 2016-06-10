@@ -230,13 +230,13 @@ class User extends BaseUser
      * )
      */
     protected $likesleft;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="picture", type="string", length=255, nullable=true)
+     * @ORM\Column(name="pictureName", type="string", length=255, nullable=true)
      */
-    private $picture;
+    private $pictureName;
+    public $picture;
 
     /**
      * @ORM\OneToOne(targetEntity="UserBundle\Entity\Animal", cascade={"persist"})
@@ -614,26 +614,26 @@ class User extends BaseUser
     }
 
     /**
-     * Set picture
+     * Set pictureName
      *
-     * @param string $picture
+     * @param string $pictureName
      *
      * @return User
      */
-    public function setPicture($picture)
+    public function setPictureName($pictureName)
     {
-        $this->picture = $picture;
+        $this->pictureName = $pictureName;
 
         return $this;
     }
 
     /**
-     * Get picture
+     * Get pictureName
      *
      * @return string
      */
-    public function getPicture()
+    public function getPictureName()
     {
-        return $this->picture;
+        return $this->pictureName;
     }
 }

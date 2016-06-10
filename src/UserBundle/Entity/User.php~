@@ -230,13 +230,13 @@ class User extends BaseUser
      * )
      */
     protected $likesleft;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="picture", type="string", length=255, nullable=true)
+     * @ORM\Column(name="pictureName", type="string", length=255, nullable=true)
      */
-    private $picture;
+    private $pictureName;
+    public $picture;
 
     /**
      * @ORM\OneToOne(targetEntity="UserBundle\Entity\Animal", cascade={"persist"})

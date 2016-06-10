@@ -6,3 +6,7 @@ services:
         class: AppBundle\Listener\ControllerListener
         tags:
           -  { name: kernel.event_listener, event: kernel.controller, method: onCoreController }
+
+    UploadService:
+        class:     AppBundle\Service\UploadService
+        arguments: [ "%kernel.root_dir%" ]

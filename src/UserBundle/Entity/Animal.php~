@@ -264,28 +264,4 @@ class Animal
     {
         return $this->biography;
     }
-
-    /**
-     * Set pictureName
-     *
-     * @param string $pictureName
-     *
-     * @return Animal
-     */
-    public function setPictureName($pictureName)
-    {
-        $this->pictureName = $pictureName;
-
-        return $this;
-    }
-
-    /**
-     * Get pictureName
-     *
-     * @return string
-     */
-    public function getPictureName()
-    {
-        return $this->pictureName;
-    }
 }
