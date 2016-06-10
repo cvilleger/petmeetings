@@ -31,7 +31,9 @@ class UploadService{
      */
     public function setUniqueFileName(UploadedFile $file){
         $extension = $file->guessExtension();
-        return microtime() . '.' . $extension;
+        $name = microtime() . '.' . $extension;
+        $name = str_replace(' ', '', $name);
+        return $name;
     }
     /**
      * Check if extension is valid

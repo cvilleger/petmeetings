@@ -5,8 +5,13 @@
 {% block body %}
 
 <div class="fos_user_user_show">
+    {% if user.pictureName is defined %}
+        <img src={{ asset("uploads/"~user.pictureName) }} alt={{ user.username}}>
+    {% endif %}
     <p>{{ 'profile.show.user.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.user.email'|trans }}: {{ user.email }}</p>
+    <p>{{ 'profile.show.user.firstname'|trans }}: {{ user.firstname }}</p>
+    <p>{{ 'profile.show.user.lastname'|trans }}: {{ user.lastname }}</p>
     <p>{{ 'profile.show.user.birthday'|trans }}: {{ user.birthday|localizeddate('medium', 'none', locale) }}</p>
     <p>{{ 'profile.show.user.gender'|trans }}: {{ user.gender|trans }}</p>
     <p>{{ 'profile.show.user.city'|trans }}: {{ user.city }}</p>
