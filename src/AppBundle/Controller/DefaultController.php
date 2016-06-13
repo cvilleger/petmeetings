@@ -16,6 +16,16 @@ class DefaultController extends Controller
 
 	public function indexAction()
 	{
-		return $this->render('AppBundle::index.html.twig');
+		$listUsers = $this->getDoctrine()
+			->getManager()
+			->getRepository('UserBundle:User')
+			->findBy(
+                array(),
+                array('startsub' => 'asc')
+            );
+		
+		return $this->render('AppBundle:Default:index.html.twig', array(
+			'listUsers' => $listUsers
+		));
 	}
 }

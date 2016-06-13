@@ -1,22 +1,31 @@
-{% trans_default_domain 'User' %}
+{% extends "UserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'UserBundle' %}
+
+{% block body %}
 
 <div class="fos_user_user_show">
+    {% if user.pictureName is defined %}
+        <img src={{ asset("uploads/"~user.pictureName) }} alt={{ user.username}}>
+    {% endif %}
     <p>{{ 'profile.show.user.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.user.email'|trans }}: {{ user.email }}</p>
+    <p>{{ 'profile.show.user.firstname'|trans }}: {{ user.firstname }}</p>
+    <p>{{ 'profile.show.user.lastname'|trans }}: {{ user.lastname }}</p>
     <p>{{ 'profile.show.user.birthday'|trans }}: {{ user.birthday|localizeddate('medium', 'none', locale) }}</p>
-    <p>{{ 'profile.show.user.gender'|trans }}: {{ user.gender }}</p>
+    <p>{{ 'profile.show.user.gender'|trans }}: {{ user.gender|trans }}</p>
     <p>{{ 'profile.show.user.city'|trans }}: {{ user.city }}</p>
     <p>{{ 'profile.show.user.size'|trans }}: {{ user.size }}</p>
     <p>{{ 'profile.show.user.weight'|trans }}: {{ user.weight }}</p>
     <p>{{ 'profile.show.user.biography'|trans }}: {{ user.biography }}</p>
-    <p>{{ 'profile.show.user.orientation'|trans }}: {{ user.orientation }}</p>
-    <p>{{ 'profile.show.user.meetingtype'|trans }}: {{ user.meetingtype }}</p>
+    <p>{{ 'profile.show.user.orientation'|trans }}: {{ user.orientation|trans }}</p>
+    <p>{{ 'profile.show.user.meetingtype'|trans }}: {{ user.meetingtype|trans }}</p>
     <p>{{ 'profile.show.user.startsub'|trans }}: {{ user.startsub|localizeddate('medium', 'none', locale) }}</p>
 </div>
 <div class="fos_user_animal_show">
-    <p>{{ 'profile.show.animal.name'|trans }}: {{ animal.name }}</p>
-    <p>{{ 'profile.show.animal.age'|trans }}: {{ animal.age }}</p>
-    <p>{{ 'profile.show.animal.gender'|trans }}: {{ animal.gender }}</p>
-    <p>{{ 'profile.show.animal.kind'|trans }}: {{ animal.kind }}</p>
-    <p>{{ 'profile.show.animal.race'|trans }}: {{ animal.race }}</p>
+    <p>{{ 'profile.show.animal.name'|trans }}: {{ user.animal.name }}</p>
+    <p>{{ 'profile.show.animal.age'|trans }}: {{ user.animal.age }}</p>
+    <p>{{ 'profile.show.animal.gender'|trans }}: {{ user.animal.gender|trans }}</p>
+    <p>{{ 'profile.show.animal.kind'|trans }}: {{ user.animal.kind|trans }}</p>
+    <p>{{ 'profile.show.animal.race'|trans }}: {{ user.animal.race }}</p>
 </div>

@@ -12,9 +12,15 @@ parameters:
     assetic.filter.compass.images_dir: %kernel.root_dir%/../web/images
     assetic.filter.compass.http_path:  /images
 
+services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -88,4 +94,3 @@ fos_user:
     db_driver:     orm
     firewall_name: main
     user_class:    UserBundle\Entity\User
-

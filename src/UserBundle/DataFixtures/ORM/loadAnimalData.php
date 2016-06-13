@@ -16,7 +16,7 @@ class LoadAnimalData implements FixtureInterface
         $animalTest = new Animal();
         $animalTest->setName('Haru');
         $animalTest->setAge(2);
-        $animalTest->setGender('female');
+        $animalTest->setGender('Femelle');
         $animalTest->setKind('chat');
         $animalTest->setRace('europeen');
         $animalTest->setBehavior('sociable');
