@@ -230,6 +230,7 @@ class User extends BaseUser
      * )
      */
     protected $likesleft;
+    
     /**
      * @var string
      *
@@ -596,7 +597,7 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function setAnimal(\AppBundle\Entity\Animal $animal = null)
+    public function setAnimal(\UserBundle\Entity\Animal $animal = null)
     {
         $this->animal = $animal;
 

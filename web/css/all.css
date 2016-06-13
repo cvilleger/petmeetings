@@ -2776,7 +2776,7 @@
    ========================================================================== */
 /* 24. Progress Bar
    ========================================================================== */
-/* line 19, assetic_compassvSp0YV.scss */
+/* line 19, assetic_compassHYH6aa.scss */
 body {
   background: url("../images/fond.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -2785,22 +2785,22 @@ body {
   background-size: cover;
 }
 
-/* line 23, assetic_compassvSp0YV.scss */
+/* line 23, assetic_compassHYH6aa.scss */
 nav {
   margin-bottom: 2rem;
 }
 
-/* line 27, assetic_compassvSp0YV.scss */
+/* line 27, assetic_compassHYH6aa.scss */
 .bleu {
   color: #1E88E5;
 }
 
-/* line 31, assetic_compassvSp0YV.scss */
+/* line 31, assetic_compassHYH6aa.scss */
 .rose {
   color: #d81b60;
 }
 
-/* line 35, assetic_compassvSp0YV.scss */
+/* line 35, assetic_compassHYH6aa.scss */
 #profilPhoto {
   width: 100%;
   height: auto;
@@ -2810,7 +2810,7 @@ nav {
   box-shadow: rgba(76, 74, 78, 0.4) 0 0 25px, rgba(48, 47, 49, 0.2) 0 0 3px 1px inset;
 }
 
-/* line 44, assetic_compassvSp0YV.scss */
+/* line 44, assetic_compassHYH6aa.scss */
 #petPhoto {
   z-index: 500;
   position: relative;
@@ -2825,80 +2825,94 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* line 57, assetic_compassvSp0YV.scss */
+/* line 57, assetic_compassHYH6aa.scss */
 .bleuPanel {
   border-top: 3px solid #1E88E5;
 }
 
-/* line 61, assetic_compassvSp0YV.scss */
+/* line 61, assetic_compassHYH6aa.scss */
 .rosePanel {
   border-top: 3px solid #d81b60;
 }
 
-/* line 65, assetic_compassvSp0YV.scss */
+/* line 65, assetic_compassHYH6aa.scss */
 .iam {
   font-size: 2rem;
 }
 
-/* line 73, assetic_compassvSp0YV.scss */
+/* line 73, assetic_compassHYH6aa.scss */
 .profilBioTitle .name {
   font-size: 2.5rem;
   font-weight: bold;
 }
+/* line 78, assetic_compassHYH6aa.scss */
+.profilBioTitle .subProfil {
+  font-size: 2rem;
+}
 
-/* line 79, assetic_compassvSp0YV.scss */
+/* line 83, assetic_compassHYH6aa.scss */
 .profilPhotos {
   text-align: center;
 }
 
-/* line 83, assetic_compassvSp0YV.scss */
+/* line 87, assetic_compassHYH6aa.scss */
 #infosProfil {
   text-align: center;
 }
-/* line 87, assetic_compassvSp0YV.scss */
+/* line 91, assetic_compassHYH6aa.scss */
 #infosProfil .s5 {
   text-align: center;
   margin: 0 3%;
 }
-/* line 92, assetic_compassvSp0YV.scss */
+/* line 96, assetic_compassHYH6aa.scss */
 #infosProfil span {
   display: block;
   text-align: left;
   padding: 1rem 0.5rem;
   border-bottom: 1px	solid #CEC9D3;
 }
-/* line 98, assetic_compassvSp0YV.scss */
+/* line 102, assetic_compassHYH6aa.scss */
 #infosProfil .informationName span {
   color: #63aced;
 }
-/* line 101, assetic_compassvSp0YV.scss */
+/* line 105, assetic_compassHYH6aa.scss */
 #infosProfil .informationValue span {
   color: #272628;
 }
 
-/* line 107, assetic_compassvSp0YV.scss */
-#cptLikes {
-  color: #1E88E5;
-  padding: 0.5rem;
-  display: inline-block;
-  vertical-align: middle;
+/* line 111, assetic_compassHYH6aa.scss */
+#likes {
+  padding: 1rem;
+  vertical-align: bottom;
+  padding-top: 6rem;
+  text-align: center;
 }
-/* line 113, assetic_compassvSp0YV.scss */
-#cptLikes .fa {
+/* line 118, assetic_compassHYH6aa.scss */
+#likes .fa {
   font-weight: 500;
   font-size: 3rem;
   color: #1360a4;
   margin: 0 0.5rem;
 }
-/* line 120, assetic_compassvSp0YV.scss */
-#cptLikes span, #cptLikes div, #cptLikes #likeBtn {
-  display: inline-block;
-  vertical-align: middle;
-}
-/* line 125, assetic_compassvSp0YV.scss */
-#cptLikes .cpt {
+/* line 124, assetic_compassHYH6aa.scss */
+#likes .cpt {
   font-weight: 700;
   font-size: 2.6rem;
+}
+
+/* line 130, assetic_compassHYH6aa.scss */
+#fullscreen {
+  background: url("../images/couple.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 700px;
+}
+
+/* line 135, assetic_compassHYH6aa.scss */
+.transparent {
+  background: transparent !important;
 }
 
 /* line 370, ../../../src/AppBundle/Resources/public/sass/components/_color.scss */
@@ -7952,23 +7966,23 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 /* line 32, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
 h1 {
-  font-size: 3.2rem;
+  font-size: 3rem;
   line-height: 110%;
-  margin: 1.6rem 0 1.28rem 0;
+  margin: 1.5rem 0 1.2rem 0;
 }
 
 /* line 33, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
 h2 {
-  font-size: 2.56rem;
+  font-size: 2.2rem;
   line-height: 110%;
-  margin: 1.28rem 0 1.024rem 0;
+  margin: 1.1rem 0 0.88rem 0;
 }
 
 /* line 34, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
 h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 110%;
-  margin: 1rem 0 0.8rem 0;
+  margin: 0.9rem 0 0.72rem 0;
 }
 
 /* line 35, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */

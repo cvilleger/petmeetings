@@ -40,6 +40,7 @@
 
 # Assets and user uploads
 /web/uploads/
+/web/bundles/
 
 # Assets managed by Bower
 /web/assets/vendor/
@@ -100,3 +101,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+
+.DS_Store
