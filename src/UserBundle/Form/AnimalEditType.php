@@ -3,9 +3,11 @@
 namespace UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
@@ -18,17 +20,25 @@ class AnimalEditType extends AbstractType
                 'label' => 'form.animal.name',
                 'translation_domain' => 'UserBundle'
             ))
-            ->add('age', TextType::class, array(
+            ->add('picture', FileType::class, array(
+                'label' => 'form.animal.picture',
+                'translation_domain' => 'UserBundle',
+                'required' => false
+            ))
+            ->add('age', IntegerType::class, array(
                 'label' => 'form.animal.age',
-                'translation_domain' => 'UserBundle'
+                'translation_domain' => 'UserBundle',
+                'required' => false
             ))
             ->add('gender', ChoiceType::class, array(
                 'choices' => array(
                   'choice.animal.gender.1' => 'choice.animal.gender.1',
                   'choice.animal.gender.2' => 'choice.animal.gender.2'
                 ),
+                'expanded' => true,
                 'label' => 'form.animal.gender',
-                'translation_domain' => 'UserBundle'
+                'translation_domain' => 'UserBundle',
+                'required' => false
             ))
             ->add('kind', ChoiceType::class, array(
                 'choices' => array(
@@ -40,7 +50,8 @@ class AnimalEditType extends AbstractType
             ))
             ->add('race', TextType::class, array(
                 'label' => 'form.animal.race',
-                'translation_domain' => 'UserBundle'
+                'translation_domain' => 'UserBundle',
+                'required' => false
             ))
         ;
     }
