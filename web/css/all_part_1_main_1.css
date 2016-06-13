@@ -2776,7 +2776,7 @@
    ========================================================================== */
 /* 24. Progress Bar
    ========================================================================== */
-/* line 19, assetic_compasspWHPPE.scss */
+/* line 19, assetic_compassBTSGe4.scss */
 body {
   background: url("../images/fond.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -2785,22 +2785,22 @@ body {
   background-size: cover;
 }
 
-/* line 23, assetic_compasspWHPPE.scss */
+/* line 23, assetic_compassBTSGe4.scss */
 nav {
   margin-bottom: 2rem;
 }
 
-/* line 27, assetic_compasspWHPPE.scss */
+/* line 27, assetic_compassBTSGe4.scss */
 .bleu {
   color: #1E88E5;
 }
 
-/* line 31, assetic_compasspWHPPE.scss */
+/* line 31, assetic_compassBTSGe4.scss */
 .rose {
   color: #d81b60;
 }
 
-/* line 35, assetic_compasspWHPPE.scss */
+/* line 35, assetic_compassBTSGe4.scss */
 #profilPhoto {
   width: 100%;
   height: auto;
@@ -2810,7 +2810,7 @@ nav {
   box-shadow: rgba(76, 74, 78, 0.4) 0 0 25px, rgba(48, 47, 49, 0.2) 0 0 3px 1px inset;
 }
 
-/* line 44, assetic_compasspWHPPE.scss */
+/* line 44, assetic_compassBTSGe4.scss */
 #petPhoto {
   z-index: 500;
   position: relative;
@@ -2825,78 +2825,92 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* line 57, assetic_compasspWHPPE.scss */
+/* line 57, assetic_compassBTSGe4.scss */
 .bleuPanel {
   border-top: 3px solid #1E88E5;
 }
 
-/* line 61, assetic_compasspWHPPE.scss */
+/* line 61, assetic_compassBTSGe4.scss */
 .rosePanel {
   border-top: 3px solid #d81b60;
 }
 
-/* line 65, assetic_compasspWHPPE.scss */
+/* line 65, assetic_compassBTSGe4.scss */
 .iam {
   font-size: 2rem;
 }
 
-/* line 73, assetic_compasspWHPPE.scss */
+/* line 73, assetic_compassBTSGe4.scss */
 .profilBioTitle .name {
   font-size: 2.5rem;
   font-weight: bold;
 }
+/* line 78, assetic_compassBTSGe4.scss */
+.profilBioTitle .subProfil {
+  font-size: 2rem;
+}
 
-/* line 79, assetic_compasspWHPPE.scss */
+/* line 83, assetic_compassBTSGe4.scss */
 .profilPhotos {
   text-align: center;
 }
 
-/* line 83, assetic_compasspWHPPE.scss */
+/* line 87, assetic_compassBTSGe4.scss */
 #infosProfil {
   text-align: center;
 }
-/* line 87, assetic_compasspWHPPE.scss */
+/* line 91, assetic_compassBTSGe4.scss */
 #infosProfil .s5 {
   text-align: center;
   margin: 0 3%;
 }
-/* line 92, assetic_compasspWHPPE.scss */
+/* line 96, assetic_compassBTSGe4.scss */
 #infosProfil span {
   display: block;
   text-align: left;
   padding: 1rem 0.5rem;
   border-bottom: 1px	solid #CEC9D3;
 }
-/* line 98, assetic_compasspWHPPE.scss */
+/* line 102, assetic_compassBTSGe4.scss */
 #infosProfil .informationName span {
   color: #63aced;
 }
-/* line 101, assetic_compasspWHPPE.scss */
+/* line 105, assetic_compassBTSGe4.scss */
 #infosProfil .informationValue span {
   color: #272628;
 }
 
-/* line 107, assetic_compasspWHPPE.scss */
-#cptLikes {
-  color: #1E88E5;
-  padding: 0.5rem;
-  display: inline-block;
-  vertical-align: middle;
+/* line 111, assetic_compassBTSGe4.scss */
+#likes {
+  padding: 1rem;
+  vertical-align: bottom;
+  padding-top: 6rem;
+  text-align: center;
 }
-/* line 113, assetic_compasspWHPPE.scss */
-#cptLikes .fa {
+/* line 118, assetic_compassBTSGe4.scss */
+#likes .fa {
   font-weight: 500;
   font-size: 3rem;
   color: #1360a4;
   margin: 0 0.5rem;
 }
-/* line 120, assetic_compasspWHPPE.scss */
-#cptLikes span, #cptLikes div, #cptLikes #likeBtn {
-  display: inline-block;
-  vertical-align: middle;
-}
-/* line 125, assetic_compasspWHPPE.scss */
-#cptLikes .cpt {
+/* line 124, assetic_compassBTSGe4.scss */
+#likes .cpt {
   font-weight: 700;
   font-size: 2.6rem;
+}
+
+/* line 130, assetic_compassBTSGe4.scss */
+#fullscreen {
+  background: url("../images/couple.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 700px;
+}
+
+/* line 135, assetic_compassBTSGe4.scss */
+.transparent {
+  background: transparent !important;
 }

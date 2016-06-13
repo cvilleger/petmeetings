@@ -83,6 +83,7 @@ form:
         new_password_confirmation: 'Vérification'
         firstname : 'Prénom'
         lastname: 'Nom'
+        picture: 'Photo'
         city: 'Ville'
         birthday: 'Date d''anniversaire'
         biography: 'Biographie'
@@ -93,6 +94,7 @@ form:
         meetingtype: 'Type de relations recherchées'
     animal:
         name: 'Nom'
+        picture: 'Photo'
         age: 'Age'
         gender: 'Sexe'
         kind: 'Type'

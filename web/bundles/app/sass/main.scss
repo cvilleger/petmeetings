@@ -74,6 +74,10 @@ nav {
 		font-size: 2.5rem;
 		font-weight: bold;
 	}
+
+	.subProfil {
+		font-size: 2rem;
+	}
 }
 
 .profilPhotos {
@@ -104,11 +108,12 @@ nav {
 
 }
 
-#cptLikes {
-	color : $primary-color;
-	padding: 0.5rem;
-	display: inline-block;
-	vertical-align: middle;
+#likes {
+
+	padding: 1rem;
+	vertical-align: bottom;
+	padding-top: 6rem;
+	text-align:center;
 
 	.fa {
 		font-weight: 500;
@@ -116,16 +121,17 @@ nav {
 		color: darken($primary-color, 15%) ;
 		margin: 0 0.5rem ;
 	}
-
-	span, div, #likeBtn {
-		display: inline-block;
-		vertical-align: middle;
-	}
-
 	.cpt {
 		font-weight: 700;
 		font-size: 2.6rem;
 	}
 }
 
+#fullscreen {
+	@include cover-background('../images/couple.jpg');
+	min-height: 700px;
+}
 
+.transparent {
+	background: transparent!important;
+}
