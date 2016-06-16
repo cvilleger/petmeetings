@@ -4,6 +4,7 @@ namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use UserBundle\Validator as UserAssert;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
@@ -86,6 +87,7 @@ class User extends BaseUser
      *     type = "datetime",
      *     message = "La donnée attendue n'est pas valide."
      * )
+     * @UserAssert\Majeur
      */
     protected $birthday;
 

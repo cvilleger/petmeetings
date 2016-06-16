@@ -4,13 +4,13 @@
 namespace UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -51,10 +51,11 @@ class RegistrationFormType extends AbstractType
                 'translation_domain' => 'UserBundle',
                 'required' => false
             ))
-            ->add ('birthday', DateType::class, array(
+            ->add ('birthday', BirthdayType::class, array(
                 'label' => 'form.user.birthday',
                 'translation_domain' => 'UserBundle',
-                'required' => false
+                'format' => 'dd-MM-yyyy',
+                'years' => range(date('Y')-35, date('Y')-18)
             ))
             ->add('biography', TextareaType::class, array(
                 'label' => 'form.user.biography',
