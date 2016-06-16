@@ -1,48 +1,35 @@
 <?php
 
+
 namespace UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
-use UserBundle\Form\AnimalEditType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserEditType extends AbstractType
+class RegistrationFormType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', TextType::class, array(
-                'label' => 'form.user.username',
-                'translation_domain' => 'UserBundle'
-            ))
-            ->add('email', EmailType::class, array(
-                'label' => 'form.user.email',
-                'translation_domain' => 'UserBundle'
-            ))
-            ->add('current_password', PasswordType::class, array(
-                'label' => 'form.user.current_password',
-                'translation_domain' => 'UserBundle',
-                'mapped' => false,
-                'constraints' => new UserPassword(),
-            ))
+            ->add('email', EmailType::class, array('label' => 'form.user.email', 'translation_domain' => 'UserBundle'))
+            ->add('username', TextType::class, array('label' => 'form.user.username', 'translation_domain' => 'UserBundle'))
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'options' => array('translation_domain' => 'UserBundle'),
                 'first_options' => array('label' => 'form.user.new_password'),
                 'second_options' => array('label' => 'form.user.new_password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
-                'required' => false
             ))
             ->add('firstname', TextType::class, array(
                 'label' => 'form.user.firstname',
@@ -63,6 +50,12 @@ class UserEditType extends AbstractType
                 'label' => 'form.user.city',
                 'translation_domain' => 'UserBundle',
                 'required' => false
+            ))
+            ->add ('birthday', BirthdayType::class, array(
+                'label' => 'form.user.birthday',
+                'translation_domain' => 'UserBundle',
+                'format' => 'dd-MM-yyyy',
+                'years' => range(date('Y')-35, date('Y')-18)
             ))
             ->add('biography', TextareaType::class, array(
                 'label' => 'form.user.biography',
@@ -122,6 +115,6 @@ class UserEditType extends AbstractType
 
     public function getName()
     {
-        return 'userbundle_user';
+        return 'userbundle_registration';
     }
 }
