@@ -1,0 +1,18 @@
+{% extends "UserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'UserBundle' %}
+
+{% block app_title %}{{ parent() }} Inscription{% endblock app_title %}
+
+{% block body %}
+
+    <h1>Inscription</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_rest(form) }}
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    {{ form_end(form) }}
+
+    <p>Vous êtes déjà inscrit ? <a href="{{ path("fos_user_security_login") }}">Cliquez ici</a>.</p>
+{% endblock body %}
