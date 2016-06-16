@@ -64,10 +64,6 @@ class UserEditType extends AbstractType
                 'translation_domain' => 'UserBundle',
                 'required' => false
             ))
-            ->add ('birthday', BirthdayType::class, array(
-                'label' => 'form.user.birthday',
-                'translation_domain' => 'UserBundle'
-            ))
             ->add('biography', TextareaType::class, array(
                 'label' => 'form.user.biography',
                 'translation_domain' => 'UserBundle',
