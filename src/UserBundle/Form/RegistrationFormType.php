@@ -27,8 +27,8 @@ class RegistrationFormType extends AbstractType
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'options' => array('translation_domain' => 'UserBundle'),
-                'first_options' => array('label' => 'form.user.password'),
-                'second_options' => array('label' => 'form.user.password_confirmation'),
+                'first_options' => array('label' => 'form.user.new_password'),
+                'second_options' => array('label' => 'form.user.new_password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
             ->add('firstname', TextType::class, array(
