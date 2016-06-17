@@ -21,7 +21,8 @@ class DefaultController extends Controller
 			->getRepository('UserBundle:User')
 			->findBy(
                 array(),
-                array('startsub' => 'asc')
+                array('startsub' => 'asc'),
+				array('limit' => 3)
             );
 		
 		return $this->render('AppBundle:Default:index.html.twig', array(
