@@ -27,6 +27,18 @@ class ProfileController extends BaseController
         $this->request = $request;
     }
 
+    public function searchAction()
+    {
+        $listUsers = $this
+            ->getDoctrine()
+            ->getRepository('UserBundle:User')
+            ->findAll();
+
+        return $this->render('UserBundle:Profile:result.html.twig', array(
+            'listUsers' => $listUsers
+        ));
+    }
+
     public function findAction(User $user)
     {
         $locale = 'fr';
@@ -36,6 +48,7 @@ class ProfileController extends BaseController
             'locale' => $locale
         ));
     }
+
     public function showAction()
     {
         $user = $this->getUser();

@@ -1,12 +1,25 @@
-	{% block header %}
+{% block header %}
+
 	<nav>
-		<div class="nav-wrapper">
-			<a href="#" class="brand-logo">Logo</a>
+		<div class="nav-wrapper transparent">
+			<a href="#" class="brand-logo">PetMeeting</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
-				<li><a href="">Message</a></li>
-				<li><a href="" class="waves-effect waves-light btn pink lighten-1"><span class="fa fa-star-o"></span> Devenez Prémium</a></li>
+				{% if app.user %}
+					<li>
+						<form action="{{ path('user_search') }}">
+							<input type="text" name="search">
+							<input type="submit" class="submit_search">
+						</form>
+					</li>
+					<li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
+					<li><a href="">Message</a></li>
+					<li><a href="" class="waves-effect waves-light btn pink lighten-1"><span class="fa fa-star-o"></span> Devenez Prémium</a></li>
+				{% else %}
+					<li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+					<li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+				{% endif %}
 			</ul>
 		</div>
 	</nav>
-	{% endblock %}
+
+{% endblock %}

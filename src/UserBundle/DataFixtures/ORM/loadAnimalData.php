@@ -23,6 +23,28 @@ class LoadAnimalData implements FixtureInterface
         $animalTest->setBiography('chat tres joueur et assez gourmand');
 
         $manager->persist($animalTest);
+        
+        $animalTest = new Animal();
+        $animalTest->setName('Myrta');
+        $animalTest->setAge(2);
+        $animalTest->setGender('Femelle');
+        $animalTest->setKind('chat');
+        $animalTest->setRace('europeen');
+        $animalTest->setBehavior('sociable');
+        $animalTest->setBiography('chat tres joueur et assez gourmand');
+
+        $manager->persist($animalTest);
+        
+        $animalTest = new Animal();
+        $animalTest->setName('Melissa');
+        $animalTest->setAge(2);
+        $animalTest->setGender('Femelle');
+        $animalTest->setKind('chat');
+        $animalTest->setRace('europeen');
+        $animalTest->setBehavior('sociable');
+        $animalTest->setBiography('chat tres joueur et assez gourmand');
+
+        $manager->persist($animalTest);
         $manager->flush();
     }
 }
