@@ -6235,6 +6235,7 @@ button:focus {
 label {
   font-size: 0.8rem;
   color: #9e9e9e;
+  display: block;
 }
 
 /* Text Inputs + Textarea
@@ -7093,20 +7094,10 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
 
 /* Select Field
    ========================================================================== */
-/* line 4, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
-select {
-  display: none;
-}
-
-/* line 5, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
-select.browser-default {
-  display: block;
-}
 
 /* line 7, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 select {
   background-color: rgba(255, 255, 255, 0.9);
-  width: 100%;
   padding: 5px;
   border: 1px solid #f2f2f2;
   border-radius: 2px;

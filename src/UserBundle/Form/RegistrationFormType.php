@@ -53,9 +53,7 @@ class RegistrationFormType extends AbstractType
             ))
             ->add ('birthday', BirthdayType::class, array(
                 'label' => 'form.user.birthday',
-                'translation_domain' => 'UserBundle',
-                'format' => 'dd-MM-yyyy',
-                'years' => range(date('Y')-35, date('Y')-18)
+                'translation_domain' => 'UserBundle'
             ))
             ->add('biography', TextareaType::class, array(
                 'label' => 'form.user.biography',

@@ -1,9 +1,6 @@
 /* Select Field
    ========================================================================== */
 
-select { display: none; }
-select.browser-default { display: block; }
-
 select {
   background-color: $select-background;
   width: 100%;
