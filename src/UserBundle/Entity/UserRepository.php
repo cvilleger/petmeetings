@@ -12,4 +12,32 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    public function findUsersByParameters($data)
+    {
+        $i = 0;
+
+        $query = $this->createQueryBuilder('u')
+            ->leftJoin('u.animal', 'a');
+        foreach($data as $key => $value) {
+            $i++;
+            if($key != 'animal') {
+                if($i > 1)
+                    $query->where('u.' .$key. ' = :value');
+                else
+                    $query->andWhere('u.' .$key. ' = :value');
+                $query->setParameter('value', $value);
+            }
+            else {
+                foreach($value as $keyAnimal => $valueAnimal) {
+                    if($i > 1)
+                        $query->where('a.' .$keyAnimal. ' = :value');
+                    else
+                        $query->andWhere('a.' .$keyAnimal. ' = :value');
+                    $query->setParameter('value', $valueAnimal);
+                }
+            }
+        }
+    
+        return $query->getQuery()->getResult();
+    }
 }
