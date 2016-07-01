@@ -37,7 +37,21 @@ class UserRepository extends EntityRepository
                 }
             }
         }
-    
+        return $query->getQuery()->getResult();
+    }
+    public function findUsersByOneParameter($data)
+    {
+        $query = $this->createQueryBuilder('u')
+            ->leftJoin('u.animal', 'a')
+            ->where('u.username = :value')
+            ->orWhere('u.firstname = :value')
+            ->orWhere('u.lastname = :value')
+            ->orWhere('u.email = :value')
+            ->orWhere('u.gender = :value')
+            ->orWhere('a.kind = :value')
+            ->orWhere('a.race = :value')
+            ->setParameter('value', $data);
+
         return $query->getQuery()->getResult();
     }
 }
