@@ -1,0 +1,7 @@
+app_search:
+    path: /search
+    defaults: { _controller: AppBundle:Search:search }
+
+app_advanced_search:
+    path: /advanced/search
+    defaults: { _controller: AppBundle:Search:AdvancedSearch }

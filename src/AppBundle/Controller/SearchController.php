@@ -12,10 +12,8 @@ class SearchController extends Controller
     {
         $param = $request->get('search');
 
-        $listUsers = $this
-            ->getDoctrine()
-            ->getRepository('UserBundle:User')
-            ->findBy(array('username'=>$param));
+        $em = $this->getDoctrine()->getManager();
+        $listUsers = $em->getRepository('UserBundle:User')->findUsersByOneParameter($param);
 
         return $this->render('AppBundle:Search:result.html.twig', array(
             'listUsers' => $listUsers
@@ -33,35 +31,62 @@ class SearchController extends Controller
         $form->handleRequest($request);
         if ($request->getMethod() == 'POST') {
             if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
                 $data = $form->getData();
-                // On initialise la liste de résultats
-                $listResults = array();
-                foreach($data as $key => $value) {
-                    if(!empty($value)) {
-                        if (is_array($value)) {
-                            foreach ($value as $v) {
-                                $listUsers = $em
-                                    ->getRepository('UserBundle:User')
-                                    ->findBy(array($key => $v));
-
-                                // On ajoute chaque nouvelle liste d'utilisateurs dans la liste de résultats
-                                $listResults = array_merge($listResults, $listUsers);
+                // On supprime toutes les données nulles
+                foreach($data as $key => $formValue) {
+                    if($key == 'animal') {
+                        foreach($formValue as $keyAnimal => $valueAnimal) {
+                            // La clé animal est un tableau de tableau
+                            if (is_array($valueAnimal)) {
+                                // On injecte chaque valeur non vide dans un tableau
+                                $list = array();
+                                foreach ($valueAnimal as $v) {
+                                    $list[] = $v;
+                                }
+                                // On met le tableau dans une chaine de caractère qu'on rajoute à nos données
+                                if (count($list) > 0)
+                                    $listData['animal'][$keyAnimal] = implode(',', $list);
+                                continue 2;
                             }
-                        }
-                        else {
-                            $listUsers = $em
-                                ->getRepository('UserBundle:User')
-                                ->findBy(array($key => $value));
-
-                            // On ajoute chaque nouvelle liste d'utilisateurs dans la liste de résultats
-                            $listResults = array_merge($listResults, $listUsers);
+                            if (!empty($valueAnimal))
+                                $listData['animal'][$keyAnimal] = $valueAnimal;
                         }
                     }
+                    else if($key == 'between') {
+                        foreach($formValue as $keyBetween => $valueBetween) {
+                            // La clé between est un tableau de tableau
+                            // Chaque valeur est un tableau
+                            $list = array();
+                            foreach ($valueBetween as $v) {
+                                $list[] = $v;
+                            }
+                            // On met le tableau dans une chaine de caractère qu'on rajoute à nos données
+                            if (count($list) > 0)
+                                $listData['between'][$keyBetween] = implode(',', $list);
+                            continue 2;
+                        }
+                    }
+
+                    if(is_array($formValue)) {
+                        // On injecte chaque valeur non vide dans un tableau
+                        $list = array();
+                        foreach ($formValue as $value) {
+                            $list[] = $value;
+                        }
+                        // On met le tableau dans une chaine de caractère qu'on rajoute à nos données
+                        if(count($list) > 0)
+                            $listData[$key] = implode(',', $list);
+                        continue;
+                    }
+                    if(!empty($formValue))
+                        $listData[$key] = $formValue;
                 }
 
+                $em = $this->getDoctrine()->getManager();
+                $listUsers = $em->getRepository('UserBundle:User')->findUsersByParameters($listData);
+
                 return $this->render('AppBundle:Search:result.html.twig', array(
-                    'listUsers' => $listResults
+                    'listUsers' => $listUsers
                 ));
             }
         }

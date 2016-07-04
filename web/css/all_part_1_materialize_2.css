@@ -4952,6 +4952,12 @@ nav .input-field label.active {
   transform: translateY(0);
 }
 
+nav .submit_search {
+  background: url("../images/toolbar_search.png") no-repeat right;
+  width: 32px;
+  height: 32px;
+}
+
 /* line 154, ../../../src/AppBundle/Resources/public/sass/components/_navbar.scss */
 .navbar-fixed {
   position: relative;

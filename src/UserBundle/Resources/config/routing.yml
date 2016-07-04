@@ -1,7 +1,3 @@
 user_find:
     path:     /find/{id}
     defaults: { _controller: UserBundle:Profile:find }
-
-user_search:
-    path:     /search
-    defaults: { _controller: UserBundle:Profile:search }

@@ -1,0 +1,16 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block body %}
+
+    {% if listUsers is defined %}
+        {% for user in listUsers %}
+            <a href="{{ path('user_find', {'id': user.id}) }}">
+                {{ user.username }}
+                {{ user.city }}
+            </a>
+        {% endfor %}
+    {%  else %}
+        <p> Aucun résultat n'a été trouvé pour votre recherche </p>
+    {% endif %}
+
+{% endblock %}

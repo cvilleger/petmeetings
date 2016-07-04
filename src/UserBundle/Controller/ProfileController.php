@@ -27,20 +27,6 @@ class ProfileController extends BaseController
         $this->request = $request;
     }
 
-    public function searchAction(Request $request)
-    {
-        $param = $request->get('search');
-
-        $listUsers = $this
-            ->getDoctrine()
-            ->getRepository('UserBundle:User')
-            ->findBy(array('username'=>$param));
-
-        return $this->render('UserBundle:Profile:result.html.twig', array(
-            'listUsers' => $listUsers
-        ));
-    }
-
     public function findAction(User $user)
     {
         $locale = 'fr';
