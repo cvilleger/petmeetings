@@ -5,3 +5,7 @@ app_search:
 app_advanced_search:
     path: /advanced/search
     defaults: { _controller: AppBundle:Search:AdvancedSearch }
+
+app_send_woof:
+    path: /send/woof/{id}
+    defaults: { _controller: AppBundle:Meeting:sendWoof }

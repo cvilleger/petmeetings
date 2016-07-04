@@ -585,6 +585,16 @@ class User extends BaseUser
     {
         return $this->likes;
     }
+    /**
+     * Receive like
+     *
+     * @return integer
+     */
+    public function receiveLike(User $sender)
+    {
+        $sender->likesleft -= 1;
+        $this->likes += 1;
+    }
 
     /**
      * Set likesleft
