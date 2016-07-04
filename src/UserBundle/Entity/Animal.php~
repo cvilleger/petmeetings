@@ -78,6 +78,7 @@ class Animal
      * @ORM\Column(name="biography", type="text", nullable=true)
      */
     private $biography;
+    
     /**
      * @var string
      *
@@ -263,5 +264,29 @@ class Animal
     public function getBiography()
     {
         return $this->biography;
+    }
+
+    /**
+     * Set pictureName
+     *
+     * @param string $pictureName
+     *
+     * @return Animal
+     */
+    public function setPictureName($pictureName)
+    {
+        $this->pictureName = $pictureName;
+
+        return $this;
+    }
+
+    /**
+     * Get pictureName
+     *
+     * @return string
+     */
+    public function getPictureName()
+    {
+        return $this->pictureName;
     }
 }

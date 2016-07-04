@@ -4,6 +4,7 @@ namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use UserBundle\Validator as UserAssert;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
@@ -22,6 +23,18 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=20, nullable=true)
+     *
+     * @Assert\Type(
+     *     type = "string",
+     *     message = "La donnée attendue n'est pas valide."
+     * )
+     */
+    protected $status;
 
     /**
      * @var string
@@ -86,6 +99,7 @@ class User extends BaseUser
      *     type = "datetime",
      *     message = "La donnée attendue n'est pas valide."
      * )
+     * @UserAssert\Majeur
      */
     protected $birthday;
 
@@ -230,6 +244,7 @@ class User extends BaseUser
      * )
      */
     protected $likesleft;
+    
     /**
      * @var string
      *
@@ -242,6 +257,12 @@ class User extends BaseUser
      * @ORM\OneToOne(targetEntity="UserBundle\Entity\Animal", cascade={"persist"})
      */
     private $animal;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setStatus = 'classic';
+    }
 
     /**
      * Get id
@@ -596,7 +617,7 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function setAnimal(\AppBundle\Entity\Animal $animal = null)
+    public function setAnimal(\UserBundle\Entity\Animal $animal = null)
     {
         $this->animal = $animal;
 
@@ -611,5 +632,29 @@ class User extends BaseUser
     public function getAnimal()
     {
         return $this->animal;
+    }
+
+    /**
+     * Set pictureName
+     *
+     * @param string $pictureName
+     *
+     * @return User
+     */
+    public function setPictureName($pictureName)
+    {
+        $this->pictureName = $pictureName;
+
+        return $this;
+    }
+
+    /**
+     * Get pictureName
+     *
+     * @return string
+     */
+    public function getPictureName()
+    {
+        return $this->pictureName;
     }
 }
