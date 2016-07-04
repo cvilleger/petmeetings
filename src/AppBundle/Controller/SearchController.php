@@ -8,12 +8,18 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SearchController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function searchAction(Request $request)
     {
         $param = $request->get('search');
 
         $em = $this->getDoctrine()->getManager();
         $listUsers = $em->getRepository('UserBundle:User')->findUsersByOneParameter($param);
+        // Remove current user
+        unset($listUsers[array_search($this->getUser(), $listUsers)]);
 
         return $this->render('AppBundle:Search:result.html.twig', array(
             'listUsers' => $listUsers
@@ -84,6 +90,8 @@ class SearchController extends Controller
 
                 $em = $this->getDoctrine()->getManager();
                 $listUsers = $em->getRepository('UserBundle:User')->findUsersByParameters($listData);
+                // Remove current user
+                unset($listUsers[array_search($this->getUser(), $listUsers)]);
 
                 return $this->render('AppBundle:Search:result.html.twig', array(
                     'listUsers' => $listUsers
