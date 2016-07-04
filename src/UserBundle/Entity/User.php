@@ -27,6 +27,18 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @ORM\Column(name="status", type="string", length=20, nullable=true)
+     *
+     * @Assert\Type(
+     *     type = "string",
+     *     message = "La donnée attendue n'est pas valide."
+     * )
+     */
+    protected $status;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="firstname", type="string", length=20, nullable=true)
      *
      * @Assert\Type(
@@ -245,6 +257,12 @@ class User extends BaseUser
      * @ORM\OneToOne(targetEntity="UserBundle\Entity\Animal", cascade={"persist"})
      */
     private $animal;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setStatus = 'classic';
+    }
 
     /**
      * Get id
