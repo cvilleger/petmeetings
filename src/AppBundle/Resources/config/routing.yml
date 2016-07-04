@@ -5,3 +5,11 @@ app_search:
 app_advanced_search:
     path: /advanced/search
     defaults: { _controller: AppBundle:Search:AdvancedSearch }
+
+app_subscribe_premium:
+    path:     /subscribe
+    defaults: { _controller: AppBundle:Premium:subscribe }
+
+app_unsubscribe_premium:
+    path:     /unsubscribe
+    defaults: { _controller: AppBundle:Premium:unsubscribe }

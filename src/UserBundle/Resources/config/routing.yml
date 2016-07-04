@@ -1,11 +1,3 @@
 user_find:
     path:     /find/{id}
     defaults: { _controller: UserBundle:Profile:find }
-
-user_subscribe_premium:
-    path:     /subscribe
-    defaults: { _controller: UserBundle:Profile:subscribe }
-
-user_unsubscribe_premium:
-    path:     /unsubscribe
-    defaults: { _controller: UserBundle:Profile:unsubscribe }

@@ -37,28 +37,6 @@ class ProfileController extends BaseController
         ));
     }
 
-    public function subscribeAction()
-    {
-        $user = $this->getUser();
-        $user->setStatus("premium");
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($user);
-        $em->flush();
-        
-        return $this->render('UserBundle:Profile:subscribe.html.twig');
-    }
-
-    public function unsubscribeAction()
-    {
-        $user = $this->getUser();
-        $user->setStatus("classic");
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($user);
-        $em->flush();
-        
-        return $this->render('UserBundle:Profile:unsubscribe.html.twig');
-    }
-
     public function showAction()
     {
         $user = $this->getUser();
