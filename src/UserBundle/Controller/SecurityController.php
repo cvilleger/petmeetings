@@ -10,7 +10,7 @@ use FOS\UserBundle\Controller\SecurityController as BaseController;
 use AppBundle\Service\PremiumService;
 
 
-class ProfileController extends BaseController
+class SecurityController extends BaseController
 {
     /* @var Request */
     protected $request;

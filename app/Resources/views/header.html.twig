@@ -14,7 +14,7 @@
 					<li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
 					<li><a href="">Message</a></li>
 					{% if app.user.status == "classic" %}
-						<li><a href="{{ path('app_subscribe_premium') }}" class="waves-effect waves-light btn pink lighten-1"><span class="fa fa-star-o"></span> Devenez Prémium</a></li>
+						<li><a href="{{ path('app_view_offers') }}" class="waves-effect waves-light btn pink lighten-1"><span class="fa fa-star-o"></span> Devenez Prémium</a></li>
 					{% endif %}
 				{% else %}
 					<li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>

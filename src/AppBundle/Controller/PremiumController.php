@@ -15,9 +15,14 @@ class PremiumController extends Controller
         $this->premiumService = $this->container->get('PremiumService');
     }
 
-    public function subscribeAction()
+    public function viewAction()
     {
-        $this->premiumService->changeStatus($this->getUser(), "boostedLover");
+        return $this->render('AppBundle:Premium:offers.html.twig');
+    }
+
+    public function subscribeAction($offer)
+    {
+        $this->premiumService->changeStatus($this->getUser(), $offer);
         $this->premiumService->receiveWoof($this->getUser());
 
         return $this->render('AppBundle:Premium:subscribe.html.twig');
