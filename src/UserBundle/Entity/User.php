@@ -212,38 +212,25 @@ class User extends BaseUser
     protected $endsub;
 
     /**
-     * @var integer
+     * @var array
      *
-     * @ORM\Column(name="likes", type="integer", nullable=true)
-     *
-     * @Assert\Type(
-     *     type = "integer",
-     *     message = "La donnée attendue n'est pas valide."
-     * )
-     * @Assert\Range(
-     *     min = 0,
-     *     minMessage = "Votre nombre de likes ne peut pas être inferieur à {{limit}}.",
-     * )
+     * @ORM\Column(name="awaitingWoof", type="text", nullable=true)
      */
-    protected $likes;
+    protected $awaitingWoof;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="likesleft", type="integer", nullable=true)
-     *
-     * @Assert\Type(
-     *     type = "integer",
-     *     message = "La donnée attendue n'est pas valide."
-     * )
-     * @Assert\Range(
-     *     min = 0,
-     *     max = 5,
-     *     minMessage = "Votre nombre de likes restants ne peut pas être inferieur à {{limit}}.",
-     *     maxMessage = "Votre nombre de likes restants ne peut pas être superieur à{{limit}}."
-     * )
+     * @ORM\Column(name="woofs", type="integer", nullable=true)
      */
-    protected $likesleft;
+    protected $woofs;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="woofsLeft", type="integer", nullable=true)
+     */
+    protected $woofsLeft;
     
     /**
      * @var string
@@ -261,7 +248,8 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->setStatus = 'classic';
+        $this->status = 'classic';
+        $this->awaitingWoof =  array();
     }
 
     /**
@@ -563,54 +551,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set likes
-     *
-     * @param integer $likes
-     *
-     * @return User
-     */
-    public function setLikes($likes)
-    {
-        $this->likes = $likes;
-
-        return $this;
-    }
-
-    /**
-     * Get likes
-     *
-     * @return integer
-     */
-    public function getLikes()
-    {
-        return $this->likes;
-    }
-
-    /**
-     * Set likesleft
-     *
-     * @param integer $likesleft
-     *
-     * @return User
-     */
-    public function setLikesleft($likesleft)
-    {
-        $this->likesleft = $likesleft;
-
-        return $this;
-    }
-
-    /**
-     * Get likesleft
-     *
-     * @return integer
-     */
-    public function getLikesleft()
-    {
-        return $this->likesleft;
-    }
-
-    /**
      * Set animal
      *
      * @param \UserBundle\Entity\Animal $animal
@@ -680,5 +620,91 @@ class User extends BaseUser
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Add awaitingWoof
+     *
+     * @param string $awaitingWoof
+     *
+     * @return User
+     */
+    public function addAwaitingWoof($awaitingWoof)
+    {
+        $this->awaitingWoof[] = $awaitingWoof;
+
+        return $this;
+    }
+
+    /**
+     * Get awaitingWoof
+     *
+     * @return array
+     */
+    public function getAwaitingWoof()
+    {
+        return $this->awaitingWoof;
+    }
+
+    /**
+     * Set awaitingWoof
+     *
+     * @param string $awaitingWoof
+     *
+     * @return User
+     */
+    public function setAwaitingWoof($awaitingWoof)
+    {
+        $this->awaitingWoof = $awaitingWoof;
+
+        return $this;
+    }
+
+    /**
+     * Set woofs
+     *
+     * @param integer $woofs
+     *
+     * @return User
+     */
+    public function setWoofs($woofs)
+    {
+        $this->woofs = $woofs;
+
+        return $this;
+    }
+
+    /**
+     * Get woofs
+     *
+     * @return integer
+     */
+    public function getWoofs()
+    {
+        return $this->woofs;
+    }
+
+    /**
+     * Set woofsLeft
+     *
+     * @param integer $woofsLeft
+     *
+     * @return User
+     */
+    public function setWoofsLeft($woofsLeft)
+    {
+        $this->woofsLeft = $woofsLeft;
+
+        return $this;
+    }
+
+    /**
+     * Get woofsLeft
+     *
+     * @return integer
+     */
+    public function getWoofsLeft()
+    {
+        return $this->woofsLeft;
     }
 }

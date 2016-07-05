@@ -49,12 +49,28 @@ class PremiumService{
      */
     public function receiveWoof(User $user){
         if($user->getStatus() == 'boostedLover') {
-            $user->setLikesleft($user->getLikesleft()+5);
+            $user->setWoofsLeft($user->getWoofsleft()+5);
         }
         else {
-            $user->setLikesleft($user->getLikesleft()+1);
+            $user->setWoofsLeft($user->getWoofsleft()+1);
         }
         $this->em->persist($user);
+        $this->em->flush();
+    }
+
+    /**
+     * Give a woof to another user
+     * @param User $user
+     */
+    public function giveWoof(User $sender, User $collecter){
+        // Sender gives a woof
+        $sender->setWoofsLeft($sender->getWoofsleft()-1);
+        // Collecter obtain a woof who awaiting for a response so we register sender's name
+        $collecter->setWoofs($collecter->getWoofs()+1);
+        $collecter->addAwaitingWoof($collecter->getUsername());
+        
+        $this->em->persist($sender);
+        $this->em->persist($collecter);
         $this->em->flush();
     }
 }
