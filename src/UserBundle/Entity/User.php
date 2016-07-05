@@ -647,20 +647,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set awaitingWoof
-     *
-     * @param string $awaitingWoof
-     *
-     * @return User
-     */
-    public function setAwaitingWoof($awaitingWoof)
-    {
-        $this->awaitingWoof = $awaitingWoof;
-
-        return $this;
-    }
-
-    /**
      * Set woofs
      *
      * @param integer $woofs

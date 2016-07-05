@@ -17,3 +17,7 @@ app_subscribe_premium:
 app_unsubscribe_premium:
     path:     /unsubscribe
     defaults: { _controller: AppBundle:Premium:unsubscribe }
+    
+app_send_woof:
+    path: /send/woof/{id}
+    defaults: { _controller: AppBundle:Meeting:sendWoof }
