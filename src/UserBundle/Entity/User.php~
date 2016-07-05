@@ -2,6 +2,7 @@
 
 namespace UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use UserBundle\Validator as UserAssert;
@@ -210,11 +211,8 @@ class User extends BaseUser
      * )
      */
     protected $endsub;
-
     /**
-     * @var array
-     *
-     * @ORM\Column(name="awaitingWoof", type="text", nullable=true)
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User")
      */
     protected $awaitingWoof;
 
@@ -249,7 +247,8 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->status = 'classic';
-        $this->awaitingWoof =  array();
+        $this->woofs =  0;
+        $this->woofsLeft =  0;
     }
 
     /**
@@ -623,26 +622,50 @@ class User extends BaseUser
     }
 
     /**
-     * Add awaitingWoof
+     * Set woofs
      *
-     * @param string $awaitingWoof
+     * @param integer $woofs
      *
      * @return User
      */
-    public function addAwaitingWoof($awaitingWoof)
+    public function setWoofs($woofs)
     {
-        $this->awaitingWoof[] = $awaitingWoof;
+        $this->woofs = $woofs;
 
         return $this;
     }
 
     /**
-     * Get awaitingWoof
+     * Get woofs
      *
-     * @return array
+     * @return integer
      */
-    public function getAwaitingWoof()
+    public function getWoofs()
     {
-        return $this->awaitingWoof;
+        return $this->woofs;
+    }
+
+    /**
+     * Set woofsLeft
+     *
+     * @param integer $woofsLeft
+     *
+     * @return User
+     */
+    public function setWoofsLeft($woofsLeft)
+    {
+        $this->woofsLeft = $woofsLeft;
+
+        return $this;
+    }
+
+    /**
+     * Get woofsLeft
+     *
+     * @return integer
+     */
+    public function getWoofsLeft()
+    {
+        return $this->woofsLeft;
     }
 }

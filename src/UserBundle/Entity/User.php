@@ -2,6 +2,7 @@
 
 namespace UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use UserBundle\Validator as UserAssert;
@@ -210,11 +211,8 @@ class User extends BaseUser
      * )
      */
     protected $endsub;
-
     /**
-     * @var array
-     *
-     * @ORM\Column(name="awaitingWoof", type="text", nullable=true)
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User")
      */
     protected $awaitingWoof;
 
@@ -249,7 +247,8 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->status = 'classic';
-        $this->awaitingWoof =  array();
+        $this->woofs =  0;
+        $this->woofsLeft =  0;
     }
 
     /**
@@ -623,30 +622,6 @@ class User extends BaseUser
     }
 
     /**
-     * Add awaitingWoof
-     *
-     * @param string $awaitingWoof
-     *
-     * @return User
-     */
-    public function addAwaitingWoof($awaitingWoof)
-    {
-        $this->awaitingWoof[] = $awaitingWoof;
-
-        return $this;
-    }
-
-    /**
-     * Get awaitingWoof
-     *
-     * @return array
-     */
-    public function getAwaitingWoof()
-    {
-        return $this->awaitingWoof;
-    }
-
-    /**
      * Set woofs
      *
      * @param integer $woofs
@@ -692,5 +667,39 @@ class User extends BaseUser
     public function getWoofsLeft()
     {
         return $this->woofsLeft;
+    }
+
+    /**
+     * Add awaitingWoof
+     *
+     * @param \UserBundle\Entity\User $awaitingWoof
+     *
+     * @return User
+     */
+    public function addAwaitingWoof(\UserBundle\Entity\User $awaitingWoof)
+    {
+        $this->awaitingWoof[] = $awaitingWoof;
+
+        return $this;
+    }
+
+    /**
+     * Remove awaitingWoof
+     *
+     * @param \UserBundle\Entity\User $awaitingWoof
+     */
+    public function removeAwaitingWoof(\UserBundle\Entity\User $awaitingWoof)
+    {
+        $this->awaitingWoof->removeElement($awaitingWoof);
+    }
+
+    /**
+     * Get awaitingWoof
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAwaitingWoof()
+    {
+        return $this->awaitingWoof;
     }
 }

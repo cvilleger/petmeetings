@@ -14,3 +14,7 @@ services:
     PremiumService:
         class:     AppBundle\Service\PremiumService
         arguments: [ "@doctrine.orm.entity_manager" ]
+
+    MeetingService:
+        class:     AppBundle\Service\MeetingService
+        arguments: [ "@doctrine.orm.entity_manager" ]
