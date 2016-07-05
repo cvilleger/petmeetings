@@ -10,3 +10,7 @@ services:
     UploadService:
         class:     AppBundle\Service\UploadService
         arguments: [ "%kernel.root_dir%" ]
+
+    PremiumService:
+        class:     AppBundle\Service\PremiumService
+        arguments: [ "@doctrine.orm.entity_manager" ]
