@@ -668,4 +668,38 @@ class User extends BaseUser
     {
         return $this->woofsLeft;
     }
+
+    /**
+     * Add awaitingWoof
+     *
+     * @param \UserBundle\Entity\User $awaitingWoof
+     *
+     * @return User
+     */
+    public function addAwaitingWoof(\UserBundle\Entity\User $awaitingWoof)
+    {
+        $this->awaitingWoof[] = $awaitingWoof;
+
+        return $this;
+    }
+
+    /**
+     * Remove awaitingWoof
+     *
+     * @param \UserBundle\Entity\User $awaitingWoof
+     */
+    public function removeAwaitingWoof(\UserBundle\Entity\User $awaitingWoof)
+    {
+        $this->awaitingWoof->removeElement($awaitingWoof);
+    }
+
+    /**
+     * Get awaitingWoof
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAwaitingWoof()
+    {
+        return $this->awaitingWoof;
+    }
 }

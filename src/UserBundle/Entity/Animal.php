@@ -33,6 +33,14 @@ class Animal
     /**
      * @var string
      *
+     * @ORM\Column(name="canonicalName", type="string", length=255)
+     * @Assert\Length(min = 3, minMessage = "The name of your animal must contain at least 3 characters")
+     */
+    private $canonicalName;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="gender", type="string", length=255, nullable=true)
      */
     private $gender;
@@ -288,5 +296,29 @@ class Animal
     public function getPictureName()
     {
         return $this->pictureName;
+    }
+
+    /**
+     * Set canonicalName
+     *
+     * @param string $canonicalName
+     *
+     * @return Animal
+     */
+    public function setCanonicalName($canonicalName)
+    {
+        $this->canonicalName = $canonicalName;
+
+        return $this;
+    }
+
+    /**
+     * Get canonicalName
+     *
+     * @return string
+     */
+    public function getCanonicalName()
+    {
+        return $this->canonicalName;
     }
 }

@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    {% if user.awaitingWoof is defined %}
+    {% if user.awaitingWoof is not empty %}
         On s'intéresse à votre profil :
         {% for sender in user.awaitingWoof %}
             <div>
@@ -18,7 +18,7 @@
     {% endif %}
 
 <div class="fos_user_user_show">
-    {% if user.pictureName is defined %}
+    {% if user.pictureName is not empty %}
         <img src={{ asset("uploads/"~user.pictureName) }} alt={{ user.username}}>
     {% endif %}
     <p>{{ 'profile.show.user.username'|trans }}: {{ user.username }}</p>

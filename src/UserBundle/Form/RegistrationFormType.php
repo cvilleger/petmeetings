@@ -48,8 +48,7 @@ class RegistrationFormType extends AbstractType
             ))
             ->add('city', TextType::class, array(
                 'label' => 'form.user.city',
-                'translation_domain' => 'UserBundle',
-                'required' => false
+                'translation_domain' => 'UserBundle'
             ))
             ->add ('birthday', BirthdayType::class, array(
                 'label' => 'form.user.birthday',
@@ -77,8 +76,7 @@ class RegistrationFormType extends AbstractType
                 ),
                 'expanded' => true,
                 'label' => 'form.user.gender',
-                'translation_domain' => 'UserBundle',
-                'required' => false
+                'translation_domain' => 'UserBundle'
             ))
             ->add('orientation', ChoiceType::class, array(
                 'choices' => array(

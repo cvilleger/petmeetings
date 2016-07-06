@@ -61,8 +61,7 @@ class UserEditType extends AbstractType
             ))
             ->add('city', TextType::class, array(
                 'label' => 'form.user.city',
-                'translation_domain' => 'UserBundle',
-                'required' => false
+                'translation_domain' => 'UserBundle'
             ))
             ->add('biography', TextareaType::class, array(
                 'label' => 'form.user.biography',
@@ -86,8 +85,7 @@ class UserEditType extends AbstractType
                 ),
                 'expanded' => true,
                 'label' => 'form.user.gender',
-                'translation_domain' => 'UserBundle',
-                'required' => false
+                'translation_domain' => 'UserBundle'
             ))
             ->add('orientation', ChoiceType::class, array(
                 'choices' => array(

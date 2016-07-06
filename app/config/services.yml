@@ -18,3 +18,7 @@ services:
     MeetingService:
         class:     AppBundle\Service\MeetingService
         arguments: [ "@doctrine.orm.entity_manager" ]
+
+    SearchService:
+        class:     AppBundle\Service\SearchService
+        arguments: [ "@doctrine.orm.entity_manager" ]
