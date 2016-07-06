@@ -297,4 +297,28 @@ class Animal
     {
         return $this->pictureName;
     }
+
+    /**
+     * Set canonicalName
+     *
+     * @param string $canonicalName
+     *
+     * @return Animal
+     */
+    public function setCanonicalName($canonicalName)
+    {
+        $this->canonicalName = $canonicalName;
+
+        return $this;
+    }
+
+    /**
+     * Get canonicalName
+     *
+     * @return string
+     */
+    public function getCanonicalName()
+    {
+        return $this->canonicalName;
+    }
 }

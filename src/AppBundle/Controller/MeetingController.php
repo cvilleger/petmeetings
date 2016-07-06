@@ -23,10 +23,10 @@ class MeetingController extends Controller {
         return $this->redirect($this->generateUrl('user_find', array('id' => $user->getId())));
     }
 
-    public function answerWoofAction(User $user) {
+    public function answerWoofAction(User $user, $answer) {
         $sender = $this->getUser();
         if(isset($sender))
-            $this->meetingService->answerWoof($user, $sender);
+            $this->meetingService->answerWoof($user, $sender, $answer);
 
         return $this->redirect($this->generateUrl('fos_user_profile_show'));
     }

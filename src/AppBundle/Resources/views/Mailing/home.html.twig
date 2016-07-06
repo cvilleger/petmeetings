@@ -1,0 +1,10 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+
+    {% for acceptedWoof in app.user.acceptedWoof %}
+        <a href="{{ path('user_find', {'id': acceptedWoof.id}) }}"> {{ acceptedWoof.username }} </a>
+        <a href=""> Dernier message </a>
+    {% endfor %}
+
+{% endblock %}

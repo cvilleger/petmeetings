@@ -213,8 +213,14 @@ class User extends BaseUser
     protected $endsub;
     /**
      * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinTable(name="awaitingWoof")
      */
     protected $awaitingWoof;
+    /**
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinTable(name="acceptedWoof")
+     */
+    protected $acceptedWoof;
 
     /**
      * @var integer
@@ -701,5 +707,39 @@ class User extends BaseUser
     public function getAwaitingWoof()
     {
         return $this->awaitingWoof;
+    }
+
+    /**
+     * Add acceptedWoof
+     *
+     * @param \UserBundle\Entity\User $acceptedWoof
+     *
+     * @return User
+     */
+    public function addAcceptedWoof(\UserBundle\Entity\User $acceptedWoof)
+    {
+        $this->acceptedWoof[] = $acceptedWoof;
+
+        return $this;
+    }
+
+    /**
+     * Remove acceptedWoof
+     *
+     * @param \UserBundle\Entity\User $acceptedWoof
+     */
+    public function removeAcceptedWoof(\UserBundle\Entity\User $acceptedWoof)
+    {
+        $this->acceptedWoof->removeElement($acceptedWoof);
+    }
+
+    /**
+     * Get acceptedWoof
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAcceptedWoof()
+    {
+        return $this->acceptedWoof;
     }
 }

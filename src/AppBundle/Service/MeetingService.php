@@ -42,8 +42,10 @@ class MeetingService{
      * Answer a woof sending by another user
      * @param User $user
      */
-    public function answerWoof(User $sender, User $collecter){
+    public function answerWoof(User $sender, User $collecter, $answer){
         $collecter->removeAwaitingWoof($sender);
+        if($answer == 'yes')
+            $collecter->addAcceptedWoof($sender);
         
         $this->em->persist($collecter);
         $this->em->flush();

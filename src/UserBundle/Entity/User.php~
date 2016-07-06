@@ -76,7 +76,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=20, nullable=true)
+     * @ORM\Column(name="city", type="string", length=20)
      *
      * @Assert\Type(
      *     type = "string",
@@ -155,7 +155,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="gender", type="string", nullable=true)
+     * @ORM\Column(name="gender", type="string")
      *
      * @Assert\Type(
      *     type = "string",
@@ -213,8 +213,14 @@ class User extends BaseUser
     protected $endsub;
     /**
      * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinTable(name="awaitingWoof")
      */
     protected $awaitingWoof;
+    /**
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinTable(name="acceptedWoof")
+     */
+    protected $acceptedWoof;
 
     /**
      * @var integer
