@@ -10,3 +10,11 @@ services:
     UploadService:
         class:     AppBundle\Service\UploadService
         arguments: [ "%kernel.root_dir%" ]
+
+    PremiumService:
+        class:     AppBundle\Service\PremiumService
+        arguments: [ "@doctrine.orm.entity_manager" ]
+
+    MeetingService:
+        class:     AppBundle\Service\MeetingService
+        arguments: [ "@doctrine.orm.entity_manager" ]

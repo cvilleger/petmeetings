@@ -5,3 +5,24 @@ app_search:
 app_advanced_search:
     path: /search/advanced
     defaults: { _controller: AppBundle:Search:AdvancedSearch }
+
+app_view_offers:
+    path:     /offers
+    defaults: { _controller: AppBundle:Premium:view }
+
+app_subscribe_premium:
+    path:     /subscribe/{offer}
+    defaults: { _controller: AppBundle:Premium:subscribe }
+
+app_unsubscribe_premium:
+    path:     /unsubscribe
+    defaults: { _controller: AppBundle:Premium:unsubscribe }
+
+app_send_woof:
+    path: /send/woof/{id}
+    defaults: { _controller: AppBundle:Meeting:sendWoof }
+
+app_answer_woof:
+    path: /answer/woof/{id}
+    defaults: { _controller: AppBundle:Meeting:answerWoof }
+
