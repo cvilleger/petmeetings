@@ -2776,8 +2776,8 @@
    ========================================================================== */
 /* 24. Progress Bar
    ========================================================================== */
-/* line 19, assetic_compassBTSGe4.scss */
-body {
+/* line 19, assetic_compass1CoJK1.scss */
+.nonebg {
   background: url("../images/fond.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -2785,22 +2785,31 @@ body {
   background-size: cover;
 }
 
-/* line 23, assetic_compassBTSGe4.scss */
+/* line 23, assetic_compass1CoJK1.scss */
+.couplebg {
+  background: url("../images/couple2.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* line 27, assetic_compass1CoJK1.scss */
 nav {
   margin-bottom: 2rem;
 }
 
-/* line 27, assetic_compassBTSGe4.scss */
+/* line 31, assetic_compass1CoJK1.scss */
 .bleu {
   color: #1E88E5;
 }
 
-/* line 31, assetic_compassBTSGe4.scss */
+/* line 35, assetic_compass1CoJK1.scss */
 .rose {
   color: #d81b60;
 }
 
-/* line 35, assetic_compassBTSGe4.scss */
+/* line 39, assetic_compass1CoJK1.scss */
 #profilPhoto {
   width: 100%;
   height: auto;
@@ -2810,7 +2819,7 @@ nav {
   box-shadow: rgba(76, 74, 78, 0.4) 0 0 25px, rgba(48, 47, 49, 0.2) 0 0 3px 1px inset;
 }
 
-/* line 44, assetic_compassBTSGe4.scss */
+/* line 48, assetic_compass1CoJK1.scss */
 #petPhoto {
   z-index: 500;
   position: relative;
@@ -2825,82 +2834,82 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* line 57, assetic_compassBTSGe4.scss */
+/* line 61, assetic_compass1CoJK1.scss */
 .bleuPanel {
   border-top: 3px solid #1E88E5;
 }
 
-/* line 61, assetic_compassBTSGe4.scss */
+/* line 65, assetic_compass1CoJK1.scss */
 .rosePanel {
   border-top: 3px solid #d81b60;
 }
 
-/* line 65, assetic_compassBTSGe4.scss */
+/* line 69, assetic_compass1CoJK1.scss */
 .iam {
   font-size: 2rem;
 }
 
-/* line 73, assetic_compassBTSGe4.scss */
+/* line 77, assetic_compass1CoJK1.scss */
 .profilBioTitle .name {
   font-size: 2.5rem;
   font-weight: bold;
 }
-/* line 78, assetic_compassBTSGe4.scss */
+/* line 82, assetic_compass1CoJK1.scss */
 .profilBioTitle .subProfil {
   font-size: 2rem;
 }
 
-/* line 83, assetic_compassBTSGe4.scss */
+/* line 87, assetic_compass1CoJK1.scss */
 .profilPhotos {
   text-align: center;
 }
 
-/* line 87, assetic_compassBTSGe4.scss */
+/* line 91, assetic_compass1CoJK1.scss */
 #infosProfil {
   text-align: center;
 }
-/* line 91, assetic_compassBTSGe4.scss */
+/* line 95, assetic_compass1CoJK1.scss */
 #infosProfil .s5 {
   text-align: center;
   margin: 0 3%;
 }
-/* line 96, assetic_compassBTSGe4.scss */
+/* line 100, assetic_compass1CoJK1.scss */
 #infosProfil span {
   display: block;
   text-align: left;
   padding: 1rem 0.5rem;
   border-bottom: 1px	solid #CEC9D3;
 }
-/* line 102, assetic_compassBTSGe4.scss */
+/* line 106, assetic_compass1CoJK1.scss */
 #infosProfil .informationName span {
   color: #63aced;
 }
-/* line 105, assetic_compassBTSGe4.scss */
+/* line 109, assetic_compass1CoJK1.scss */
 #infosProfil .informationValue span {
   color: #272628;
 }
 
-/* line 111, assetic_compassBTSGe4.scss */
+/* line 115, assetic_compass1CoJK1.scss */
 #likes {
   padding: 1rem;
   vertical-align: bottom;
   padding-top: 6rem;
   text-align: center;
 }
-/* line 118, assetic_compassBTSGe4.scss */
+/* line 122, assetic_compass1CoJK1.scss */
 #likes .fa {
   font-weight: 500;
   font-size: 3rem;
   color: #1360a4;
   margin: 0 0.5rem;
 }
-/* line 124, assetic_compassBTSGe4.scss */
+/* line 128, assetic_compass1CoJK1.scss */
 #likes .cpt {
   font-weight: 700;
   font-size: 2.6rem;
 }
 
-/* line 130, assetic_compassBTSGe4.scss */
+/* line 134, assetic_compass1CoJK1.scss */
 #fullscreen {
   background: url("../images/couple.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -2910,7 +2919,7 @@ nav {
   min-height: 700px;
 }
 
-/* line 135, assetic_compassBTSGe4.scss */
+/* line 139, assetic_compass1CoJK1.scss */
 .transparent {
   background: transparent !important;
 }

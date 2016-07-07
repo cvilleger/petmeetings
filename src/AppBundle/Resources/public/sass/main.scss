@@ -16,8 +16,12 @@ $font-stack:    Helvetica, sans-serif;
 	background-size: cover;
 }
 
-body {
+.nonebg {
 	@include cover-background('../images/fond.jpg');
+}
+
+.couplebg {
+	@include cover-background('../images/couple2.jpg');
 }
 
 nav {

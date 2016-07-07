@@ -1,18 +1,48 @@
 {% extends "::base.html.twig" %}
 
-{% block app_title %}{{ parent() }} connexion{% endblock app_title %}
+{% block app_title %}
+{{ parent() }} Se connecter sur PetMeeting
+{% endblock app_title %}
+
+{% block app_background %}couplebg{% endblock app_background %}
 
 {% block body %}
-    <h1>Connexion</h1>
 
-    <form action="{{ path("fos_user_security_check") }}" method="POST">
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
-        <label>Identifiant</label><br>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required"><br>
+<div class="container">
+	<div class="row">
+		<br><br>
+		<br><br>
+		<div class="col s6 offset-s3 card">
+			<form action="{{ path("fos_user_security_check") }}" method="POST">
 
-        <label>Mot de passe</label><br>
-        <input type="password" id="password" name="_password" required="required"><br>
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+				<div >
+					{{ dump(error)}}
+				</div>
+				<div class="input-field ">
+					<input type="text" id="username" name="_username" value="{{ last_username }}" required>
+					<label for="username">Identifiant</label>
+				</div>
 
-        <input type="submit" id="_submit" name="_submit" value="Connexion">
-    </form>
-{% endblock body %}
+				<div class="input-field ">
+					<label for="password">Mot de passe</label>
+					<input type="password" id="password" name="_password" required="required">
+				</div>
+
+				<center>
+					<input type="submit" id="_submit" name="_submit" class="btn" value="Connexion" >
+					<br>
+					<br>
+					<a href="{{ path('fos_user_registration_register') }}" title="">Pas encore inscrit ?</a>
+					-
+					<a href="" title="">Mot de passe oublié ?</a>
+					<br>
+					<br>
+				</center>
+
+
+			</form>
+		</div>
+	</div>
+
+	{% endblock body %}

@@ -2,59 +2,59 @@
 
 {% block body %}
 
-    <div id="fullscreen">
+<div id="fullscreen">
 
-        <div class="container " >
-            <div class="row">
-                <div class="col s8">
-                    <h1>Donnez du chien à votre rencontre</h1>
-                    <h2>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua
-                    </h2>
-                    {% if not app.user %}
-                        <a href="{{ path('fos_user_registration_register') }}">
-                            <button class="waves-effect waves-light blue btn">Je m'inscris</button>
-                        </a>
-                    {% endif %}
-                </div>
+    <div class="container " >
+        <div class="row">
+            <div class="col s8">
+                <h1>Donnez du chien à votre rencontre</h1>
+                <h2>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua
+                </h2>
+                {% if not app.user %}
+                <a href="{{ path('fos_user_registration_register') }}">
+                    <button class="waves-effect waves-light blue btn">Je m'inscris</button>
+                </a>
+                {% endif %}
             </div>
         </div>
     </div>
+</div>
 
 
-    <div class="row pink lighten-1">
-        <div class="container " >
+<div class="row pink lighten-1">
+    <div class="container " >
 
-            <div class="col s4">
-                <h4>L'animal comme ami</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                </p>
-            </div>
-            <div class="col s4">
-                <h4>Rechercher autour de vous</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                </p>
-            </div>
-            <div class="col s4">
-                <h4>Choisissez à qui parler</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                </p>
-            </div>
+        <div class="col s4">
+            <h4>L'animal comme ami</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            </p>
+        </div>
+        <div class="col s4">
+            <h4>Rechercher autour de vous</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            </p>
+        </div>
+        <div class="col s4">
+            <h4>Choisissez à qui parler</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            </p>
         </div>
     </div>
+</div>
 
 {% for user in listUsers %}
-    {{ user.username }} - {{ user.city }}
+{{ user.username }} - {{ user.city }}
 {% endfor %}
 
 {% endblock %}

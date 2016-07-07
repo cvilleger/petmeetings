@@ -17,9 +17,8 @@
 	{% endstylesheets %}
 
 </head>
-<body>
 
-	{% include 'header.html.twig' %}
+<body class="{% block app_background %}nonebg{% endblock %}">
 
 	{% block body %}{% endblock %}
 
