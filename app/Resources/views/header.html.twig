@@ -2,18 +2,20 @@
 
 	<nav>
 		<div class="nav-wrapper transparent">
-			<a href="#" class="brand-logo">PetMeeting</a>
+			<a href="{{ path('homepage') }}" class="brand-logo">PetMeeting</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				{% if app.user %}
 					<li>
-						<form action="{{ path('user_search') }}">
-							<input type="text" name="search">
-							<input type="submit" class="submit_search">
+						<form action="{{ path('app_search') }}" class="search">
+							<input type="text" name="search" class="submit_search">
 						</form>
 					</li>
+					<li><a href="{{ path('app_advanced_search') }}">Recherche avancée</a></li>
 					<li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
 					<li><a href="">Message</a></li>
-					<li><a href="" class="waves-effect waves-light btn pink lighten-1"><span class="fa fa-star-o"></span> Devenez Prémium</a></li>
+					{% if app.user.status == "classic" %}
+						<li><a href="{{ path('app_view_offers') }}" class="waves-effect waves-light btn pink lighten-1"><span class="fa fa-star-o"></span> Devenez Prémium</a></li>
+					{% endif %}
 				{% else %}
 					<li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
 					<li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>

@@ -1,0 +1,28 @@
+form:
+    search:
+        gender: 'Je cherche'
+        size: 'Dont la taille est comprise entre'
+        weight: 'Dont le poids est compris entre'
+        and: 'et'
+        meetingtype: 'Qui recherche des relations de type'
+        submit: 'Rechercher'
+        animal:
+          kind: 'Possédant'
+          race: ''
+          age: 'Agé de'
+          gender: 'De préférence'
+choice:
+    user:
+        gender:
+            1: 'un homme'
+            2: 'une femme'
+        meetingtype:
+            1: 'amicale'
+            2: 'amoureuse'
+    animal:
+        gender:
+            1: 'un mâle'
+            2: 'une femelle'
+        kind:
+            1: 'un chat'
+            2: 'un chien'
