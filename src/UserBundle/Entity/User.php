@@ -218,7 +218,8 @@ class User extends BaseUser
     protected $awaitingWoof;
     
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\AcceptedWoof", mappedBy="acceptedUser", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\AcceptedWoof", mappedBy="currentUser")
+     * @ORM\JoinColumn(nullable=true)
      */
     protected $acceptedWoof;
 
@@ -255,6 +256,7 @@ class User extends BaseUser
         $this->status = 'classic';
         $this->woofs =  0;
         $this->woofsLeft =  0;
+        $this->acceptedWoof = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -685,7 +687,6 @@ class User extends BaseUser
     public function addAcceptedWoof(\AppBundle\Entity\AcceptedWoof $acceptedWoof)
     {
         $this->acceptedWoof[] = $acceptedWoof;
-        $acceptedWoof->setAcceptedUser($this);
 
         return $this;
     }

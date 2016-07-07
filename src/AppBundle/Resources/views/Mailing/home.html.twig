@@ -3,8 +3,12 @@
 {% block body %}
 
     {% for acceptedWoof in app.user.acceptedWoof %}
-        <a href="{{ path('user_find', {'id': acceptedWoof.id}) }}"> {{ acceptedWoof.username }} </a>
-        <a href=""> Dernier message </a>
+        <a href="{{ path('user_find', {'id': acceptedWoof.acceptedUser.id}) }}"> {{ acceptedWoof.acceptedUser.username }} </a>
+
+        {% if acceptedWoof.mail is not empty %}
+            <a href=""> {{ acceptedWoof.mail.last.text }} </a>
+        {% endif %}
+
     {% endfor %}
 
 {% endblock %}

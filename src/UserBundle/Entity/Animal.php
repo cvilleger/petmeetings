@@ -95,6 +95,10 @@ class Animal
     private $pictureName;
     public $picture;
 
+    function __construct() {
+        $this->canonicalName = strtolower($this->name);
+    }
+
 
     /**
      * Get id

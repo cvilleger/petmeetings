@@ -50,6 +50,7 @@ class MeetingService{
             $acceptedWoof->setAcceptedUser($sender);
             $acceptedWoof->setCurrentUser($collecter);
             $collecter->addAcceptedWoof($acceptedWoof);
+            $this->em->persist($acceptedWoof);
         }
         
         $this->em->persist($collecter);

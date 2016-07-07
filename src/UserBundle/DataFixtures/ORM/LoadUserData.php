@@ -51,8 +51,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user->setMeetingtype('amoureuse');
         $user->setStartsub(new \DateTime(date('Y-m-01 00:00:00')));
         $user->setEndsub(new \DateTime(date('Y-m-01 00:00:00',strtotime('+3 month'))));
-        $user->setLikes(5);
-        $user->setLikesleft(1);
+        $user->setWoofs(5);
+        $user->setWoofsLeft(1);
         $password = $encoder->encodePassword($user, 'admin');
         $user->setPassword($password);
         $userManager->updateUser($user);
@@ -78,8 +78,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user->setMeetingtype('amoureuse');
         $user->setStartsub(new \DateTime(date('Y-m-01 00:00:00')));
         $user->setEndsub(new \DateTime(date('Y-m-01 00:00:00',strtotime('+3 month'))));
-        $user->setLikes(5);
-        $user->setLikesleft(1);
+        $user->setWoofs(5);
+        $user->setWoofsLeft(1);
         $password = $encoder->encodePassword($user, 'password');
         $user->setPassword($password);
         $userManager->updateUser($user);
@@ -102,8 +102,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user->setMeetingtype('amicale');
         $user->setStartsub(new \DateTime(date('Y-m-01 00:00:00')));
         $user->setEndsub(new \DateTime(date('Y-m-01 00:00:00',strtotime('+3 month'))));
-        $user->setLikes(5);
-        $user->setLikesleft(1);
+        $user->setWoofs(5);
+        $user->setWoofsLeft(1);
         $password = $encoder->encodePassword($user, 'password');
         $user->setPassword($password);
         $userManager->updateUser($user);

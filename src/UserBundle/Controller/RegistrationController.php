@@ -40,7 +40,6 @@ class RegistrationController extends BaseController
         if ($form->isValid()) {
             $file = $form->get('picture')->getData();
             $fileAnimal = $form->get('animal')->get('picture')->getData();
-            $animal->setCanonicalName(strtolower($form->get('animal')->get('name')->getData()));
 
             if(!empty($file)) {
                 $uniqueFileName = $this->uploadService->uploadFile($file);

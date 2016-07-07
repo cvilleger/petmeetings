@@ -16,7 +16,6 @@ class MailingController extends Controller
 
 	public function accessAction()
 	{
-
 		return $this->render('AppBundle:Mailing:home.html.twig');
 	}
 }
