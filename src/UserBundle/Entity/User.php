@@ -216,9 +216,9 @@ class User extends BaseUser
      * @ORM\JoinTable(name="awaitingWoof")
      */
     protected $awaitingWoof;
+    
     /**
-     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User")
-     * @ORM\JoinTable(name="acceptedWoof")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\AcceptedWoof", mappedBy="acceptedUser", cascade={"persist"})
      */
     protected $acceptedWoof;
 
@@ -258,13 +258,27 @@ class User extends BaseUser
     }
 
     /**
-     * Get id
+     * Set status
      *
-     * @return integer
+     * @param string $status
+     *
+     * @return User
      */
-    public function getId()
+    public function setStatus($status)
     {
-        return $this->id;
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**
@@ -366,7 +380,7 @@ class User extends BaseUser
     /**
      * Set biography
      *
-     * @param String $biography
+     * @param string $biography
      *
      * @return User
      */
@@ -380,7 +394,7 @@ class User extends BaseUser
     /**
      * Get biography
      *
-     * @return String
+     * @return string
      */
     public function getBiography()
     {
@@ -556,78 +570,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set animal
-     *
-     * @param \UserBundle\Entity\Animal $animal
-     *
-     * @return User
-     */
-    public function setAnimal(\UserBundle\Entity\Animal $animal = null)
-    {
-        $this->animal = $animal;
-
-        return $this;
-    }
-
-    /**
-     * Get animal
-     *
-     * @return \UserBundle\Entity\Animal
-     */
-    public function getAnimal()
-    {
-        return $this->animal;
-    }
-
-    /**
-     * Set pictureName
-     *
-     * @param string $pictureName
-     *
-     * @return User
-     */
-    public function setPictureName($pictureName)
-    {
-        $this->pictureName = $pictureName;
-
-        return $this;
-    }
-
-    /**
-     * Get pictureName
-     *
-     * @return string
-     */
-    public function getPictureName()
-    {
-        return $this->pictureName;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status
-     *
-     * @return User
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
      * Set woofs
      *
      * @param integer $woofs
@@ -676,6 +618,30 @@ class User extends BaseUser
     }
 
     /**
+     * Set pictureName
+     *
+     * @param string $pictureName
+     *
+     * @return User
+     */
+    public function setPictureName($pictureName)
+    {
+        $this->pictureName = $pictureName;
+
+        return $this;
+    }
+
+    /**
+     * Get pictureName
+     *
+     * @return string
+     */
+    public function getPictureName()
+    {
+        return $this->pictureName;
+    }
+
+    /**
      * Add awaitingWoof
      *
      * @param \UserBundle\Entity\User $awaitingWoof
@@ -712,13 +678,14 @@ class User extends BaseUser
     /**
      * Add acceptedWoof
      *
-     * @param \UserBundle\Entity\User $acceptedWoof
+     * @param \AppBundle\Entity\AcceptedWoof $acceptedWoof
      *
      * @return User
      */
-    public function addAcceptedWoof(\UserBundle\Entity\User $acceptedWoof)
+    public function addAcceptedWoof(\AppBundle\Entity\AcceptedWoof $acceptedWoof)
     {
         $this->acceptedWoof[] = $acceptedWoof;
+        $acceptedWoof->setAcceptedUser($this);
 
         return $this;
     }
@@ -726,9 +693,9 @@ class User extends BaseUser
     /**
      * Remove acceptedWoof
      *
-     * @param \UserBundle\Entity\User $acceptedWoof
+     * @param \AppBundle\Entity\AcceptedWoof $acceptedWoof
      */
-    public function removeAcceptedWoof(\UserBundle\Entity\User $acceptedWoof)
+    public function removeAcceptedWoof(\AppBundle\Entity\AcceptedWoof $acceptedWoof)
     {
         $this->acceptedWoof->removeElement($acceptedWoof);
     }
@@ -741,5 +708,29 @@ class User extends BaseUser
     public function getAcceptedWoof()
     {
         return $this->acceptedWoof;
+    }
+
+    /**
+     * Set animal
+     *
+     * @param \UserBundle\Entity\Animal $animal
+     *
+     * @return User
+     */
+    public function setAnimal(\UserBundle\Entity\Animal $animal = null)
+    {
+        $this->animal = $animal;
+
+        return $this;
+    }
+
+    /**
+     * Get animal
+     *
+     * @return \UserBundle\Entity\Animal
+     */
+    public function getAnimal()
+    {
+        return $this->animal;
     }
 }

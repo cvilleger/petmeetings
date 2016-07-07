@@ -22,11 +22,9 @@ class SecurityController extends BaseController
         $this->premiumService = $this->container->get('PremiumService');
         $user = $this->getUser();
         if(isset($user)) {
-            if($user->getLastLogin()->format('Y-m-d') == date('Y-m-d')) {
                 // Give privileges of the day
                 if ($user->getLastLogin()->getDay() != new \DateTime())
                     $this->premiumService->receiveWoof($user);
-            }
 
         }
     }
