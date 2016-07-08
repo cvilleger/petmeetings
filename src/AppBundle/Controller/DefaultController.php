@@ -16,17 +16,20 @@ class DefaultController extends Controller
 
 	public function indexAction()
 	{
+		$user = $this->get('security.token_storage')->getToken()->getUser();
+
 		$listUsers = $this->getDoctrine()
-			->getManager()
-			->getRepository('UserBundle:User')
-			->findBy(
-                array(),
-                array('startsub' => 'asc'),
-				array('limit' => 3)
-            );
-		
+		->getManager()
+		->getRepository('UserBundle:User')
+		->findBy(
+			array(),
+			array('startsub' => 'asc'),
+			array('limit' => 3)
+			);
+
 		return $this->render('AppBundle:Default:index.html.twig', array(
-			'listUsers' => $listUsers
-		));
+			'listUsers' => $listUsers,
+			'user' => $user
+			));
 	}
 }

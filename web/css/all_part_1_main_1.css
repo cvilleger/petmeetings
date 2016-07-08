@@ -2776,16 +2776,7 @@
    ========================================================================== */
 /* 24. Progress Bar
    ========================================================================== */
-/* line 19, assetic_compass1CoJK1.scss */
-.nonebg {
-  background: url("../images/fond.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-/* line 23, assetic_compass1CoJK1.scss */
+/* line 23, assetic_compasschfdQt.scss */
 .couplebg {
   background: url("../images/couple2.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -2794,22 +2785,32 @@
   background-size: cover;
 }
 
-/* line 27, assetic_compass1CoJK1.scss */
+/* line 27, assetic_compasschfdQt.scss */
+.hearts {
+  background: url("../images/couple.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 700px;
+}
+
+/* line 32, assetic_compasschfdQt.scss */
 nav {
   margin-bottom: 2rem;
 }
 
-/* line 31, assetic_compass1CoJK1.scss */
+/* line 36, assetic_compasschfdQt.scss */
 .bleu {
   color: #1E88E5;
 }
 
-/* line 35, assetic_compass1CoJK1.scss */
+/* line 40, assetic_compasschfdQt.scss */
 .rose {
   color: #d81b60;
 }
 
-/* line 39, assetic_compass1CoJK1.scss */
+/* line 44, assetic_compasschfdQt.scss */
 #profilPhoto {
   width: 100%;
   height: auto;
@@ -2819,7 +2820,7 @@ nav {
   box-shadow: rgba(76, 74, 78, 0.4) 0 0 25px, rgba(48, 47, 49, 0.2) 0 0 3px 1px inset;
 }
 
-/* line 48, assetic_compass1CoJK1.scss */
+/* line 53, assetic_compasschfdQt.scss */
 #petPhoto {
   z-index: 500;
   position: relative;
@@ -2834,92 +2835,89 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* line 61, assetic_compass1CoJK1.scss */
+/* line 66, assetic_compasschfdQt.scss */
 .bleuPanel {
   border-top: 3px solid #1E88E5;
 }
 
-/* line 65, assetic_compass1CoJK1.scss */
+/* line 70, assetic_compasschfdQt.scss */
 .rosePanel {
   border-top: 3px solid #d81b60;
 }
 
-/* line 69, assetic_compass1CoJK1.scss */
+/* line 74, assetic_compasschfdQt.scss */
 .iam {
   font-size: 2rem;
 }
 
-/* line 77, assetic_compass1CoJK1.scss */
+/* line 82, assetic_compasschfdQt.scss */
 .profilBioTitle .name {
   font-size: 2.5rem;
   font-weight: bold;
 }
-/* line 82, assetic_compass1CoJK1.scss */
+/* line 87, assetic_compasschfdQt.scss */
 .profilBioTitle .subProfil {
   font-size: 2rem;
 }
 
-/* line 87, assetic_compass1CoJK1.scss */
+/* line 92, assetic_compasschfdQt.scss */
 .profilPhotos {
   text-align: center;
 }
 
-/* line 91, assetic_compass1CoJK1.scss */
+/* line 96, assetic_compasschfdQt.scss */
 #infosProfil {
   text-align: center;
 }
-/* line 95, assetic_compass1CoJK1.scss */
+/* line 100, assetic_compasschfdQt.scss */
 #infosProfil .s5 {
   text-align: center;
   margin: 0 3%;
 }
-/* line 100, assetic_compass1CoJK1.scss */
+/* line 105, assetic_compasschfdQt.scss */
 #infosProfil span {
   display: block;
   text-align: left;
   padding: 1rem 0.5rem;
   border-bottom: 1px	solid #CEC9D3;
 }
-/* line 106, assetic_compass1CoJK1.scss */
+/* line 111, assetic_compasschfdQt.scss */
 #infosProfil .informationName span {
   color: #63aced;
 }
-/* line 109, assetic_compass1CoJK1.scss */
+/* line 114, assetic_compasschfdQt.scss */
 #infosProfil .informationValue span {
   color: #272628;
 }
 
-/* line 115, assetic_compass1CoJK1.scss */
+/* line 120, assetic_compasschfdQt.scss */
 #likes {
   padding: 1rem;
   vertical-align: bottom;
   padding-top: 6rem;
   text-align: center;
 }
-/* line 122, assetic_compass1CoJK1.scss */
+/* line 127, assetic_compasschfdQt.scss */
 #likes .fa {
   font-weight: 500;
   font-size: 3rem;
   color: #1360a4;
   margin: 0 0.5rem;
 }
-/* line 128, assetic_compass1CoJK1.scss */
+/* line 133, assetic_compasschfdQt.scss */
 #likes .cpt {
   font-weight: 700;
   font-size: 2.6rem;
 }
 
-/* line 134, assetic_compass1CoJK1.scss */
-#fullscreen {
-  background: url("../images/couple.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 700px;
-}
-
-/* line 139, assetic_compass1CoJK1.scss */
+/* line 141, assetic_compasschfdQt.scss */
 .transparent {
   background: transparent !important;
+}
+
+/* line 146, assetic_compasschfdQt.scss */
+h3 {
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
 }

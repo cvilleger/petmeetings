@@ -17,11 +17,16 @@ $font-stack:    Helvetica, sans-serif;
 }
 
 .nonebg {
-	@include cover-background('../images/fond.jpg');
+	//@include cover-background('../images/fond.jpg');
 }
 
 .couplebg {
 	@include cover-background('../images/couple2.jpg');
+}
+
+.hearts {
+	@include cover-background('../images/couple.png');
+	min-height: 700px;
 }
 
 nav {
@@ -131,11 +136,15 @@ nav {
 	}
 }
 
-#fullscreen {
-	@include cover-background('../images/couple.jpg');
-	min-height: 700px;
-}
+
 
 .transparent {
 	background: transparent!important;
+}
+
+
+h3 {
+	width: 100%;
+	color : white ;
+	text-transform: uppercase;
 }

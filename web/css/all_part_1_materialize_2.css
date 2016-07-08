@@ -6616,7 +6616,7 @@ textarea.materialize-textarea + label:after {
 }
 /* line 188, ../../../src/AppBundle/Resources/public/sass/components/forms/_input-fields.scss */
 .input-field input[type=search]:focus {
-  background-color: #fff;
+  background-color: #D9D5DE;
   border: 0;
   box-shadow: none;
   color: #444;
@@ -6966,8 +6966,8 @@ form p:last-child {
   height: 13px;
   border-top: 2px solid transparent;
   border-left: 2px solid transparent;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  border-right: 2px solid #D9D5DE;
+  border-bottom: 2px solid #D9D5DE;
   -webkit-transform: rotateZ(37deg);
   transform: rotateZ(37deg);
   -webkit-transform-origin: 100% 100%;
@@ -7319,7 +7319,7 @@ input[type=range] + .thumb.active {
 }
 /* line 53, ../../../src/AppBundle/Resources/public/sass/components/forms/_range.scss */
 input[type=range] + .thumb.active .value {
-  color: #fff;
+  color: #D9D5DE;
   margin-left: -1px;
   margin-top: 8px;
   font-size: 10px;

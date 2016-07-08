@@ -58,6 +58,7 @@ class RegistrationFormType extends AbstractType
 			))
 		->add('biography', TextareaType::class, array(
 			'label' => 'form.user.biography',
+			'attr' => array('class' => 'materialize-textarea'),
 			'translation_domain' => 'UserBundle',
 			'required' => false
 			))

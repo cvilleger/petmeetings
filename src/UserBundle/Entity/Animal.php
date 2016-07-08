@@ -78,7 +78,7 @@ class Animal
      * @ORM\Column(name="biography", type="text", nullable=true)
      */
     private $biography;
-    
+
     /**
      * @var string
      *

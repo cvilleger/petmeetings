@@ -1,60 +1,112 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
+{% block app_background %}hearts{% endblock app_background %}
+
+{% block header %} {{ parent()}} {% endblock %}
+
 {% block body %}
 
-<div id="fullscreen">
+<div class="container " >
+	<div class="row">
+		<div class="col s8">
+			<h1>Donnez du chien à votre rencontre</h1>
+			<h2>
+				Rencontrez des propriétaires d'animaux de votre région.
+				Vos animaux de compagnie vous aideront à trouver votre compagnon pour la vie !
+			</h2>
+			{% if not app.user %}
+			<a href="{{ path('fos_user_registration_register') }}">
+				<button class="waves-effect waves-light blue btn">Je m'inscris</button>
+			</a>
+			{% endif %}
+		</div>
+		<div class="col s4 center">
+			<img src="{{ asset('images/logo.png') }}" class="responsive-img" alt="" id="logo">
+		</div>
+	</div>
 
-    <div class="container " >
-        <div class="row">
-            <div class="col s8">
-                <h1>Donnez du chien à votre rencontre</h1>
-                <h2>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua
-                </h2>
-                {% if not app.user %}
-                <a href="{{ path('fos_user_registration_register') }}">
-                    <button class="waves-effect waves-light blue btn">Je m'inscris</button>
-                </a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
+	<h3 class="card blue lighten-1"><span class="fa fa-star-o"> </span> L'offre Boosted Lover</h3>
+	<div class="row card-panel">
+		<div class="col s12 ">
+			<p>
+				Les bénéficiaires de cette offre peuvent envoyer cinq “woof” par jour au lieu d’un.
+				Un “woof” est un moyen pour un utilisateur de signifier à un autre que son profil l'intéresse et qu’il souhaite commencer à communiquer.
+				L’objectif est de permettre à un utilisateur d’augmenter ses chances de rencontrer quelqu’un.
+			</p>
+		<!--	<a href="{{ path('app_subscribe_premium', {'offer':"boostedLover"} ) }}">
+				<button class="btn btn-large" data-target="modal1" class="btn modal-trigger">Devenir premium</button>
+			</a>-->
+			<button class="btn btn-large waves-effect waves-light btn modal-trigger" href="#modal1">Devenir premium</button>
+		</div>
+	</div>
+
+	<h3 class="card blue lighten-1"><span class="fa undo"> </span> Derniers inscrits</h3>
+	<div class="row pink lighten-1">
+		<div class="container " >
+			<br>
+			<div class="col s4">
+				<h4>L'animal comme ami</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				</p>
+			</div>
+			<div class="col s4">
+				<h4>Rechercher autour de vous</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				</p>
+			</div>
+			<div class="col s4">
+				<h4>Choisissez à qui parler</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				</p>
+				<br>
+			</div>
+			<br>
+
+		</div>
+	</div>
+</div>
+<div id="modal1" class="modal">
+	<div class="modal-content center">
+		<h4>Souscrire à l'offre boostedLover</h4>
+		<img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="">
+		<p>Vous allez être redirigé vers le site de PayPal pour réaliser la transaction</p>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Finaliser le paiement</a>
+	</div>
+
+	<form style='display: none;' id="paypal_checkout" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+		<input name="cmd" value="_cart" type="hidden">
+		<input name="upload" value="1" type="hidden">
+		<input name="no_note" value="0" type="hidden">
+		<input name="bn" value="PP-BuyNowBF" type="hidden">
+		<input name="rm" value="2" type="hidden">
+		<input name="business" value="sell@yopmail.com" type="hidden">
+		<input name="handling_cart" v alue="0" type="hidden">
+		<input name="currency_code" value="EUR"  type="hidden">
+		<input name="lc" value="EUR" type="hidden">
+		<input name="cbt" value="Finaliser votre commande" type="hidden">
+		<input name="return" value="" type="hidden">
+		<input name="cancel_return" value="http://" type="hidden">
+		<input name="custom" type="hidden" value="">
+		<!-- Article 1 : abonnement RSP-->
+		<div id="item_1" class="itemwrap">
+			<input name="item_name_1" value="Offre BoostedLover" type="hidden">
+			<input name="item_number_1" value="1" type="hidden">
+			<input id="quantity_1"  name="quantity_1" value="1" type="hidden">
+			<input id="amount_1"  name="amount_1" value="9.99" type="hidden">
+			<input name="shipping_1" value="0" type="hidden">
+		</div>
+	</form>
 </div>
 
-
-<div class="row pink lighten-1">
-    <div class="container " >
-
-        <div class="col s4">
-            <h4>L'animal comme ami</h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            </p>
-        </div>
-        <div class="col s4">
-            <h4>Rechercher autour de vous</h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            </p>
-        </div>
-        <div class="col s4">
-            <h4>Choisissez à qui parler</h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            </p>
-        </div>
-    </div>
-</div>
-
-{% for user in listUsers %}
-{{ user.username }} - {{ user.city }}
-{% endfor %}
-
-{% endblock %}
+{% endblock body %}

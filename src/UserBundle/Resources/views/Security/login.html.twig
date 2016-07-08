@@ -1,8 +1,7 @@
 {% extends "::base.html.twig" %}
 
-{% block app_title %}
-{{ parent() }} Se connecter sur PetMeeting
-{% endblock app_title %}
+{% block app_title %}{{ parent() }} Se connecter sur PetMeeting{% endblock app_title %}
+{% block header %} {% endblock header %}
 
 {% block app_background %}couplebg{% endblock app_background %}
 
@@ -12,6 +11,9 @@
 	<div class="row">
 		<br><br>
 		<br><br>
+		<div class="col s4 offset-s4">
+			<img src="{{ asset('images/logo.png') }}" class="responsive-img" alt="" id="logo">
+		</div>
 		<div class="col s6 offset-s3 card">
 			<form action="{{ path("fos_user_security_check") }}" method="POST">
 
