@@ -28,5 +28,9 @@ app_answer_woof:
 
 app_access_mail:
     path: /mail
-    defaults: { _controller: AppBundle:Mailing:access }
+    defaults: { _controller: AppBundle:Meeting:access }
+
+app_write_mail:
+    path: /mail/write/{id}
+    defaults: { _controller: AppBundle:Meeting:write }
 

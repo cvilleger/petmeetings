@@ -56,4 +56,14 @@ class MeetingService{
         $this->em->persist($collecter);
         $this->em->flush();
     }
+
+    /**
+     * Sending mail to an acceptedUser
+     * @param AcceptedWoof $acceptedWoof
+     */
+    public function saveMail(AcceptedWoof $acceptedWoof, $mail){
+        $mail->setAcceptedWoof($acceptedWoof);
+        $this->em->persist($mail);
+        $this->em->flush();
+    }
 }

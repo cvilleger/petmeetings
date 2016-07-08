@@ -1,0 +1,22 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+
+    {% for mail in acceptedWoof.mail %}
+        <div class="row col s9">
+            {{ mail.text }}
+        </div>
+
+    {% endfor %}
+
+    {{ form_start(form) }}
+
+    {{ form_label(form.text) }}
+    {{ form_widget(form.text) }}
+    {{ form_errors(form.text) }}
+
+    <input type="submit">
+
+    {{ form_end(form) }}
+
+{% endblock %}

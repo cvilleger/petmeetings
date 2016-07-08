@@ -7,10 +7,13 @@ form:
         meetingtype: 'Qui recherche des relations de type'
         submit: 'Rechercher'
         animal:
-          kind: 'Possédant'
-          race: ''
-          age: 'Agé de'
-          gender: 'De préférence'
+            kind: 'Possédant'
+            race: ''
+            age: 'Agé de'
+            gender: 'De préférence'
+    write:
+        text: 'Ecrivez votre message'
+
 choice:
     user:
         gender:
