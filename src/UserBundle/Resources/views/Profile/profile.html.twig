@@ -12,14 +12,14 @@
 <div class="container ">
 	<br><br>
 	<div class="row">
-		<div class="col s4 offset-s1 profilPhotos">
+		<div class="col s4 offset-s2 profilPhotos">
 			<img src="{{ asset('bundles/app/images/photo1.jpg') }}" alt="" id="profilPhoto">
 			<img src="{{ asset('bundles/app/images/chat1.png') }}" alt="" id="petPhoto">
 		</div>
 
-		<div class="col s5 ">
+		<div class="col s4 ">
 			<div class="profilBioTitle bleu">
-				<span class="iam">Salut, je suis</span>
+				<span class="iam">Salut, je suis</span><br>
 				<span class="name">
 					{% if user.firstname is defined %}
 					{{ user.firstname }}
@@ -28,18 +28,14 @@
 					{% endif %}
 				</span>
 			</div>
-			<span class="subProfil"><b>age</b></span>
-
 			<br>
 
 			<div class="profilBioTitle rose">
-				<span class="iam">Salut, je suis</span>
+				<span class="iam">Accompagné de</span><br>
 				<span class="name">{{ user.animal.name }}</span>
 			</div>
 			<span class="subProfil"><b>{{ user.animal.kind|trans }} {{ user.animal.race }}</b></span>
-			<br>
 			<span class="subProfil bleu">On habite à <b>{{ user.city }}</b></span>
-			<br><br>
 			<div class="col s12 card-panel">
 				{{ user.biography }}
 			</div>
