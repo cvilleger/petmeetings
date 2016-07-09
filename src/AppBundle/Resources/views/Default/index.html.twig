@@ -1,23 +1,28 @@
-{% extends 'AppBundle::layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block app_background %}hearts{% endblock app_background %}
-
-{% block header %} {{ parent()}} {% endblock %}
 
 {% block body %}
 
 <div class="container " >
+	<br>
 	<div class="row">
-		<div class="col s8">
+		<div class="col s8 card">
 			<h1>Donnez du chien à votre rencontre</h1>
-			<h2>
+			<h4>
 				Rencontrez des propriétaires d'animaux de votre région.
 				Vos animaux de compagnie vous aideront à trouver votre compagnon pour la vie !
-			</h2>
+			</h4>
 			{% if not app.user %}
-			<a href="{{ path('fos_user_registration_register') }}">
-				<button class="waves-effect waves-light blue btn">Je m'inscris</button>
-			</a>
+			<p>
+				<a href="{{ path('fos_user_registration_register') }}">
+					<button class="waves-effect waves-light blue btn">Je m'inscris</button>
+				</a>
+				<a href="{{ path('fos_user_registration_register') }}">
+					<button class="waves-effect waves-light pink lighten-2 btn">Déjà inscrit ?</button>
+				</a>
+			</p>
+
 			{% endif %}
 		</div>
 		<div class="col s4 center">
@@ -25,6 +30,23 @@
 		</div>
 	</div>
 
+	<h3 class="card blue lighten-1"><span class="fa undo"> </span> Derniers inscrits</h3>
+	<div class="row">
+		{% for profile in listUsers %}
+		<div class="col s4 profilPhotos">
+			<img src="{{ asset('uploads/' ~ profile.pictureName) }}" alt="" id="profilPhoto">
+			<img src="{{ asset('uploads/' ~ profile.animal.pictureName ) }}" alt="" id="petPhoto">
+			<br>
+			<a href="{{ path('user_find', { 'id' : profile.id }) }}">
+				<button class="waves-effect waves-light blue darken-2 btn">
+					<b>{{ profile.firstname }} </b> et {{ profile.animal.name }}
+				</button>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+
+	{% if app.user %}
 	<h3 class="card blue lighten-1"><span class="fa fa-star-o"> </span> L'offre Boosted Lover</h3>
 	<div class="row card-panel">
 		<div class="col s12 ">
@@ -39,39 +61,37 @@
 			<button class="btn btn-large waves-effect waves-light btn modal-trigger" href="#modal1">Devenir premium</button>
 		</div>
 	</div>
+	{% endif %}
 
-	<h3 class="card blue lighten-1"><span class="fa undo"> </span> Derniers inscrits</h3>
-	<div class="row pink lighten-1">
-		<div class="container " >
-			<br>
-			<div class="col s4">
-				<h4>L'animal comme ami</h4>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				</p>
-			</div>
-			<div class="col s4">
-				<h4>Rechercher autour de vous</h4>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				</p>
-			</div>
-			<div class="col s4">
-				<h4>Choisissez à qui parler</h4>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				</p>
-				<br>
-			</div>
-			<br>
-
+	<div class="row pink lighten-1 card">
+		<br>
+		<div class="col s4">
+			<h4>L'animal comme ami</h4>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			</p>
 		</div>
+		<div class="col s4">
+			<h4>Rechercher autour de vous</h4>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			</p>
+		</div>
+		<div class="col s4">
+			<h4>Choisissez à qui parler</h4>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			</p>
+			<br>
+		</div>
+		<br>
+
 	</div>
 </div>
 <div id="modal1" class="modal">

@@ -14,13 +14,15 @@
 		<div class="col s4 offset-s4">
 			<img src="{{ asset('images/logo.png') }}" class="responsive-img" alt="" id="logo">
 		</div>
+		{% if error is not empty %}
+		<div id="" class="col s4 offset-s4 red card">
+			<h5>Veuillez vérifier votre identifiant et mot de passe</h5>
+		</div>
+		{% endif %}
 		<div class="col s6 offset-s3 card">
 			<form action="{{ path("fos_user_security_check") }}" method="POST">
 
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
-				<div >
-					{{ dump(error)}}
-				</div>
 				<div class="input-field ">
 					<input type="text" id="username" name="_username" value="{{ last_username }}" required>
 					<label for="username">Identifiant</label>

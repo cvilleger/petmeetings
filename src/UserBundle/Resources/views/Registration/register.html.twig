@@ -11,15 +11,27 @@
 
 <div class="container ">
 
-	<form action="{{ path("fos_user_security_check") }}" method="POST">
 
-		{{ form_start(form) }}
+	{{ form_start(form) }}
+	<div class="row ">
+
 		<div class="row ">
-
 			<div class="col s4 offset-s4">
 				<img src="{{ asset('images/logo.png') }}" class="responsive-img" alt="" id="logo">
 			</div>
 		</div>
+
+		{% if errors is not empty %}
+		<div id="" class="red card">
+			<h5>Une ou plusieurs erreurs sont présentes dans le formulaire</h5>
+			<ul>
+				{% for error in errors %}
+				<li>{{ error.message }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endif %}
+
 		<h3 class="blue card"> <span class="fa fa-user"> </span> Présentez-vous</h3>
 		<div class="row white card">
 			<div class="col s6  ">
@@ -124,16 +136,11 @@
 			</div>
 			<input type="submit" class="btn" value="{{ 'registration.submit'|trans }}" />
 		</div>
+		{{ form_end(form) }}
+	</div>
 
 
-
-
-	</form>
-</div>
-
-{{ form_end(form) }}
-
-<p>Vous êtes déjà inscrit ? <a href="{{ path("fos_user_security_login") }}">Cliquez ici</a>.</p>
+	<p>Vous êtes déjà inscrit ? <a href="{{ path("fos_user_security_login") }}">Cliquez ici</a>.</p>
 </div>
 
 {% endblock body %}

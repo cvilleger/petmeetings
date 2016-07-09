@@ -20,7 +20,9 @@
 
 <body class="{% block app_background %}nonebg{% endblock %}">
 
+	{% if app.user %}
 	{% block header %} 	{% include 'header.html.twig' %} {% endblock %}
+	{% endif %}
 
 	{% block body %}{% endblock %}
 
@@ -33,6 +35,12 @@
 	<script type="text/javascript" >
 		$(document).ready(function(){
 			$('.modal-trigger').leanModal();
+
+			if($('#formError').length) {
+				$('#formError').leanModal();
+				$('#formError').openModal();
+			}
+
 		});
 	</script>
 	{% endblock %}
