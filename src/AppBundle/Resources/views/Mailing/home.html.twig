@@ -20,7 +20,7 @@
                     <a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}" class="btn waves-effect">Message</a>
                         <span class="row col s9 card-panel">
                             {% if acceptedWoof.mail is not empty %}
-                                <a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}">{{ acceptedWoof.mail.last.text }}</a>
+                                <a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}"><b>Dernier message:</b> {{ acceptedWoof.mail.last.text }}</a>
                             {% endif %}
                         </span>
                     </a>
@@ -46,7 +46,7 @@
                         <a href="{{ path('app_write_mail', {'id': woofSend.id}) }}" class="btn waves-effect">Message</a>
                         <span class="row col s9 card-panel">
                             {% if woofSend.mail is not empty %}
-                                <a href="{{ path('app_write_mail', {'id': woofSend.id}) }}">{{ woofSend.mail.last.text }}</a>
+                                <a href="{{ path('app_write_mail', {'id': woofSend.id}) }}"><b>Dernier message:</b> {{ woofSend.mail.last.text }}</a>
                             {% endif %}
                         </span>
                     </li>
