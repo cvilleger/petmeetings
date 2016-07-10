@@ -6,24 +6,23 @@
 			</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				{% if app.user %}
-				<li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
-				<li><a href="{{ path('app_advanced_search') }}"> <span class="fa fa-search-plus"> </span></a></li>
-                <li><a href="{{ path('app_access_mail') }}">Message</a></li>
-                <li style="margin-right: 25px;">
+				<li style="margin-right: 25px;">
 					<div class="input-field col">
 						<input placeholder="Votre recherche..." id="search-input" type="text" data-url="{{ path('homepage') }}" class="validate">
 					</div>
 				</li>
 				<li id="search-btn" style="cursor: pointer; padding-left: 10px; padding-right: 10px;"><span class="fa fa-search"></span></li>
+				<li><a href="{{ path('app_advanced_search') }}"> <span class="fa fa-search-plus"> </span></a></li>
+				<li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
 				<!-- <li><a href="{# path('app_advanced_search') #}"> <span class="fa fa-search"> </span></a></li> -->
-				<li><a href="{{ path('fos_user_registration_register') }}"> <span class="fa fa-comments"> </span> </a></li>
+				<li><a href="{{ path('app_access_mail') }}"> <span class="fa fa-comments"> </span> </a></li>
 				<li><a href="{{ path('fos_user_security_logout') }}"> <span class="fa fa-power-off"> </span> </a></li>
 				{% if app.user.status == "classic" %}
 				<li><a href="{{ path('app_view_offers') }}" class="waves-effect waves-light btn pink lighten-1"><span class="fa fa-star-o"></span> Devenez Prémium</a></li>
 				{% endif %}
 				{% else %}
-					<li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
-					<li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+				<li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+				<li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
 				{% endif %}
 			</ul>
 		</div>

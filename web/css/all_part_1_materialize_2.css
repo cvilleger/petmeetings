@@ -5054,13 +5054,6 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 /* line 32, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
 h1 {
-  font-size: 3rem;
-  line-height: 110%;
-  margin: 1.5rem 0 1.2rem 0;
-}
-
-/* line 33, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
-h2 {
   font-size: 2.2rem;
   line-height: 110%;
   margin: 1.1rem 0 0.88rem 0;
@@ -5270,7 +5263,6 @@ small {
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
   background-color: #fff;
-  width: 100%;
 }
 
 /* line 12, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
