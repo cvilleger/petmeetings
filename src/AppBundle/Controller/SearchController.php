@@ -10,10 +10,10 @@ use UserBundle\Entity\UserRepository;
 
 class SearchController extends Controller
 {
+	/** @var SearchService $searchService */
     protected $searchService;
 
     public function preExecute(){
-        /** @var SearchService searchService */
         $this->searchService = $this->container->get('SearchService');
     }
 
@@ -26,27 +26,28 @@ class SearchController extends Controller
         $param = strtolower($request->get('slug'));
 		$locale = 'fr';
 
-			$em = $this->getDoctrine()->getManager();
-			/** @var UserRepository $repository */
-			$userRepository = $em->getRepository('UserBundle:User');
-			$listUsers = $userRepository->findUsersByOneParameter($param);
+		//$em = $this->getDoctrine()->getManager();
+		/** @var UserRepository $repository */
+		//$userRepository = $em->getRepository('UserBundle:User');
+		$listUsers = $this->searchService->findUsersByOneParameter($param);
+		//$listUsers = $userRepository->findUsersByOneParameter($param);
 
-			// Remove current user
-			// unset($listUsers[array_search($this->getUser(), $listUsers)]); @Todo Not Working, ça efface tout
+		// Remove current user
+		// unset($listUsers[array_search($this->getUser(), $listUsers)]); @Todo Not Working, ça efface tout
 
 		return $this->render('AppBundle:Search:result.html.twig', array(
-				'listUsers' => $listUsers,
-				'locale' => $locale
-		    ));
+			'listUsers' => $listUsers,
+			'locale' => $locale
+		));
 	}
 
-		/**
-		 * @param Request $request
-		 * @return \Symfony\Component\HttpFoundation\Response
-		 */
-		public function advancedSearchAction(Request $request)
-		{
-			$form = $this->createForm(AdvancedSearchType::class);
+	/**
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function advancedSearchAction(Request $request)
+	{
+		$form = $this->createForm(AdvancedSearchType::class);
 
         $form->handleRequest($request);
         if ($request->getMethod() == 'POST') {
@@ -55,11 +56,11 @@ class SearchController extends Controller
                 $listUsers = $this->searchService->findUsersByParameters($listData);
                 $listUsers = $this->searchService->removeCurrentUser($this->getUser(), $listUsers);
 
-					return $this->render('AppBundle:Search:result.html.twig', array(
-						'listUsers' => $listUsers
-						));
-				}
+				return $this->render('AppBundle:Search:result.html.twig', array(
+					'listUsers' => $listUsers
+				));
 			}
+		}
 
         return $this->render('AppBundle:Search:advancedSearch.html.twig', array(
             'form' => $form->createView()
