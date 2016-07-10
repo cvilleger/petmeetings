@@ -2,12 +2,12 @@
 
 {% block body %}
 
-    {% for mail in acceptedWoof.mail %}
-        <div class="row col s9">
-            {{ mail.text }}
-        </div>
-
+    <ul class="collection">
+    {% for key,mail in acceptedWoof.mail %}
+            <li class="collection-item"><b>{{ mail.text }}</b></li>
     {% endfor %}
+    </ul>
+
 
     {{ form_start(form) }}
 
