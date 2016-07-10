@@ -36,7 +36,7 @@ class DefaultController extends Controller
 			->getRepository('UserBundle:User')
 			->findBy(
 				$condition,
-				array('startsub' => 'asc'),
+				array('id' => 'desc'),
 				3
 				);
 
@@ -47,7 +47,7 @@ class DefaultController extends Controller
 			->getRepository('UserBundle:User')
 			->findBy(
 				array(),
-				array('startsub' => 'asc'),
+				array('id' => 'desc'),
 				3
 				);
 

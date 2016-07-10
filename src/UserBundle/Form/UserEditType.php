@@ -33,7 +33,7 @@ class UserEditType extends AbstractType
     ->add('current_password', PasswordType::class, array(
       'label' => 'form.user.current_password',
       'translation_domain' => 'UserBundle',
-      'mapped' => false,
+      'mapped' => true,
       'constraints' => new UserPassword(),
       ))
     ->add('plainPassword', RepeatedType::class, array(
@@ -42,12 +42,12 @@ class UserEditType extends AbstractType
       'first_options' => array('label' => 'form.user.new_password'),
       'second_options' => array('label' => 'form.user.new_password_confirmation'),
       'invalid_message' => 'fos_user.password.mismatch',
-      'required' => false
+      'required' => true
       ))
     ->add('firstname', TextType::class, array(
       'label' => 'form.user.firstname',
       'translation_domain' => 'UserBundle',
-      'required' => false
+      'required' => true
       ))
     ->add('lastname', TextType::class, array(
       'label' => 'form.user.lastname',
@@ -62,7 +62,7 @@ class UserEditType extends AbstractType
     ->add('city', TextType::class, array(
       'label' => 'form.user.city',
       'translation_domain' => 'UserBundle',
-      'required' => false
+      'required' => true
       ))
     ->add('biography', TextareaType::class, array(
       'label' => 'form.user.biography',
@@ -87,7 +87,7 @@ class UserEditType extends AbstractType
       'expanded' => true,
       'label' => 'form.user.gender',
       'translation_domain' => 'UserBundle',
-      'required' => false
+      'required' => true
       ))
     ->add('orientation', ChoiceType::class, array(
       'choices' => array(
@@ -98,7 +98,7 @@ class UserEditType extends AbstractType
         ),
       'label' => 'form.user.orientation',
       'translation_domain' => 'UserBundle',
-      'required' => false
+      'required' => true
       ))
     ->add('meetingtype', ChoiceType::class, array(
       'choices' => array(
@@ -107,7 +107,7 @@ class UserEditType extends AbstractType
         ),
       'label' => 'form.user.meetingtype',
       'translation_domain' => 'UserBundle',
-      'required' => false
+      'required' => true
       ))
     ->add('animal', AnimalEditType::class)
     ;

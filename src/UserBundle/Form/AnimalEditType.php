@@ -23,7 +23,7 @@ class AnimalEditType extends AbstractType
 		->add('picture', FileType::class, array(
 			'label' => 'form.animal.picture',
 			'translation_domain' => 'UserBundle',
-			'required' => false
+			'required' => true
 			))
 		->add('age', IntegerType::class, array(
 			'label' => 'form.animal.age',
@@ -38,7 +38,7 @@ class AnimalEditType extends AbstractType
 			'expanded' => true,
 			'label' => 'form.animal.gender',
 			'translation_domain' => 'UserBundle',
-			'required' => false
+			'required' => true
 			))
 		->add('kind', ChoiceType::class, array(
 			'choices' => array(
