@@ -18,14 +18,15 @@
 
 </head>
 
-<body class="{% block app_background %}nonebg{% endblock %}">
+<body class=" {% block app_background %}nonebg{% endblock %}">
 
 	{% if app.user %}
 	{% block header %} 	{% include 'header.html.twig' %} {% endblock %}
 	{% endif %}
 
-	{% block body %}{% endblock %}
-
+	<div class="body">
+		{% block body %}{% endblock %}
+	</div>
 	{% block footer %}
 
 	<footer class="page-footer">
