@@ -39,13 +39,16 @@
 				<button class="btn btn-flat pink lighten-2">{{ user.woofs }} <span class="fa fa-heart-o">	</span></button>
 				<br>
 				<br>
-				{% if user.woofsLeft > 0 %}
-
+				{% if alreadyWoof == false %}
+				{% if me.woofsLeft > 0  %}
 				<a href="{{ path('app_send_woof', {'id': user.id}) }}" class="btn waves-effect waves-light" id="likeBtn">Je Woof ! <span class="fa fa-heart-o">	</span> </a>
 				{% else	%}
 				<button class="btn waves-effect waves-light btn modal-trigger" href="#modal1">
 					Acheter des Woofs
 				</button>
+				{% endif	%}
+				{% else %}
+				<a href="" class="btn waves-effect waves-light disabled" id="likeBtn">Déjà woofé <span class="fa fa-heart-o">	</span> </a>
 				{% endif	%}
 			</div>
 		</div>

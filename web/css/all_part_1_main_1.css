@@ -2776,7 +2776,7 @@
    ========================================================================== */
 /* 24. Progress Bar
    ========================================================================== */
-/* line 23, assetic_compassbS9eyh.scss */
+/* line 23, assetic_compassU4tqcp.scss */
 .couplebg {
   background: url("../images/couple2.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -2785,7 +2785,7 @@
   background-size: cover;
 }
 
-/* line 27, assetic_compassbS9eyh.scss */
+/* line 27, assetic_compassU4tqcp.scss */
 .hearts {
   background: url("../images/couple2.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -2795,22 +2795,22 @@
   min-height: 700px;
 }
 
-/* line 32, assetic_compassbS9eyh.scss */
+/* line 32, assetic_compassU4tqcp.scss */
 nav {
   margin-bottom: 2rem;
 }
 
-/* line 36, assetic_compassbS9eyh.scss */
+/* line 36, assetic_compassU4tqcp.scss */
 .bleu {
   color: #1E88E5;
 }
 
-/* line 40, assetic_compassbS9eyh.scss */
+/* line 40, assetic_compassU4tqcp.scss */
 .rose {
   color: #d81b60;
 }
 
-/* line 44, assetic_compassbS9eyh.scss */
+/* line 44, assetic_compassU4tqcp.scss */
 #profilPhoto {
   width: 100%;
   height: auto;
@@ -2820,12 +2820,12 @@ nav {
   box-shadow: rgba(76, 74, 78, 0.4) 0 0 25px, rgba(48, 47, 49, 0.2) 0 0 3px 1px inset;
 }
 
-/* line 53, assetic_compassbS9eyh.scss */
+/* line 53, assetic_compassU4tqcp.scss */
 #petPhoto {
   z-index: 500;
   position: relative;
   margin-top: -25%;
-  width: 50%;
+  width: 65%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -2835,75 +2835,75 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* line 66, assetic_compassbS9eyh.scss */
+/* line 66, assetic_compassU4tqcp.scss */
 .bleuPanel {
   border-top: 3px solid #1E88E5;
 }
 
-/* line 70, assetic_compassbS9eyh.scss */
+/* line 70, assetic_compassU4tqcp.scss */
 .rosePanel {
   border-top: 3px solid #d81b60;
 }
 
-/* line 74, assetic_compassbS9eyh.scss */
+/* line 74, assetic_compassU4tqcp.scss */
 .iam {
   font-size: 1.5rem;
 }
 
-/* line 83, assetic_compassbS9eyh.scss */
+/* line 83, assetic_compassU4tqcp.scss */
 .profilBioTitle .name {
   padding: 0.5rem;
   font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 90, assetic_compassbS9eyh.scss */
+/* line 90, assetic_compassU4tqcp.scss */
 .profilBioTitle .subProfil {
   font-size: 1.3rem;
 }
 
-/* line 95, assetic_compassbS9eyh.scss */
+/* line 95, assetic_compassU4tqcp.scss */
 .profilPhotos {
   text-align: center;
 }
 
-/* line 99, assetic_compassbS9eyh.scss */
+/* line 99, assetic_compassU4tqcp.scss */
 #infosProfil {
   text-align: center;
 }
-/* line 103, assetic_compassbS9eyh.scss */
+/* line 103, assetic_compassU4tqcp.scss */
 #infosProfil .s5 {
   text-align: center;
   margin: 0 3%;
 }
-/* line 108, assetic_compassbS9eyh.scss */
+/* line 108, assetic_compassU4tqcp.scss */
 #infosProfil span {
   display: block;
   text-align: left;
   padding: 1rem 0.5rem;
   border-bottom: 1px	solid #CEC9D3;
 }
-/* line 114, assetic_compassbS9eyh.scss */
+/* line 114, assetic_compassU4tqcp.scss */
 #infosProfil .informationName span {
   color: #63aced;
 }
-/* line 117, assetic_compassbS9eyh.scss */
+/* line 117, assetic_compassU4tqcp.scss */
 #infosProfil .informationValue span {
   color: #272628;
 }
 
-/* line 124, assetic_compassbS9eyh.scss */
+/* line 124, assetic_compassU4tqcp.scss */
 #likes .cpt {
   font-weight: 700;
   font-size: 2rem;
 }
 
-/* line 132, assetic_compassbS9eyh.scss */
+/* line 132, assetic_compassU4tqcp.scss */
 .transparent {
   background: transparent !important;
 }
 
-/* line 137, assetic_compassbS9eyh.scss */
+/* line 137, assetic_compassU4tqcp.scss */
 h3 {
   width: 100%;
   color: white;

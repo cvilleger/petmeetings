@@ -1,8 +1,6 @@
 <?php
 
-
 namespace UserBundle\Controller;
-
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -30,9 +28,24 @@ class ProfileController extends BaseController
 	public function findAction(User $user)
 	{
 		$locale = 'fr';
+		$me = $this->get('security.token_storage')->getToken()->getUser();
+
+		if($me == 'anon.')
+			return $this->redirect($this->generateUrl('fos_user_security_login'));
+
+		$alreadyWoof = false;
+
+		foreach ($user->getAwaitingWoof() as $value) {
+			if($alreadyWoof == true )
+				break;
+			if ( $value->getId() == $me->getId() )
+				$alreadyWoof = true;
+		}
 
 		return $this->render('UserBundle:Profile:profile.html.twig', array(
 			'user' => $user,
+			'me' => $me,
+			'alreadyWoof' => $alreadyWoof,
 			'locale' => $locale
 			));
 	}
