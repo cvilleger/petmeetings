@@ -1,51 +1,60 @@
-{% extends "AppBundle::layout.html.twig" %}
+{% extends 'base.html.twig' %}
+
+{% block app_background %}hearts{% endblock app_background %}
+{% trans_default_domain 'UserBundle' %}
 
 {% block body %}
 
-{{ form_start(form) }}
+<div class="container">
+	<div class="row">
+		<div class="col s10 offset-s1 card card-panel">
 
-{{ form_label(form.gender) }}
-{{ form_widget(form.gender) }}
-{{ form_errors(form.gender) }}
+			{{ form_start(form) }}
 
-{{ form_label(form.between.size.minSize) }}
-{{ form_widget(form.between.size.minSize) }}
-{{ form_errors(form.between.size.minSize) }}
+			{{ form_label(form.gender) }}
+			{{ form_widget(form.gender) }}
+			{{ form_errors(form.gender) }}
 
-{{ form_label(form.between.size.maxSize) }}
-{{ form_widget(form.between.size.maxSize) }}
-{{ form_errors(form.between.size.maxSize) }}
+			{{ form_label(form.between.size.minSize) }}
+			{{ form_widget(form.between.size.minSize) }}
+			{{ form_errors(form.between.size.minSize) }}
 
-{{ form_label(form.between.weight.minWeight) }}
-{{ form_widget(form.between.weight.minWeight) }}
-{{ form_errors(form.between.weight.minWeight) }}
+			{{ form_label(form.between.size.maxSize) }}
+			{{ form_widget(form.between.size.maxSize) }}
+			{{ form_errors(form.between.size.maxSize) }}
 
-{{ form_label(form.between.weight.maxWeight) }}
-{{ form_widget(form.between.weight.maxWeight) }}
-{{ form_errors(form.between.weight.maxWeight) }}
+			{{ form_label(form.between.weight.minWeight) }}
+			{{ form_widget(form.between.weight.minWeight) }}
+			{{ form_errors(form.between.weight.minWeight) }}
 
-{{ form_label(form.meetingtype) }}
-{{ form_widget(form.meetingtype) }}
-{{ form_errors(form.meetingtype) }}
+			{{ form_label(form.between.weight.maxWeight) }}
+			{{ form_widget(form.between.weight.maxWeight) }}
+			{{ form_errors(form.between.weight.maxWeight) }}
 
-{{ form_label(form.animal.kind) }}
-{{ form_widget(form.animal.kind) }}
-{{ form_errors(form.animal.kind) }}
+			{{ form_label(form.meetingtype) }}
+			{{ form_widget(form.meetingtype) }}
+			{{ form_errors(form.meetingtype) }}
 
-{{ form_label(form.animal.race) }}
-{{ form_widget(form.animal.race) }}
-{{ form_errors(form.animal.race) }}
+			{{ form_label(form.animal.kind) }}
+			{{ form_widget(form.animal.kind) }}
+			{{ form_errors(form.animal.kind) }}
 
-{{ form_label(form.animal.age) }}
-{{ form_widget(form.animal.age) }}
-{{ form_errors(form.animal.age) }}
+			{{ form_label(form.animal.race) }}
+			{{ form_widget(form.animal.race) }}
+			{{ form_errors(form.animal.race) }}
 
-{{ form_label(form.animal.gender) }}
-{{ form_widget(form.animal.gender) }}
-{{ form_errors(form.animal.gender) }}
-<div>
-    <input type="submit" value="{{ 'form.search.submit'|trans }}" class="btn-large center" />
+			{{ form_label(form.animal.age) }}
+			{{ form_widget(form.animal.age) }}
+			{{ form_errors(form.animal.age) }}
+
+			{{ form_label(form.animal.gender) }}
+			{{ form_widget(form.animal.gender) }}
+			{{ form_errors(form.animal.gender) }}
+			<div>
+				<input type="submit" value="Rechercher" class="btn-large center" />
+			</div>
+			{{ form_end(form) }}
+		</div>
+	</div>
 </div>
-{{ form_end(form) }}
-
 {% endblock %}

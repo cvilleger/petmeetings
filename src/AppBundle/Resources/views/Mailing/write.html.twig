@@ -1,22 +1,30 @@
-{% extends 'AppBundle::layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain 'UserBundle' %}
+
+{% block app_background %}hearts{% endblock app_background %}
 
 {% block body %}
+<div class="container body">
+	<div class="row">
+		<ul class="collection">
+			{% for key,mail in acceptedWoof.mail %}
+			<li class="collection-item grey lighten-5"><b>{{ mail.text }}</b></li>
+			{% endfor %}
+		</ul>
 
-    <ul class="collection">
-    {% for key,mail in acceptedWoof.mail %}
-            <li class="collection-item"><b>{{ mail.text }}</b></li>
-    {% endfor %}
-    </ul>
+		<div class="card">
+			{{ form_start(form) }}
 
+			{{ form_label(form.text) }}
+			{{ form_widget(form.text) }}
+			{{ form_errors(form.text) }}
 
-    {{ form_start(form) }}
+			<input type="submit" class="btn pink">
 
-    {{ form_label(form.text) }}
-    {{ form_widget(form.text) }}
-    {{ form_errors(form.text) }}
+			{{ form_end(form) }}
 
-    <input type="submit">
-
-    {{ form_end(form) }}
-
+		</div>
+	</div>
+</div>
 {% endblock %}

@@ -1,63 +1,69 @@
-{% extends 'AppBundle::layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain 'UserBundle' %}
+
+{% block app_background %}hearts{% endblock app_background %}
 
 {% block body %}
+<div class="container body">
+	<div class="row">
 
-    <div class="row">
+		{% if listAcceptedWoof is not empty %}
+		<h1>Woof acceptés :</h1>
+		<ul class="collection">
+			{% for key,acceptedWoof in listAcceptedWoof %}
+			<li class="collection-item avatar" style="color: black;">
+				<a href="{{ path('user_find', {'id':acceptedWoof.acceptedUser.id}) }}" style="color: black;">
+					<img src={{ asset("uploads/"~acceptedWoof.acceptedUser.pictureName) }} alt={{ acceptedWoof.acceptedUser.username}} class="circle">
+					<span class="title"><b>#{{ key+1 }} {{ acceptedWoof.acceptedUser.firstname|capitalize }} </b>de {{ acceptedWoof.acceptedUser.city }}.</span>
+					<p>
+						Accompagné par <b> {{ acceptedWoof.acceptedUser.animal.name|upper }} </b>({{ acceptedWoof.acceptedUser.animal.kind|trans }})
+						{{ acceptedWoof.acceptedUser.animal.age|number_format }}ans
+					</p>
+				</a>
+				<a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}" class="btn waves-effect">Message</a>
 
-        {% if listAcceptedWoof is not empty %}
-            <h1>Woof acceptés :</h1>
-            <ul class="collection">
-            {% for key,acceptedWoof in listAcceptedWoof %}
-                <li class="collection-item avatar" style="color: black;">
-                    <a href="{{ path('user_find', {'id':acceptedWoof.acceptedUser.id}) }}" style="color: black;">
-                        <img src={{ asset("uploads/"~acceptedWoof.acceptedUser.pictureName) }} alt={{ acceptedWoof.acceptedUser.username}} class="circle">
-                        <span class="title"><b>#{{ key+1 }} {{ acceptedWoof.acceptedUser.firstname|capitalize }} </b>de {{ acceptedWoof.acceptedUser.city }}.</span>
-                        <p>
-                            Accompagné par <b> {{ acceptedWoof.acceptedUser.animal.name|upper }} </b>({{ acceptedWoof.acceptedUser.animal.kind|trans }})
-                            {{ acceptedWoof.acceptedUser.animal.age|number_format }}ans
-                        </p>
-                    </a>
-                    <a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}" class="btn waves-effect">Message</a>
-                        <span class="row col s9 card-panel">
-                            {% if acceptedWoof.mail is not empty %}
-                                <a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}"><b>Dernier message:</b> {{ acceptedWoof.mail.last.text }}</a>
-                            {% endif %}
-                        </span>
-                    </a>
-                </li>
-            {% endfor %}
-            </ul>
-        {% endif %}
+				<span class="row col s9 card-panel">
+					{% if acceptedWoof.mail is not empty %}
+					<a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}"><b>Dernier message:</b> {{ acceptedWoof.mail.last.text }}</a>
+					{% endif %}
+				</span>
 
-        {% if listWoofSend is not empty %}
-            <h1>Woof envoyés :</h1>
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
 
-            <ul class="collection">
-                {% for key,woofSend in listWoofSend %}
-                    <li class="collection-item avatar" style="color: black;">
-                        <a href="{{ path('user_find', {'id':woofSend.currentUser.id}) }}" style="color: black;">
-                            <img src={{ asset("uploads/"~woofSend.currentUser.pictureName) }} alt={{ woofSend.currentUser.username}} class="circle">
-                            <span class="title"><b>#{{ key+1 }} {{ woofSend.currentUser.firstname|capitalize }} </b>de {{ woofSend.currentUser.city }}.</span>
-                            <p>
-                                Accompagné par <b> {{ woofSend.currentUser.animal.name|upper }} </b>({{ woofSend.currentUser.animal.kind|trans }})
-                                {{ woofSend.currentUser.animal.age|number_format }}ans
-                            </p>
-                        </a>
-                        <a href="{{ path('app_write_mail', {'id': woofSend.id}) }}" class="btn waves-effect">Message</a>
-                        <span class="row col s9 card-panel">
-                            {% if woofSend.mail is not empty %}
-                                <a href="{{ path('app_write_mail', {'id': woofSend.id}) }}"><b>Dernier message:</b> {{ woofSend.mail.last.text }}</a>
-                            {% endif %}
-                        </span>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+	{% if listWoofSend is not empty %}
+	<h1>Woof envoyés :</h1>
 
-        {% if listAcceptedWoof is empty and listWoofSend is empty %}
-            <h1> Pas encore de woof reçu :( </h1>
-        {% endif %}
+	<ul class="collection">
+		{% for key,woofSend in listWoofSend %}
+		<li class="collection-item avatar" style="color: black;">
+			<a href="{{ path('user_find', {'id':woofSend.currentUser.id}) }}" style="color: black;">
+				<img src={{ asset("uploads/"~woofSend.currentUser.pictureName) }} alt={{ woofSend.currentUser.username}} class="circle">
+				<span class="title"><b>#{{ key+1 }} {{ woofSend.currentUser.firstname|capitalize }} </b>de {{ woofSend.currentUser.city }}.</span>
+				<p>
+					Accompagné par <b> {{ woofSend.currentUser.animal.name|upper }} </b>({{ woofSend.currentUser.animal.kind|trans }})
+					{{ woofSend.currentUser.animal.age|number_format }}ans
+				</p>
+			</a>
+			<a href="{{ path('app_write_mail', {'id': woofSend.id}) }}" class="btn waves-effect">Message</a>
+			<div class="row col s10 card-panel grey lighten-5">
+				{% if woofSend.mail is not empty %}
+				<a href="{{ path('app_write_mail', {'id': woofSend.id}) }}"><b>Dernier message:</b> {{ woofSend.mail.last.text }}</a>
+				{% endif %}
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
 
-    </div>
+	{% if listAcceptedWoof is empty and listWoofSend is empty %}
+	<h1> Pas encore de woof reçu :( </h1>
+	{% endif %}
+
+</div>
 
 {% endblock %}

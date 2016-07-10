@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block app_background %}hearts{% endblock app_background %}
+
+{% block body %}
+<div class="container " >
+	<br>
+	<div class="row">
+		<center>
+			<div class="col s12 ">
+				<h3 class="card red lighten-1">Oups ! Vous semblez perdu... </h3>
+			</div>
+			<div class="col s8 offset-s2 ">
+				<img src="{{ asset("images/404.gif") }} " id="profilPhoto" alt="">
+				<a href="{{ path('homepage') }}" class="waves-effect waves-light btn pink lighten-1">Retour à l'accueil</a>
+			</div>
+		</center>
+		<br>
+
+	</div>
+</div>
+{% endblock body %}
