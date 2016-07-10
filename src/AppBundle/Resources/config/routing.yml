@@ -3,7 +3,7 @@ app_search:
     defaults: { _controller: AppBundle:Search:search }
 
 app_advanced_search:
-    path: /search/advanced
+    path: /search-advanced/
     defaults: { _controller: AppBundle:Search:AdvancedSearch }
 
 app_view_offers:
