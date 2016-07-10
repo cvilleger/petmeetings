@@ -112,8 +112,10 @@
 			$('#search-btn').click(function() {
 				var searchInput = $('#search-input');
 				var search = searchInput.val();
-				var url = searchInput.data('url') + 'search/' + search;
-				window.location.href = url;
+				if(search.length != 0){
+					var url = searchInput.data('url') + 'search/' + search;
+					window.location.href = url;
+				}
 			});
 
 		});

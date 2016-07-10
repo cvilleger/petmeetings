@@ -1,0 +1,28 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        {% for acceptedWoof in listAcceptedWoof %}
+                <a class="col s3" href="{{ path('user_find', {'id': acceptedWoof.acceptedUser.id}) }}"> {{ acceptedWoof.acceptedUser.username }} </a>
+                <a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}">
+                    <span class="row col s9 card-panel">
+                        {% if acceptedWoof.mail is not empty %}
+                             {{ acceptedWoof.mail.last.text }}
+                        {% endif %}
+                    </span>
+                </a>
+        {% endfor %}
+        {% for woofSend in listWoofSend %}
+                <a class="col s3" href="{{ path('user_find', {'id': woofSend.currentUser.id}) }}"> {{ woofSend.currentUser.username }} </a>
+                <a href="{{ path('app_write_mail', {'id': woofSend.id}) }}">
+                    <span class="col s9 card-panel">
+                        {% if woofSend.mail is not empty %}
+                             {{ woofSend.mail.last.text }}
+                        {% endif %}
+                    </span>
+                </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}

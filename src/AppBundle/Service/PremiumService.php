@@ -57,20 +57,4 @@ class PremiumService{
         $this->em->persist($user);
         $this->em->flush();
     }
-
-    /**
-     * Give a woof to another user
-     * @param User $user
-     */
-    public function giveWoof(User $sender, User $collecter){
-        // Sender gives a woof
-        $sender->setWoofsLeft($sender->getWoofsleft()-1);
-        // Collecter obtain a woof who awaiting for a response so we register sender's name
-        $collecter->setWoofs($collecter->getWoofs()+1);
-        $collecter->addAwaitingWoof($collecter->getUsername());
-        
-        $this->em->persist($sender);
-        $this->em->persist($collecter);
-        $this->em->flush();
-    }
 }

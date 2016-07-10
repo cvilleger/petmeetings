@@ -86,7 +86,7 @@ class Animal
      * @ORM\Column(name="biography", type="text", nullable=true)
      */
     private $biography;
-
+    
     /**
      * @var string
      *
@@ -94,10 +94,6 @@ class Animal
      */
     private $pictureName;
     public $picture;
-
-    function __construct() {
-        $this->canonicalName = strtolower($this->name);
-    }
 
 
     /**

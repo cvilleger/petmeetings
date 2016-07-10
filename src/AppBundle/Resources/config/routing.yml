@@ -23,6 +23,14 @@ app_send_woof:
     defaults: { _controller: AppBundle:Meeting:sendWoof }
 
 app_answer_woof:
-    path: /answer/woof/{id}
+    path: /answer/woof/{id}/{answer}
     defaults: { _controller: AppBundle:Meeting:answerWoof }
+
+app_access_mail:
+    path: /mail
+    defaults: { _controller: AppBundle:Meeting:access }
+
+app_write_mail:
+    path: /mail/write/{id}
+    defaults: { _controller: AppBundle:Meeting:write }
 

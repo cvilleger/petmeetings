@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Service;
 
+use AppBundle\Entity\AcceptedWoof;
 use Doctrine\ORM\EntityManager;
 use UserBundle\Entity\User;
 
@@ -37,15 +38,28 @@ class MeetingService{
 		$this->em->persist($collecter);
 		$this->em->flush();
 	}
+    
+    public function answerWoof(User $sender, User $collecter, $answer){
+        $collecter->removeAwaitingWoof($sender);
+        if($answer == 'yes') {
+            $acceptedWoof = new AcceptedWoof();
+            $acceptedWoof->setAcceptedUser($sender);
+            $acceptedWoof->setCurrentUser($collecter);
+            $collecter->addAcceptedWoof($acceptedWoof);
+            $this->em->persist($acceptedWoof);
+        }
+        
+        $this->em->persist($collecter);
+        $this->em->flush();
+    }
 
-	/**
-	 * Answer a woof sending by another user
-	 * @param User $user
-	 */
-	public function answerWoof(User $sender, User $collecter){
-		$collecter->removeAwaitingWoof($sender);
-
-		$this->em->persist($collecter);
-		$this->em->flush();
-	}
+    /**
+     * Sending mail to an acceptedUser
+     * @param AcceptedWoof $acceptedWoof
+     */
+    public function saveMail(AcceptedWoof $acceptedWoof, $mail){
+        $mail->setAcceptedWoof($acceptedWoof);
+        $this->em->persist($mail);
+        $this->em->flush();
+    }
 }

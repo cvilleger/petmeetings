@@ -5,108 +5,65 @@ namespace AppBundle\Controller;
 use AppBundle\Form\AdvancedSearchType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Service\SearchService;
 use UserBundle\Entity\UserRepository;
 
 class SearchController extends Controller
 {
-		/**
-		 * @param Request $request
-		 * @return \Symfony\Component\HttpFoundation\Response
-		 */
-		public function searchAction(Request $request)
-		{
-			$param = $request->get('slug');
-			$locale = 'fr';
+	/** @var SearchService $searchService */
+    protected $searchService;
 
-			$em = $this->getDoctrine()->getManager();
-			/** @var UserRepository $repository */
-			$userRepository = $em->getRepository('UserBundle:User');
-			$listUsers = $userRepository->findUsersByOneParameter($param);
+    public function preExecute(){
+        $this->searchService = $this->container->get('SearchService');
+    }
 
-			// Remove current user
-			// unset($listUsers[array_search($this->getUser(), $listUsers)]); @Todo Not Working, ça efface tout
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function searchAction(Request $request)
+    {
+        $param = strtolower($request->get('slug'));
+		$locale = 'fr';
 
-			return $this->render('AppBundle:Search:result.html.twig', array(
-				'listUsers' => $listUsers,
-				'locale' => $locale
-				));
-		}
+		//$em = $this->getDoctrine()->getManager();
+		/** @var UserRepository $repository */
+		//$userRepository = $em->getRepository('UserBundle:User');
+		$listUsers = $this->searchService->findUsersByOneParameter($param);
+		//$listUsers = $userRepository->findUsersByOneParameter($param);
 
-		/**
-		 * @param Request $request
-		 * @return \Symfony\Component\HttpFoundation\Response
-		 */
-		public function advancedSearchAction(Request $request)
-		{
-			$form = $this->createForm(AdvancedSearchType::class);
+		// Remove current user
+		// unset($listUsers[array_search($this->getUser(), $listUsers)]); @Todo Not Working, ça efface tout
 
-			$form->handleRequest($request);
-			if ($request->getMethod() == 'POST') {
-				if ($form->isValid()) {
-					$data = $form->getData();
-								// On supprime toutes les données nulles
-					foreach($data as $key => $formValue) {
-						if($key == 'animal') {
-							foreach($formValue as $keyAnimal => $valueAnimal) {
-														// La clé animal est un tableau de tableau
-								if (is_array($valueAnimal)) {
-																// On injecte chaque valeur non vide dans un tableau
-									$list = array();
-									foreach ($valueAnimal as $v) {
-										$list[] = $v;
-									}
-																// On met le tableau dans une chaine de caractère qu'on rajoute à nos données
-									if (count($list) > 0)
-										$listData['animal'][$keyAnimal] = implode(',', $list);
-									continue 2;
-								}
-								if (!empty($valueAnimal))
-									$listData['animal'][$keyAnimal] = $valueAnimal;
-							}
-						}
-						else if($key == 'between') {
-							foreach($formValue as $keyBetween => $valueBetween) {
-														// La clé between est un tableau de tableau
-														// Chaque valeur est un tableau
-								$list = array();
-								foreach ($valueBetween as $v) {
-									$list[] = $v;
-								}
-														// On met le tableau dans une chaine de caractère qu'on rajoute à nos données
-								if (count($list) > 0)
-									$listData['between'][$keyBetween] = implode(',', $list);
-								continue 2;
-							}
-						}
-
-						if(is_array($formValue)) {
-												// On injecte chaque valeur non vide dans un tableau
-							$list = array();
-							foreach ($formValue as $value) {
-								$list[] = $value;
-							}
-												// On met le tableau dans une chaine de caractère qu'on rajoute à nos données
-							if(count($list) > 0)
-								$listData[$key] = implode(',', $list);
-							continue;
-						}
-						if(!empty($formValue))
-							$listData[$key] = $formValue;
-					}
-
-					$em = $this->getDoctrine()->getManager();
-					$listUsers = $em->getRepository('UserBundle:User')->findUsersByParameters($listData);
-								// Remove current user
-					unset($listUsers[array_search($this->getUser(), $listUsers)]);
-
-					return $this->render('AppBundle:Search:result.html.twig', array(
-						'listUsers' => $listUsers
-						));
-				}
-			}
-
-			return $this->render('AppBundle:Search:advancedSearch.html.twig', array(
-				'form' => $form->createView()
-				));
-		}
+		return $this->render('AppBundle:Search:result.html.twig', array(
+			'listUsers' => $listUsers,
+			'locale' => $locale
+		));
 	}
+
+	/**
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function advancedSearchAction(Request $request)
+	{
+		$form = $this->createForm(AdvancedSearchType::class);
+
+        $form->handleRequest($request);
+        if ($request->getMethod() == 'POST') {
+            if ($form->isValid()) {
+                $listData = $this->searchService->cleanArray($form->getData());
+                $listUsers = $this->searchService->findUsersByParameters($listData);
+                $listUsers = $this->searchService->removeCurrentUser($this->getUser(), $listUsers);
+
+				return $this->render('AppBundle:Search:result.html.twig', array(
+					'listUsers' => $listUsers
+				));
+			}
+		}
+
+        return $this->render('AppBundle:Search:advancedSearch.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
+}

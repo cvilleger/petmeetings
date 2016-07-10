@@ -212,10 +212,17 @@ class User extends BaseUser
 	 */
 	protected $endsub;
 
-	/**
-	 * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User")
-	 */
-	protected $awaitingWoof;
+    /**
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinTable(name="awaitingWoof")
+     */
+    protected $awaitingWoof;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\AcceptedWoof", mappedBy="currentUser")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $acceptedWoof;
 
 	/**
 	 * @var integer
@@ -250,6 +257,7 @@ class User extends BaseUser
 		$this->status = 'classic';
 		$this->woofs =  0;
 		$this->woofsLeft =  5;
+        $this->acceptedWoof = new \Doctrine\Common\Collections\ArrayCollection();
 	}
 
 	/**
@@ -261,6 +269,30 @@ class User extends BaseUser
 	{
 		return $this->id;
 	}
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return User
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
 
 	/**
 	 * Set firstname
@@ -599,30 +631,6 @@ class User extends BaseUser
 	}
 
 	/**
-	 * Set status
-	 *
-	 * @param string $status
-	 *
-	 * @return User
-	 */
-	public function setStatus($status)
-	{
-		$this->status = $status;
-
-		return $this;
-	}
-
-	/**
-	 * Get status
-	 *
-	 * @return string
-	 */
-	public function getStatus()
-	{
-		return $this->status;
-	}
-
-	/**
 	 * Set woofs
 	 *
 	 * @param integer $woofs
@@ -681,8 +689,8 @@ class User extends BaseUser
 	{
 		$this->awaitingWoof[] = $awaitingWoof;
 
-		return $this;
-	}
+        return $this;
+    }
 
 	/**
 	 * Remove awaitingWoof
@@ -694,13 +702,48 @@ class User extends BaseUser
 		$this->awaitingWoof->removeElement($awaitingWoof);
 	}
 
-	/**
-	 * Get awaitingWoof
-	 *
-	 * @return \Doctrine\Common\Collections\Collection
-	 */
-	public function getAwaitingWoof()
-	{
-		return $this->awaitingWoof;
-	}
+    /**
+     * Get awaitingWoof
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAwaitingWoof()
+    {
+        return $this->awaitingWoof;
+    }
+
+    /**
+     * Add acceptedWoof
+     *
+     * @param \AppBundle\Entity\AcceptedWoof $acceptedWoof
+     *
+     * @return User
+     */
+    public function addAcceptedWoof(\AppBundle\Entity\AcceptedWoof $acceptedWoof)
+    {
+        $this->acceptedWoof[] = $acceptedWoof;
+
+        return $this;
+    }
+
+    /**
+     * Remove acceptedWoof
+     *
+     * @param \AppBundle\Entity\AcceptedWoof $acceptedWoof
+     */
+    public function removeAcceptedWoof(\AppBundle\Entity\AcceptedWoof $acceptedWoof)
+    {
+        $this->acceptedWoof->removeElement($acceptedWoof);
+    }
+
+    /**
+     * Get acceptedWoof
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAcceptedWoof()
+    {
+        return $this->acceptedWoof;
+    }
+
 }
