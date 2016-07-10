@@ -13,11 +13,11 @@
 		{% for sender in user.awaitingWoof %}
 		<li class="collection-item avatar" style="color: black;">
 			<a href="{{ path('user_find', {'id':sender.id}) }}" style="color: black;">
-				<img src={{ asset("uploads/"~user.pictureName) }} alt={{ user.username}} class="circle">
-				<span class="title"><b>{{ user.firstname|capitalize }} </b>de {{ user.city }} voudrait discuter avec vous.</span>
+				<img src={{ asset("uploads/"~sender.pictureName) }} alt={{ sender.username}} class="circle">
+				<span class="title"><b>{{ sender.firstname|capitalize }} </b>de {{ sender.city }} voudrait discuter avec vous.</span>
 				<p>
-					Accompagné par <b> {{ user.animal.name|upper }} </b>({{ user.animal.kind|trans }})
-					{{ user.animal.age|number_format }}ans
+					Accompagné par <b> {{ sender.animal.name|upper }} </b>({{ sender.animal.kind|trans }})
+					{{ sender.animal.age|number_format }}ans
 				</p>
 			</a>
 			<a href="{{ path('app_answer_woof', {'id':sender.id, 'answer':'yes'}) }}" class="btn waves-effect blue ">Accepter sa demande</a>
@@ -27,71 +27,75 @@
 	</ul>
 	{% endif %}
 
-	<div class="row" id="infosProfil">
-		<div class="col  s6 card-panel bleuPanel">
-			<div class="row" >
-				<div class="col s12">
-					<h4><span>
-						Informations de
-						{% if user.firstname is defined %}
-						{{ user.firstname }}
-						{% else %}
-						{{ user.username }}
-						{% endif %}
-					</span></h4>
-				</div>
-			</div>
-			<div class="row" >
-				<div class="col s7 informationName">
-					<span>{{ 'profile.show.user.gender'|trans }}</span>
-					<span>{{ 'profile.show.user.city'|trans }}</span>
-					<span>{{ 'profile.show.user.size'|trans }}</span>
-					<span>{{ 'profile.show.user.weight'|trans }} </span>
-					<span>{{ 'profile.show.user.orientation'|trans }} </span>
-					<span>{{ 'profile.show.user.meetingtype'|trans }} </span>
-					<span>{{ 'profile.show.user.startsub'|trans }} </span>
-				</div>
-				<div class="col s4 informationValue">
-					<span>{{ user.gender|trans }}</span>
-					<span>{{ user.city }}</span>
-					<span>{{ user.size }}</span>
-					<span>{{ user.weight }}</span>
-					<span> {{ user.orientation|trans }}</span>
-					<span>{{ user.meetingtype|trans }}</span>
-					<span>{{ user.startsub|localizeddate('medium', 'none', locale) }}</span>
-				</div>
-			</div>
+	<div class="fos_user_user_show">
+		{% if user.pictureName is defined %}
+		<img src={{ asset("uploads/"~user.pictureName) }} alt={{ user.username}}>
 
-		</div>
-		<div class="col s5 card-panel rosePanel">
-			<div class="row" >
-				<div class="col s12">
-					<h4><span>Informations de {{ user.animal.name }}</span></h4>
+		<div class="row" id="infosProfil">
+			<div class="col  s6 card-panel bleuPanel">
+				<div class="row" >
+					<div class="col s12">
+						<h4><span>
+							Informations de
+							{% if user.firstname is defined %}
+							{{ user.firstname }}
+							{% else %}
+							{{ user.username }}
+							{% endif %}
+						</span></h4>
+					</div>
 				</div>
-			</div>
-			<div class="col s6 informationName">
-				<span>{{ 'profile.show.animal.name'|trans }}</span>
-				<span>{{ 'profile.show.animal.age'|trans }}</span>
-				<span>{{ 'profile.show.animal.gender'|trans }}</span>
-				<span>{{ 'profile.show.animal.kind'|trans }}</span>
-				<span>{{ 'profile.show.animal.race'|trans }}</span>
-			</div>
-			<div class="col s6 informationValue">
-				<span>{{ user.animal.name }}</span>
-				<span>{{ user.animal.age }}</span>
-				<span>{{ user.animal.gender|trans }}</span>
-				<span>{{ user.animal.kind|trans }}</span>
-				<span>{{ user.animal.race }}</span>
-			</div>
+				<div class="row" >
+					<div class="col s7 informationName">
+						<span>{{ 'profile.show.user.gender'|trans }}</span>
+						<span>{{ 'profile.show.user.city'|trans }}</span>
+						<span>{{ 'profile.show.user.size'|trans }}</span>
+						<span>{{ 'profile.show.user.weight'|trans }} </span>
+						<span>{{ 'profile.show.user.orientation'|trans }} </span>
+						<span>{{ 'profile.show.user.meetingtype'|trans }} </span>
+						<span>{{ 'profile.show.user.startsub'|trans }} </span>
+					</div>
+					<div class="col s4 informationValue">
+						<span>{{ user.gender|trans }}</span>
+						<span>{{ user.city }}</span>
+						<span>{{ user.size }}</span>
+						<span>{{ user.weight }}</span>
+						<span> {{ user.orientation|trans }}</span>
+						<span>{{ user.meetingtype|trans }}</span>
+						<span>{{ user.startsub|localizeddate('medium', 'none', locale) }}</span>
+					</div>
+				</div>
 
+			</div>
+			<div class="col s5 card-panel rosePanel">
+				<div class="row" >
+					<div class="col s12">
+						<h4><span>Informations de {{ user.animal.name }}</span></h4>
+					</div>
+				</div>
+				<div class="col s6 informationName">
+					<span>{{ 'profile.show.animal.name'|trans }}</span>
+					<span>{{ 'profile.show.animal.age'|trans }}</span>
+					<span>{{ 'profile.show.animal.gender'|trans }}</span>
+					<span>{{ 'profile.show.animal.kind'|trans }}</span>
+					<span>{{ 'profile.show.animal.race'|trans }}</span>
+				</div>
+				<div class="col s6 informationValue">
+					<span>{{ user.animal.name }}</span>
+					<span>{{ user.animal.age }}</span>
+					<span>{{ user.animal.gender|trans }}</span>
+					<span>{{ user.animal.kind|trans }}</span>
+					<span>{{ user.animal.race }}</span>
+				</div>
+
+			</div>
 		</div>
+		{% if user.status == "premium" %}
+		<a href="{{ path('app_unsubscribe_premium') }}" class="waves-effect waves-light btn pink lighten-1">
+			<span class="fa fa-star-o"></span>
+			Désactivez votre abonnement Premium
+		</a>
+		{% endif %}
 	</div>
-	{% if user.status == "premium" %}
-	<a href="{{ path('app_unsubscribe_premium') }}" class="waves-effect waves-light btn pink lighten-1">
-		<span class="fa fa-star-o"></span>
-		Désactivez votre abonnement Premium
-	</a>
-	{% endif %}
-</div>
 
-{% endblock %}
+	{% endblock %}

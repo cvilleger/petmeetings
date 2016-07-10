@@ -3,6 +3,7 @@
 {% block body %}
 
     <div class="row">
+
         {% if listAcceptedWoof is not empty %}
             <h1>Woof acceptés :</h1>
             <ul class="collection">
@@ -16,10 +17,10 @@
                             {{ acceptedWoof.acceptedUser.animal.age|number_format }}ans
                         </p>
                     </a>
-                    <a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}" class="btn waves-effect">Répondre
+                    <a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}" class="btn waves-effect">Message</a>
                         <span class="row col s9 card-panel">
                             {% if acceptedWoof.mail is not empty %}
-                                {{ acceptedWoof.mail.last.text }}
+                                <a href="{{ path('app_write_mail', {'id': acceptedWoof.id}) }}">{{ acceptedWoof.mail.last.text }}</a>
                             {% endif %}
                         </span>
                     </a>
@@ -27,24 +28,36 @@
             {% endfor %}
             </ul>
         {% endif %}
+
         {% if listWoofSend is not empty %}
             <h1>Woof envoyés :</h1>
+
             <ul class="collection">
-            {% for woofSend in listWoofSend %}
-                    <a class="col s3" href="{{ path('user_find', {'id': woofSend.currentUser.id}) }}"> {{ woofSend.currentUser.username }} </a>
-                    <a href="{{ path('app_write_mail', {'id': woofSend.id}) }}">
-                        <span class="col s9 card-panel">
+                {% for key,woofSend in listWoofSend %}
+                    <li class="collection-item avatar" style="color: black;">
+                        <a href="{{ path('user_find', {'id':woofSend.currentUser.id}) }}" style="color: black;">
+                            <img src={{ asset("uploads/"~woofSend.currentUser.pictureName) }} alt={{ woofSend.currentUser.username}} class="circle">
+                            <span class="title"><b>#{{ key+1 }} {{ woofSend.currentUser.firstname|capitalize }} </b>de {{ woofSend.currentUser.city }}.</span>
+                            <p>
+                                Accompagné par <b> {{ woofSend.currentUser.animal.name|upper }} </b>({{ woofSend.currentUser.animal.kind|trans }})
+                                {{ woofSend.currentUser.animal.age|number_format }}ans
+                            </p>
+                        </a>
+                        <a href="{{ path('app_write_mail', {'id': woofSend.id}) }}" class="btn waves-effect">Message</a>
+                        <span class="row col s9 card-panel">
                             {% if woofSend.mail is not empty %}
-                                 {{ woofSend.mail.last.text }}
+                                <a href="{{ path('app_write_mail', {'id': woofSend.id}) }}">{{ woofSend.mail.last.text }}</a>
                             {% endif %}
                         </span>
-                    </a>
-            {% endfor %}
+                    </li>
+                {% endfor %}
             </ul>
         {% endif %}
+
         {% if listAcceptedWoof is empty and listWoofSend is empty %}
             <h1> Pas encore de woof reçu :( </h1>
         {% endif %}
+
     </div>
 
 {% endblock %}

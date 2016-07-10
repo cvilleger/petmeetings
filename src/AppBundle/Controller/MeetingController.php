@@ -48,7 +48,8 @@ class MeetingController extends Controller {
 
         return $this->render('AppBundle:Mailing:home.html.twig', array(
             'listAcceptedWoof' => $listAcceptedWoof,
-            'listWoofSend' => $listWoofSend
+            'listWoofSend' => $listWoofSend,
+            'local' => 'fr'
         ));
     }
 
