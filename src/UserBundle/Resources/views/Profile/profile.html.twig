@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="col s4 ">
-			<br><br>
+			<br>
 			<div class="profilBioTitle bleu">
 				<span class="name pink lighten-4">
 					{% if user.firstname is defined %}
@@ -36,12 +36,17 @@
 				{{ user.biography }}
 			</div>
 			<div id="likes" >
-				<div id="cptLikes">
-					<span class="cpt">
+				<button class="btn btn-flat pink lighten-2">{{ user.woofs }} <span class="fa fa-heart-o">	</span></button>
+				<br>
+				<br>
+				{% if user.woofsLeft > 0 %}
 
-					</span>
-				</div>
-				<a href="{{ path('app_send_woof', {'id': user.id}) }}" class="btn waves-effect waves-light" id="likeBtn">	{{ user.woofs }} -	Je Woof ! <span class="fa fa-heart-o">	</span> </a>
+				<a href="{{ path('app_send_woof', {'id': user.id}) }}" class="btn waves-effect waves-light" id="likeBtn">Je Woof ! <span class="fa fa-heart-o">	</span> </a>
+				{% else	%}
+				<button class="btn waves-effect waves-light btn modal-trigger" href="#modal1">
+					Acheter des Woofs
+				</button>
+				{% endif	%}
 			</div>
 		</div>
 

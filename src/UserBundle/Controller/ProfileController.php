@@ -42,8 +42,11 @@ class ProfileController extends BaseController
 		$user = $this->getUser();
 		$locale = 'fr';
 
+		$me = $this->get('security.token_storage')->getToken()->getUser();
+
 		return $this->render('UserBundle:Profile:show.html.twig', array(
 			'user' => $user,
+			'me' => $me,
 			'locale' => $locale
 			));
 	}

@@ -229,7 +229,7 @@ class User extends BaseUser
      * @ORM\Column(name="woofsLeft", type="integer", nullable=true)
      */
     protected $woofsLeft;
-    
+
     /**
      * @var string
      *
@@ -248,7 +248,7 @@ class User extends BaseUser
         parent::__construct();
         $this->status = 'classic';
         $this->woofs =  0;
-        $this->woofsLeft =  0;
+        $this->woofsLeft =  5;
     }
 
     /**
