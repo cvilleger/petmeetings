@@ -80,6 +80,14 @@
 
 			$("#paiement").click(function(){
 				$("#paypal_checkout").submit();
+
+			});
+			// Search
+			$('#search-btn').click(function() {
+				var searchInput = $('#search-input');
+				var search = searchInput.val();
+				var url = searchInput.data('url') + 'search/' + search;
+				window.location.href = url;
 			});
 
 		});
