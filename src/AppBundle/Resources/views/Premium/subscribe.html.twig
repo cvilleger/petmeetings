@@ -1,11 +1,24 @@
-{% extends "AppBundle::layout.html.twig" %}
+{% extends 'base.html.twig' %}
+
+{% block app_background %}hearts{% endblock app_background %}
+{% block header %}{% endblock header %}
 
 {% block body %}
+<div class="container " >
+	<br>
+	<div class="row">
+		<center>
 
-    <div>
-        Vous êtes désormais un membre Premium.
-        Vous pouvez d'ores et déjà:
-        - Envoyer 5 Woof par jour
-    </div>
+			<div class="col s8 offset-s2 ">
+				<h3 class="card blue">Vous êtes désormais un membre Premium</h3>
+			</div>
+			<div class="col s6 offset-s3 ">
+				<img src="{{ asset("images/success.gif") }} " id="profilPhoto" alt="">
+				<a href="{{ path('homepage') }}" class="waves-effect waves-light btn pink lighten-1">Retour à l'accueil</a>
+			</div>
+		</center>
+
+	</div>
+</div>
 
 {% endblock %}

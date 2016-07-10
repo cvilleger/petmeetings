@@ -16,8 +16,17 @@ $font-stack:    Helvetica, sans-serif;
 	background-size: cover;
 }
 
-body {
-	@include cover-background('../images/fond.jpg');
+.nonebg {
+	//@include cover-background('../images/fond.jpg');
+}
+
+.couplebg {
+	@include cover-background('../images/couple2.jpg');
+}
+
+.hearts {
+	@include cover-background('../images/couple2.jpg');
+	min-height: 700px;
 }
 
 nav {
@@ -46,7 +55,7 @@ nav {
 	z-index: 500;
 	position: relative;
 	margin-top: -25%;
-	width: 50%;
+	width: 65%;
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
@@ -63,20 +72,23 @@ nav {
 }
 
 .iam {
-	font-size: 2rem;
+	font-size: 1.5rem;
 }
 
 .profilBioTitle {
+
 	span {
 
 	}
 	.name {
-		font-size: 2.5rem;
+		padding: 0.5rem;
+		font-size: 1.5rem;
 		font-weight: bold;
+		text-transform: uppercase;
 	}
 
 	.subProfil {
-		font-size: 2rem;
+		font-size: 1.3rem;
 	}
 }
 
@@ -109,29 +121,21 @@ nav {
 }
 
 #likes {
-
-	padding: 1rem;
-	vertical-align: bottom;
-	padding-top: 6rem;
-	text-align:center;
-
-	.fa {
-		font-weight: 500;
-		font-size: 3rem;
-		color: darken($primary-color, 15%) ;
-		margin: 0 0.5rem ;
-	}
 	.cpt {
 		font-weight: 700;
-		font-size: 2.6rem;
+		font-size: 2rem;
 	}
 }
 
-#fullscreen {
-	@include cover-background('../images/couple.jpg');
-	min-height: 700px;
-}
+
 
 .transparent {
 	background: transparent!important;
+}
+
+
+h3 {
+	width: 100%;
+	color : white ;
+	text-transform: uppercase;
 }

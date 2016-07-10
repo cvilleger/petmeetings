@@ -4,50 +4,50 @@
 
 {% block body %}
 
-    {% if user.awaitingWoof is not empty %}
-        On s'intéresse à votre profil :
-        {% for sender in user.awaitingWoof %}
-            <div>
-                <a href="{{ path('user_find', {'id':sender.id}) }}"> {{ sender.username }} voudrait discuter avec vous </a>
-                <p>
-                    <a href="{{ path('app_answer_woof', {'id':sender.id, 'answer':'yes'}) }}"> Accepter sa demande </a>
-                    <a href="{{ path('app_answer_woof', {'id':sender.id, 'answer':'no'}) }}"> Refuser sa demande </a>
-                </p>
-            </div>
-        {% endfor %}
-    {% endif %}
+{% if user.awaitingWoof is defined %}
+On s'intéresse à votre profil :
+{% for sender in user.awaitingWoof %}
+<div>
+	<a href="{{ path('user_find', {'id':sender.id}) }}"> {{ sender.username }} voudrait discuter avec vous </a>
+	<p>
+		<a href="{{ path('app_answer_woof', {'id':sender.id}) }}"> Accepter sa demande </a>
+		<a href="{{ path('app_answer_woof', {'id':sender.id}) }}"> Refuser sa demande </a>
+	</p>
+</div>
+{% endfor %}
+{% endif %}
 
 <div class="fos_user_user_show">
-    {% if user.pictureName is not empty %}
-        <img src={{ asset("uploads/"~user.pictureName) }} alt={{ user.username}}>
-    {% endif %}
-    <p>{{ 'profile.show.user.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.user.email'|trans }}: {{ user.email }}</p>
-    <p>{{ 'profile.show.user.firstname'|trans }}: {{ user.firstname }}</p>
-    <p>{{ 'profile.show.user.lastname'|trans }}: {{ user.lastname }}</p>
-    <p>{{ 'profile.show.user.birthday'|trans }}: {{ user.birthday|localizeddate('medium', 'none', locale) }}</p>
-    <p>{{ 'profile.show.user.gender'|trans }}: {{ user.gender|trans }}</p>
-    <p>{{ 'profile.show.user.city'|trans }}: {{ user.city }}</p>
-    <p>{{ 'profile.show.user.size'|trans }}: {{ user.size }}</p>
-    <p>{{ 'profile.show.user.weight'|trans }}: {{ user.weight }}</p>
-    <p>{{ 'profile.show.user.biography'|trans }}: {{ user.biography }}</p>
-    <p>{{ 'profile.show.user.orientation'|trans }}: {{ user.orientation|trans }}</p>
-    <p>{{ 'profile.show.user.meetingtype'|trans }}: {{ user.meetingtype|trans }}</p>
-    <p>{{ 'profile.show.user.startsub'|trans }}: {{ user.startsub|localizeddate('medium', 'none', locale) }}</p>
+	{% if user.pictureName is defined %}
+	<img src={{ asset("uploads/"~user.pictureName) }} alt={{ user.username}}>
+	{% endif %}
+	<p>{{ 'profile.show.user.username'|trans }}: {{ user.username }}</p>
+	<p>{{ 'profile.show.user.email'|trans }}: {{ user.email }}</p>
+	<p>{{ 'profile.show.user.firstname'|trans }}: {{ user.firstname }}</p>
+	<p>{{ 'profile.show.user.lastname'|trans }}: {{ user.lastname }}</p>
+	<p>{{ 'profile.show.user.birthday'|trans }}: {{ user.birthday|localizeddate('medium', 'none', locale) }}</p>
+	<p>{{ 'profile.show.user.gender'|trans }}: {{ user.gender|trans }}</p>
+	<p>{{ 'profile.show.user.city'|trans }}: {{ user.city }}</p>
+	<p>{{ 'profile.show.user.size'|trans }}: {{ user.size }}</p>
+	<p>{{ 'profile.show.user.weight'|trans }}: {{ user.weight }}</p>
+	<p>{{ 'profile.show.user.biography'|trans }}: {{ user.biography }}</p>
+	<p>{{ 'profile.show.user.orientation'|trans }}: {{ user.orientation|trans }}</p>
+	<p>{{ 'profile.show.user.meetingtype'|trans }}: {{ user.meetingtype|trans }}</p>
+	<p>{{ 'profile.show.user.startsub'|trans }}: {{ user.startsub|localizeddate('medium', 'none', locale) }}</p>
 </div>
 <div class="fos_user_animal_show">
-    <p>{{ 'profile.show.animal.name'|trans }}: {{ user.animal.name }}</p>
-    <p>{{ 'profile.show.animal.age'|trans }}: {{ user.animal.age }}</p>
-    <p>{{ 'profile.show.animal.gender'|trans }}: {{ user.animal.gender|trans }}</p>
-    <p>{{ 'profile.show.animal.kind'|trans }}: {{ user.animal.kind|trans }}</p>
-    <p>{{ 'profile.show.animal.race'|trans }}: {{ user.animal.race }}</p>
+	<p>{{ 'profile.show.animal.name'|trans }}: {{ user.animal.name }}</p>
+	<p>{{ 'profile.show.animal.age'|trans }}: {{ user.animal.age }}</p>
+	<p>{{ 'profile.show.animal.gender'|trans }}: {{ user.animal.gender|trans }}</p>
+	<p>{{ 'profile.show.animal.kind'|trans }}: {{ user.animal.kind|trans }}</p>
+	<p>{{ 'profile.show.animal.race'|trans }}: {{ user.animal.race }}</p>
 </div>
 
 {% if user.status == "premium" %}
-    <a href="{{ path('app_unsubscribe_premium') }}" class="waves-effect waves-light btn pink lighten-1">
-        <span class="fa fa-star-o"></span>
-        Désactivez votre abonnement Premium
-    </a>
+<a href="{{ path('app_unsubscribe_premium') }}" class="waves-effect waves-light btn pink lighten-1">
+	<span class="fa fa-star-o"></span>
+	Désactivez votre abonnement Premium
+</a>
 {% endif %}
 
 {% endblock %}

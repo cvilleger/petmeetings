@@ -16,17 +16,47 @@ class DefaultController extends Controller
 
 	public function indexAction()
 	{
-		$listUsers = $this->getDoctrine()
+		$user = $this->get('security.token_storage')->getToken()->getUser();
+
+		if($user && $user != 'anon.') {
+	// rencontre homo ou hetero ?
+
+			$user->getGender() == 'choice.user.gender.1' ? $other = 'choice.user.gender.2' : $other ='choice.user.gender.1' ;
+
+			if( $user->getOrientation() == 'choice.user.orientation.2')
+				$other =  $user->getGender() ;
+			else
+				$user->getGender() == 'choice.user.gender.1' ? $other = 'choice.user.gender.2' : $other ='choice.user.gender.1' ;
+
+
+			$condition = array('orientation' => $user->getOrientation(), 'gender' => $other);
+
+			$listUsers = $this->getDoctrine()
 			->getManager()
 			->getRepository('UserBundle:User')
 			->findBy(
-                array(),
-                array('startsub' => 'asc'),
-				array('limit' => 3)
-            );
-		
+				$condition,
+				array('id' => 'desc'),
+				3
+				);
+
+		}
+		else {
+			$listUsers = $this->getDoctrine()
+			->getManager()
+			->getRepository('UserBundle:User')
+			->findBy(
+				array(),
+				array('id' => 'desc'),
+				3
+				);
+
+		}
+
+
 		return $this->render('AppBundle:Default:index.html.twig', array(
-			'listUsers' => $listUsers
-		));
+			'listUsers' => $listUsers,
+			'user' => $user
+			));
 	}
 }

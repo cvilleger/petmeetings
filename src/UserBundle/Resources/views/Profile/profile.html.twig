@@ -2,102 +2,118 @@
 
 {% trans_default_domain 'UserBundle' %}
 
+{% block app_title %} Vous inscrire sur PetMeeting {% endblock app_title %}
+
+{% block app_background %}couplebg{% endblock app_background %}
+{% block header %} {% endblock header %}
+
 {% block body %}
 
-<div class="row">
-	<div class="col s4 profilPhotos">
-		<img src="{{ asset('bundles/app/images/photo1.jpg') }}" alt="" id="profilPhoto">
-		<img src="{{ asset('bundles/app/images/chat1.png') }}" alt="" id="petPhoto">
-	</div>
+<div class="container ">
+	<br><br>
+	<div class="row">
+		<div class="col s4 offset-s2 profilPhotos">
+			<img src="{{ asset('uploads/' ~ user.pictureName) }}" alt="" id="profilPhoto">
+			<img src="{{ asset('uploads/' ~ user.animal.pictureName ) }}" alt="" id="petPhoto">
+		</div>
 
-	<div class="col s5 ">
-		<div class="profilBioTitle bleu">
-			<span class="iam">Salut, je suis</span>
-			<span class="name">
-				{% if user.firstname is defined %}
+		<div class="col s4 ">
+			<br>
+			<div class="profilBioTitle bleu">
+				<span class="name pink lighten-4">
+					{% if user.firstname is defined %}
 					{{ user.firstname }}
-				{% else %}
+					{% else %}
 					{{ user.username }}
-				{% endif %}
-			</span>
-		</div>
-		<span class="subProfil"><b>age</b></span>
-
-		<br>
-
-		<div class="profilBioTitle rose">
-			<span class="iam">Salut, je suis</span>
-			<span class="name">{{ user.animal.name }}</span>
-		</div>
-		<span class="subProfil"><b>{{ user.animal.kind|trans }} {{ user.animal.race }}</b></span>
-		<br>
-		<span class="subProfil bleu">On habite à <b>{{ user.city }}</b></span>
-		<br><br>
+					{% endif %}
+				</span>
+			</div>
+			<br>
+			<div class="profilBioTitle rose">
+				<span class="name blue lighten-4">{{ user.animal.name }}</span>
+			</div>
 			<div class="col s12 card-panel">
 				{{ user.biography }}
 			</div>
-	</div>
-
-	<div class="col s3 " id="likes" >
-		<div id="cptLikes">
-			<span class="cpt">
-				{{ user.woofs }}
-			</span>
-			<span class="fa fa-thumbs-o-up fa-4x">
-			</span>
+			<div id="likes" >
+				<button class="btn btn-flat pink lighten-2">{{ user.woofs }} <span class="fa fa-heart-o">	</span></button>
+				<br>
+				<br>
+				{% if alreadyWoof == false %}
+				{% if me.woofsLeft > 0  %}
+				<a href="{{ path('app_send_woof', {'id': user.id}) }}" class="btn waves-effect waves-light" id="likeBtn">Je Woof ! <span class="fa fa-heart-o">	</span> </a>
+				{% else	%}
+				<button class="btn waves-effect waves-light btn modal-trigger" href="#modal1">
+					Acheter des Woofs
+				</button>
+				{% endif	%}
+				{% else %}
+				<a href="" class="btn waves-effect waves-light disabled" id="likeBtn">Déjà woofé <span class="fa fa-heart-o">	</span> </a>
+				{% endif	%}
+			</div>
 		</div>
-		<a href="{{ path('app_send_woof', {'id': user.id}) }}" class="waves-effect waves-light btn-large" id="likeBtn"> Je Woof !</a>
-	</div>
-</div>
 
-<div class="row" id="infosProfil">
-	<div class="col  s5 card-panel bleuPanel">
-		<div class="row" >
-			<div class="col s12">
-				<h4><span>
+
+	</div>
+
+	<div class="row" id="infosProfil">
+		<div class="col  s6 card-panel bleuPanel">
+			<div class="row" >
+				<div class="col s12">
+					<h4><span>
 						Informations de
 						{% if user.firstname is defined %}
-							{{ user.firstname }}
+						{{ user.firstname }}
 						{% else %}
-							{{ user.username }}
+						{{ user.username }}
 						{% endif %}
 					</span></h4>
+				</div>
 			</div>
-		</div>
-		<div class="row" >
+			<div class="row" >
+				<div class="col s7 informationName">
+					<span>{{ 'profile.show.user.gender'|trans }}</span>
+					<span>{{ 'profile.show.user.city'|trans }}</span>
+					<span>{{ 'profile.show.user.size'|trans }}</span>
+					<span>{{ 'profile.show.user.weight'|trans }} </span>
+					<span>{{ 'profile.show.user.orientation'|trans }} </span>
+					<span>{{ 'profile.show.user.meetingtype'|trans }} </span>
+					<span>{{ 'profile.show.user.startsub'|trans }} </span>
+				</div>
+				<div class="col s4 informationValue">
+					<span>{{ user.gender|trans }}</span>
+					<span>{{ user.city }}</span>
+					<span>{{ user.size }}</span>
+					<span>{{ user.weight }}</span>
+					<span> {{ user.orientation|trans }}</span>
+					<span>{{ user.meetingtype|trans }}</span>
+					<span>{{ user.startsub|localizeddate('medium', 'none', locale) }}</span>
+				</div>
+			</div>
 
-			<div class="col s5 informationName">
-				<span>Age</span>
-				<span>Ville</span>
-				<span>Age</span>
-				<span>Age</span>
-				<span>Age</span>
+		</div>
+		<div class="col s5 card-panel rosePanel">
+			<div class="row" >
+				<div class="col s12">
+					<h4><span>Informations de {{ user.animal.name }}</span></h4>
+				</div>
+			</div>
+			<div class="col s6 informationName">
+				<span>{{ 'profile.show.animal.name'|trans }}</span>
+				<span>{{ 'profile.show.animal.age'|trans }}</span>
+				<span>{{ 'profile.show.animal.gender'|trans }}</span>
+				<span>{{ 'profile.show.animal.kind'|trans }}</span>
+				<span>{{ 'profile.show.animal.race'|trans }}</span>
 			</div>
 			<div class="col s6 informationValue">
-				<span>18 ans</span>
-				<span>{{ user.city }}</span>
-				<span>Age</span>
-				<span>Age</span>
-				<span>Age</span>
-				<span>Age</span>
+				<span>{{ user.animal.name }}</span>
+				<span>{{ user.animal.age }}</span>
+				<span>{{ user.animal.gender|trans }}</span>
+				<span>{{ user.animal.kind|trans }}</span>
+				<span>{{ user.animal.race }}</span>
 			</div>
-		</div>
 
-	</div>
-	<div class="col  s2">
-
-	</div>
-	<div class="col s5 card-panel rosePanel">
-		<div class="row" >
-			<div class="col s12">
-				<h4><span>Informations de {{ user.animal.name }}</span></h4>
-			</div>
 		</div>
-		<div class="col s6 informationName">
-		</div>
-		<div class="col s6 informationValue">
-		</div>
-
 	</div>
 </div>
 

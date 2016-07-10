@@ -17,17 +17,81 @@
 	{% endstylesheets %}
 
 </head>
-<body>
 
-	{% include 'header.html.twig' %}
+<body class="{% block app_background %}nonebg{% endblock %}">
+
+	{% if app.user %}
+	{% block header %} 	{% include 'header.html.twig' %} {% endblock %}
+	{% endif %}
 
 	{% block body %}{% endblock %}
 
-	{% block footer %}{% endblock %}
+	{% block footer %}
+	<div id="modal1" class="modal">
+		<div class="modal-content center">
+			<h4>Souscrire à l'offre boostedLover</h4>
+			<img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="">
+			<p>Vous allez être redirigé vers le site de PayPal pour réaliser la transaction</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" id="paiement"  class=" modal-action modal-close waves-effect waves-green btn-flat">Finaliser le paiement</a>
+		</div>
+
+		<form style='display: none;' id="paypal_checkout" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+			<input name="cmd" value="_cart" type="hidden">
+			<input name="upload" value="1" type="hidden">
+			<input name="no_note" value="0" type="hidden">
+			<input name="bn" value="PP-BuyNowBF" type="hidden">
+			<input name="rm" value="2" type="hidden">
+			<input name="business" value="sell@yopmail.com" type="hidden">
+			<input name="handling_cart" v alue="0" type="hidden">
+			<input name="currency_code" value="EUR"  type="hidden">
+			<input name="lc" value="EUR" type="hidden">
+			<input name="cbt" value="Finaliser votre commande" type="hidden">
+			<input name="return" value="http://localhost:8888{{ path('app_subscribe_premium', {'offer':"boostedLover"} ) }}" type="hidden">
+			<input name="cancel_return" value="http://localhost:8888/petmeetings/web/app_dev.php" type="hidden">
+			<input name="custom" type="hidden" value="">
+			<!-- Article 1 : abonnement RSP-->
+			<div id="item_1" class="itemwrap">
+				<input name="item_name_1" value="Offre BoostedLover" type="hidden">
+				<input name="item_number_1" value="1" type="hidden">
+				<input id="quantity_1"  name="quantity_1" value="1" type="hidden">
+				<input id="amount_1"  name="amount_1" value="9.99" type="hidden">
+				<input name="shipping_1" value="0" type="hidden">
+			</div>
+		</form>
+	</div>
+
+
+	{% endblock %}
 
 	{% block javascripts %}
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+	<script type="text/javascript" >
+		$(document).ready(function(){
+			$('.modal-trigger').leanModal();
+
+			if($('#formError').length) {
+				$('#formError').leanModal();
+				$('#formError').openModal();
+			}
+
+			$("#paiement").click(function(){
+				$("#paypal_checkout").submit();
+
+			});
+			// Search
+			$('#search-btn').click(function() {
+				var searchInput = $('#search-input');
+				var search = searchInput.val();
+				var url = searchInput.data('url') + 'search/' + search;
+				window.location.href = url;
+			});
+
+		});
+	</script>
 	{% endblock %}
 </body>
 </html>

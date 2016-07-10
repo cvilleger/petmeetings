@@ -1,8 +1,6 @@
 <?php
 
-
 namespace UserBundle\Controller;
-
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -14,68 +12,86 @@ use AppBundle\Service\UploadService;
 
 class ProfileController extends BaseController
 {
-    /** @var UploadService uploadService */
-    private $uploadService;
-    /** @var  Request $request */
-    private $request;
+	/** @var UploadService uploadService */
+	private $uploadService;
+	/** @var  Request $request */
+	private $request;
 
-    /**
-     * @param Request $request
-     */
-    public function preExecute(Request $request){
-        $this->uploadService = $this->container->get('UploadService');
-        $this->request = $request;
-    }
+	/**
+	 * @param Request $request
+	 */
+	public function preExecute(Request $request){
+		$this->uploadService = $this->container->get('UploadService');
+		$this->request = $request;
+	}
 
-    public function findAction(User $user)
-    {
-        $locale = 'fr';
+	public function findAction(User $user)
+	{
+		$locale = 'fr';
+		$me = $this->get('security.token_storage')->getToken()->getUser();
 
-        return $this->render('UserBundle:Profile:profile.html.twig', array(
-            'user' => $user,
-            'locale' => $locale
-        ));
-    }
+		if($me == 'anon.')
+			return $this->redirect($this->generateUrl('fos_user_security_login'));
 
-    public function showAction()
-    {
-        $user = $this->getUser();
-        $locale = 'fr';
+		$alreadyWoof = false;
 
-        return $this->render('UserBundle:Profile:show.html.twig', array(
-            'user' => $user,
-            'locale' => $locale
-        ));
-    }
+		foreach ($user->getAwaitingWoof() as $value) {
+			if($alreadyWoof == true )
+				break;
+			if ( $value->getId() == $me->getId() )
+				$alreadyWoof = true;
+		}
 
-    public function editAction(Request $request)
-    {
-        $user = $this->getUser();
-        $form = $this->createForm(UserEditType::class, $user);
+		return $this->render('UserBundle:Profile:profile.html.twig', array(
+			'user' => $user,
+			'me' => $me,
+			'alreadyWoof' => $alreadyWoof,
+			'locale' => $locale
+			));
+	}
 
-        $form->handleRequest($request);
-        if($form->isValid()) {
-            $file = $form->get('picture')->getData();
-            $fileAnimal = $form->get('animal')->get('picture')->getData();
+	public function showAction()
+	{
+		$user = $this->getUser();
+		$locale = 'fr';
 
-            if(!empty($file)) {
-                $uniqueFileName = $this->uploadService->uploadFile($file);
-                $user->setPictureName($uniqueFileName);
-            }
-            if(!empty($fileAnimal)) {
-                $uniqueFileNameAnimal = $this->uploadService->uploadFile($file);
-                $user->getAnimal()->setPictureName($uniqueFileNameAnimal);
-            }
-            
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+		$me = $this->get('security.token_storage')->getToken()->getUser();
 
-            return $this->redirect($this->generateUrl('fos_user_profile_show'));
-        }
+		return $this->render('UserBundle:Profile:show.html.twig', array(
+			'user' => $user,
+			'me' => $me,
+			'locale' => $locale
+			));
+	}
 
-        return $this->render('UserBundle:Profile:edit.html.twig', array(
-            'form' => $form->createView()
-        ));
-    }
+	public function editAction(Request $request)
+	{
+		$user = $this->getUser();
+		$form = $this->createForm(UserEditType::class, $user);
+
+		$form->handleRequest($request);
+		if($form->isValid()) {
+			$file = $form->get('picture')->getData();
+			$fileAnimal = $form->get('animal')->get('picture')->getData();
+
+			if(!empty($file)) {
+				$uniqueFileName = $this->uploadService->uploadFile($file);
+				$user->setPictureName($uniqueFileName);
+			}
+			if(!empty($fileAnimal)) {
+				$uniqueFileNameAnimal = $this->uploadService->uploadFile($file);
+				$user->getAnimal()->setPictureName($uniqueFileNameAnimal);
+			}
+
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($user);
+			$em->flush();
+
+			return $this->redirect($this->generateUrl('fos_user_profile_show'));
+		}
+
+		return $this->render('UserBundle:Profile:edit.html.twig', array(
+			'form' => $form->createView()
+			));
+	}
 }

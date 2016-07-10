@@ -1,60 +1,98 @@
-{% extends 'AppBundle::layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block app_background %}hearts{% endblock app_background %}
 
 {% block body %}
 
-    <div id="fullscreen">
+<div class="container " >
+	<br>
+	<div class="row">
+		<div class="col s8 card">
+			<h1>Donnez du chien à votre rencontre</h1>
+			<h4>
+				Rencontrez des propriétaires d'animaux de votre région.
+				Vos animaux de compagnie vous aideront à trouver votre compagnon pour la vie !
+			</h4>
+			{% if not app.user %}
+			<p>
+				<a href="{{ path('fos_user_registration_register') }}">
+					<button class="waves-effect waves-light blue btn">Je m'inscris</button>
+				</a>
+				<a href="{{ path('fos_user_security_login') }}">
+					<button class="waves-effect waves-light pink lighten-2 btn">Déjà inscrit ?</button>
+				</a>
+			</p>
 
-        <div class="container " >
-            <div class="row">
-                <div class="col s8">
-                    <h1>Donnez du chien à votre rencontre</h1>
-                    <h2>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua
-                    </h2>
-                    {% if not app.user %}
-                        <a href="{{ path('fos_user_registration_register') }}">
-                            <button class="waves-effect waves-light blue btn">Je m'inscris</button>
-                        </a>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
+			{% endif %}
+		</div>
+		<div class="col s4 center">
+			<img src="{{ asset('images/logo.png') }}" class="responsive-img" alt="" id="logo">
+		</div>
+	</div>
 
+	<h3 class="card blue lighten-1"><span class="fa undo"> </span> Derniers inscrits</h3>
+	<div class="row">
 
-    <div class="row pink lighten-1">
-        <div class="container " >
+		{% for profile in listUsers %}
+		<div class="col s4 profilPhotos">
+			<img src="{{ asset('uploads/' ~ profile.pictureName) }}" alt="" id="profilPhoto">
+			<img src="{{ asset('uploads/' ~ profile.animal.pictureName ) }}" alt="" id="petPhoto">
+			<br>
+			<a href="{{ path('user_find', { 'id' : profile.id }) }}">
+				<button class="waves-effect waves-light blue darken-2 btn">
+					<b>{{ profile.firstname }} </b> et {{ profile.animal.name }}
+				</button>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
 
-            <div class="col s4">
-                <h4>L'animal comme ami</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                </p>
-            </div>
-            <div class="col s4">
-                <h4>Rechercher autour de vous</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                </p>
-            </div>
-            <div class="col s4">
-                <h4>Choisissez à qui parler</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                </p>
-            </div>
-        </div>
-    </div>
+	{% if app.user %}
+	<h3 class="card blue lighten-1"><span class="fa fa-star-o"> </span> L'offre Boosted Lover</h3>
+	<div class="row card-panel">
+		<div class="col s12 ">
+			<p>
+				Les bénéficiaires de cette offre peuvent envoyer cinq “woof” par jour au lieu d’un.
+				Un “woof” est un moyen pour un utilisateur de signifier à un autre que son profil l'intéresse et qu’il souhaite commencer à communiquer.
+				L’objectif est de permettre à un utilisateur d’augmenter ses chances de rencontrer quelqu’un.
+			</p>
+		<!--	<a href="{{ path('app_subscribe_premium', {'offer':"boostedLover"} ) }}">
+				<button class="btn btn-large" data-target="modal1" class="btn modal-trigger">Devenir premium</button>
+			</a>-->
+			<button class="btn btn-large waves-effect waves-light btn modal-trigger" href="#modal1">Devenir premium</button>
+		</div>
+	</div>
+	{% endif %}
 
-{% for user in listUsers %}
-    {{ user.username }} - {{ user.city }}
-{% endfor %}
+	<div class="row pink lighten-1 card">
+		<br>
+		<div class="col s4">
+			<h4>L'animal comme ami</h4>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			</p>
+		</div>
+		<div class="col s4">
+			<h4>Rechercher autour de vous</h4>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			</p>
+		</div>
+		<div class="col s4">
+			<h4>Choisissez à qui parler</h4>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			</p>
+			<br>
+		</div>
+		<br>
 
-{% endblock %}
+	</div>
+</div>
+{% endblock body %}

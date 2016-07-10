@@ -89,7 +89,7 @@ $button-floating-radius: 50% !default;
 /* 4. Cards
    ========================================================================== */
 
-   $card-padding: 20px !default;
+   $card-padding: 18px !default;
    $card-bg-color: #fff !default;
    $card-link-color: color("orange", "accent-2") !default;
    $card-link-color-light: lighten($card-link-color, 20%) !default;
@@ -142,7 +142,7 @@ $button-floating-radius: 50% !default;
 $input-height: 3rem !default;
 $input-border-color: color("grey", "base") !default;
 $input-border: 1px solid $input-border-color !default;
-$input-background: #fff !default;
+$input-background: #D9D5DE !default;
 $input-error-color: $error-color !default;
 $input-success-color: $success-color !default;
 $input-focus-color: $secondary-color !default;
@@ -270,11 +270,11 @@ $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width 
 
    $off-black: rgba(0, 0, 0, 0.87) !default;
 // Header Styles
-$h1-fontsize: 3rem !default;
-$h2-fontsize: 2.2rem !default;
-$h3-fontsize: 1.8rem !default;
-$h4-fontsize: 1.48rem !default;
-$h5-fontsize: 1.24rem !default;
+$h1-fontsize: 2.2rem !default;
+$h2-fontsize: 1.7rem !default;
+$h3-fontsize: 1.4rem !default;
+$h4-fontsize: 1.2rem !default;
+$h5-fontsize: 1.02rem !default;
 $h6-fontsize: 1rem !default;
 
 

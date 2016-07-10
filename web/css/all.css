@@ -2776,31 +2776,41 @@
    ========================================================================== */
 /* 24. Progress Bar
    ========================================================================== */
-/* line 19, assetic_compassHYH6aa.scss */
-body {
-  background: url("../images/fond.jpg") no-repeat center center fixed;
+/* line 23, assetic_compass6KweIj.scss */
+.couplebg {
+  background: url("../images/couple2.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-/* line 23, assetic_compassHYH6aa.scss */
+/* line 27, assetic_compass6KweIj.scss */
+.hearts {
+  background: url("../images/couple2.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 700px;
+}
+
+/* line 32, assetic_compass6KweIj.scss */
 nav {
   margin-bottom: 2rem;
 }
 
-/* line 27, assetic_compassHYH6aa.scss */
+/* line 36, assetic_compass6KweIj.scss */
 .bleu {
   color: #1E88E5;
 }
 
-/* line 31, assetic_compassHYH6aa.scss */
+/* line 40, assetic_compass6KweIj.scss */
 .rose {
   color: #d81b60;
 }
 
-/* line 35, assetic_compassHYH6aa.scss */
+/* line 44, assetic_compass6KweIj.scss */
 #profilPhoto {
   width: 100%;
   height: auto;
@@ -2810,12 +2820,12 @@ nav {
   box-shadow: rgba(76, 74, 78, 0.4) 0 0 25px, rgba(48, 47, 49, 0.2) 0 0 3px 1px inset;
 }
 
-/* line 44, assetic_compassHYH6aa.scss */
+/* line 53, assetic_compass6KweIj.scss */
 #petPhoto {
   z-index: 500;
   position: relative;
   margin-top: -25%;
-  width: 50%;
+  width: 65%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -2825,94 +2835,79 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* line 57, assetic_compassHYH6aa.scss */
+/* line 66, assetic_compass6KweIj.scss */
 .bleuPanel {
   border-top: 3px solid #1E88E5;
 }
 
-/* line 61, assetic_compassHYH6aa.scss */
+/* line 70, assetic_compass6KweIj.scss */
 .rosePanel {
   border-top: 3px solid #d81b60;
 }
 
-/* line 65, assetic_compassHYH6aa.scss */
+/* line 74, assetic_compass6KweIj.scss */
 .iam {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
-/* line 73, assetic_compassHYH6aa.scss */
+/* line 83, assetic_compass6KweIj.scss */
 .profilBioTitle .name {
-  font-size: 2.5rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  text-transform: uppercase;
 }
-/* line 78, assetic_compassHYH6aa.scss */
+/* line 90, assetic_compass6KweIj.scss */
 .profilBioTitle .subProfil {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
-/* line 83, assetic_compassHYH6aa.scss */
+/* line 95, assetic_compass6KweIj.scss */
 .profilPhotos {
   text-align: center;
 }
 
-/* line 87, assetic_compassHYH6aa.scss */
+/* line 99, assetic_compass6KweIj.scss */
 #infosProfil {
   text-align: center;
 }
-/* line 91, assetic_compassHYH6aa.scss */
+/* line 103, assetic_compass6KweIj.scss */
 #infosProfil .s5 {
   text-align: center;
   margin: 0 3%;
 }
-/* line 96, assetic_compassHYH6aa.scss */
+/* line 108, assetic_compass6KweIj.scss */
 #infosProfil span {
   display: block;
   text-align: left;
   padding: 1rem 0.5rem;
   border-bottom: 1px	solid #CEC9D3;
 }
-/* line 102, assetic_compassHYH6aa.scss */
+/* line 114, assetic_compass6KweIj.scss */
 #infosProfil .informationName span {
   color: #63aced;
 }
-/* line 105, assetic_compassHYH6aa.scss */
+/* line 117, assetic_compass6KweIj.scss */
 #infosProfil .informationValue span {
   color: #272628;
 }
 
-/* line 111, assetic_compassHYH6aa.scss */
-#likes {
-  padding: 1rem;
-  vertical-align: bottom;
-  padding-top: 6rem;
-  text-align: center;
-}
-/* line 118, assetic_compassHYH6aa.scss */
-#likes .fa {
-  font-weight: 500;
-  font-size: 3rem;
-  color: #1360a4;
-  margin: 0 0.5rem;
-}
-/* line 124, assetic_compassHYH6aa.scss */
+/* line 124, assetic_compass6KweIj.scss */
 #likes .cpt {
   font-weight: 700;
-  font-size: 2.6rem;
+  font-size: 2rem;
 }
 
-/* line 130, assetic_compassHYH6aa.scss */
-#fullscreen {
-  background: url("../images/couple.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 700px;
-}
-
-/* line 135, assetic_compassHYH6aa.scss */
+/* line 132, assetic_compass6KweIj.scss */
 .transparent {
   background: transparent !important;
+}
+
+/* line 137, assetic_compass6KweIj.scss */
+h3 {
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
 }
 
 /* line 370, ../../../src/AppBundle/Resources/public/sass/components/_color.scss */
@@ -7868,26 +7863,31 @@ nav .input-field label.active i {
 nav .input-field label.active {
   transform: translateY(0);
 }
+/* line 150, ../../../src/AppBundle/Resources/public/sass/components/_navbar.scss */
+nav .submit_search {
+  background: url("../../images/toolbar_search.png");
+  float: right;
+}
 
-/* line 154, ../../../src/AppBundle/Resources/public/sass/components/_navbar.scss */
+/* line 158, ../../../src/AppBundle/Resources/public/sass/components/_navbar.scss */
 .navbar-fixed {
   position: relative;
   height: 56px;
   z-index: 998;
 }
-/* line 159, ../../../src/AppBundle/Resources/public/sass/components/_navbar.scss */
+/* line 163, ../../../src/AppBundle/Resources/public/sass/components/_navbar.scss */
 .navbar-fixed nav {
   position: fixed;
 }
 
 @media only screen and (min-width: 601px) {
-  /* line 164, ../../../src/AppBundle/Resources/public/sass/components/_navbar.scss */
+  /* line 168, ../../../src/AppBundle/Resources/public/sass/components/_navbar.scss */
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: 64px;
     line-height: 64px;
   }
 
-  /* line 168, ../../../src/AppBundle/Resources/public/sass/components/_navbar.scss */
+  /* line 172, ../../../src/AppBundle/Resources/public/sass/components/_navbar.scss */
   .navbar-fixed {
     height: 64px;
   }
@@ -7966,37 +7966,37 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 /* line 32, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
 h1 {
-  font-size: 3rem;
-  line-height: 110%;
-  margin: 1.5rem 0 1.2rem 0;
-}
-
-/* line 33, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
-h2 {
   font-size: 2.2rem;
   line-height: 110%;
   margin: 1.1rem 0 0.88rem 0;
 }
 
+/* line 33, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
+h2 {
+  font-size: 1.7rem;
+  line-height: 110%;
+  margin: 0.85rem 0 0.68rem 0;
+}
+
 /* line 34, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
 h3 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   line-height: 110%;
-  margin: 0.9rem 0 0.72rem 0;
+  margin: 0.7rem 0 0.56rem 0;
 }
 
 /* line 35, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
 h4 {
-  font-size: 1.48rem;
+  font-size: 1.2rem;
   line-height: 110%;
-  margin: 0.74rem 0 0.592rem 0;
+  margin: 0.6rem 0 0.48rem 0;
 }
 
 /* line 36, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
 h5 {
-  font-size: 1.24rem;
+  font-size: 1.02rem;
   line-height: 110%;
-  margin: 0.62rem 0 0.496rem 0;
+  margin: 0.51rem 0 0.408rem 0;
 }
 
 /* line 37, ../../../src/AppBundle/Resources/public/sass/components/_typography.scss */
@@ -8171,7 +8171,7 @@ small {
 /* line 3, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card-panel {
   transition: box-shadow .25s;
-  padding: 20px;
+  padding: 18px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
   background-color: #fff;
@@ -8182,56 +8182,57 @@ small {
   position: relative;
   margin: 0.5rem 0 1rem 0;
   background-color: #fff;
+  padding: 18px;
   transition: box-shadow .25s;
   border-radius: 2px;
 }
-/* line 21, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 23, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-title {
   font-size: 24px;
   font-weight: 300;
 }
-/* line 24, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 26, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-title.activator {
   cursor: pointer;
 }
-/* line 30, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 32, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card.small, .card.medium, .card.large {
   position: relative;
 }
-/* line 33, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 35, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card.small .card-image, .card.medium .card-image, .card.large .card-image {
   max-height: 60%;
   overflow: hidden;
 }
-/* line 37, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 39, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card.small .card-content, .card.medium .card-content, .card.large .card-content {
   max-height: 40%;
   overflow: hidden;
 }
-/* line 41, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 43, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card.small .card-action, .card.medium .card-action, .card.large .card-action {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 }
-/* line 49, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 51, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card.small {
   height: 300px;
 }
-/* line 53, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 55, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card.medium {
   height: 400px;
 }
-/* line 57, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 59, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card.large {
   height: 500px;
 }
-/* line 62, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 64, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-image {
   position: relative;
 }
-/* line 66, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 68, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-image img {
   display: block;
   border-radius: 2px 2px 0 0;
@@ -8242,55 +8243,55 @@ small {
   bottom: 0;
   width: 100%;
 }
-/* line 77, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 79, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-image .card-title {
   color: #fff;
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 20px;
+  padding: 18px;
 }
-/* line 87, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 89, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-content {
-  padding: 20px;
+  padding: 18px;
   border-radius: 0 0 2px 2px;
 }
-/* line 91, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 93, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-content p {
   margin: 0;
   color: inherit;
 }
-/* line 95, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 97, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-content .card-title {
   line-height: 48px;
 }
-/* line 100, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 102, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-action {
   position: relative;
   background-color: inherit;
   border-top: 1px solid rgba(160, 160, 160, 0.2);
-  padding: 20px;
+  padding: 18px;
   z-index: 2;
 }
-/* line 107, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 109, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
   color: #ffab40;
-  margin-right: 20px;
+  margin-right: 18px;
   transition: color .3s ease;
   text-transform: uppercase;
 }
-/* line 113, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 115, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
   color: #ffd8a6;
 }
-/* line 116, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 118, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-action + .card-reveal {
   z-index: 1;
   padding-bottom: 64px;
 }
-/* line 122, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 124, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-reveal {
-  padding: 20px;
+  padding: 18px;
   position: absolute;
   background-color: #fff;
   width: 100%;
@@ -8300,7 +8301,7 @@ small {
   z-index: 3;
   display: none;
 }
-/* line 133, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
+/* line 135, ../../../src/AppBundle/Resources/public/sass/components/_cards.scss */
 .card .card-reveal .card-title {
   cursor: pointer;
   display: block;
@@ -9152,6 +9153,7 @@ button:focus {
 label {
   font-size: 0.8rem;
   color: #9e9e9e;
+  display: block;
 }
 
 /* Text Inputs + Textarea
@@ -9526,7 +9528,7 @@ textarea.materialize-textarea + label:after {
 }
 /* line 188, ../../../src/AppBundle/Resources/public/sass/components/forms/_input-fields.scss */
 .input-field input[type=search]:focus {
-  background-color: #fff;
+  background-color: #D9D5DE;
   border: 0;
   box-shadow: none;
   color: #444;
@@ -9876,8 +9878,8 @@ form p:last-child {
   height: 13px;
   border-top: 2px solid transparent;
   border-left: 2px solid transparent;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  border-right: 2px solid #D9D5DE;
+  border-bottom: 2px solid #D9D5DE;
   -webkit-transform: rotateZ(37deg);
   transform: rotateZ(37deg);
   -webkit-transform-origin: 100% 100%;
@@ -10012,16 +10014,6 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
    ========================================================================== */
 /* line 4, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 select {
-  display: none;
-}
-
-/* line 5, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
-select.browser-default {
-  display: block;
-}
-
-/* line 7, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
-select {
   background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   padding: 5px;
@@ -10030,16 +10022,16 @@ select {
   height: 3rem;
 }
 
-/* line 16, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 13, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-label {
   position: absolute;
 }
 
-/* line 20, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 17, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-wrapper {
   position: relative;
 }
-/* line 23, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 20, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-wrapper input.select-dropdown {
   position: relative;
   cursor: pointer;
@@ -10055,7 +10047,7 @@ select {
   padding: 0;
   display: block;
 }
-/* line 39, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 36, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-wrapper span.caret {
   color: initial;
   position: absolute;
@@ -10063,23 +10055,23 @@ select {
   top: 16px;
   font-size: 10px;
 }
-/* line 45, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 42, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-wrapper span.caret.disabled {
   color: rgba(0, 0, 0, 0.26);
 }
-/* line 50, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 47, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-wrapper + label {
   position: absolute;
   top: -14px;
   font-size: 0.8rem;
 }
 
-/* line 58, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 55, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 select:disabled {
   color: rgba(0, 0, 0, 0.3);
 }
 
-/* line 62, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 59, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-wrapper input.select-dropdown:disabled {
   color: rgba(0, 0, 0, 0.3);
   cursor: default;
@@ -10092,12 +10084,12 @@ select:disabled {
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-/* line 71, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 68, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-wrapper i {
   color: rgba(0, 0, 0, 0.3);
 }
 
-/* line 75, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 72, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-dropdown li.disabled,
 .select-dropdown li.disabled > span,
 .select-dropdown li.optgroup {
@@ -10105,19 +10097,19 @@ select:disabled {
   background-color: transparent;
 }
 
-/* line 83, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 80, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .prefix ~ .select-wrapper {
   margin-left: 3rem;
   width: 92%;
   width: calc(100% - 3rem);
 }
 
-/* line 89, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 86, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .prefix ~ label {
   margin-left: 3rem;
 }
 
-/* line 93, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 90, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-dropdown li img {
   height: 40px;
   width: 40px;
@@ -10125,19 +10117,19 @@ select:disabled {
   float: right;
 }
 
-/* line 102, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 99, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-dropdown li.optgroup {
   border-top: 1px solid #eee;
 }
-/* line 105, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 102, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-dropdown li.optgroup.selected > span {
   color: rgba(0, 0, 0, 0.7);
 }
-/* line 109, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 106, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-dropdown li.optgroup > span {
   color: rgba(0, 0, 0, 0.4);
 }
-/* line 113, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
+/* line 110, ../../../src/AppBundle/Resources/public/sass/components/forms/_select.scss */
 .select-dropdown li.optgroup ~ li.optgroup-option {
   padding-left: 1rem;
 }
@@ -10239,7 +10231,7 @@ input[type=range] + .thumb.active {
 }
 /* line 53, ../../../src/AppBundle/Resources/public/sass/components/forms/_range.scss */
 input[type=range] + .thumb.active .value {
-  color: #fff;
+  color: #D9D5DE;
   margin-left: -1px;
   margin-top: 8px;
   font-size: 10px;

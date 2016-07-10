@@ -13,52 +13,54 @@ use AppBundle\Service\UploadService;
 
 class RegistrationController extends BaseController
 {
-    /** @var UploadService uploadService */
-    private $uploadService;
-    /** @var  Request $request */
-    private $request;
+	/** @var UploadService uploadService */
+	private $uploadService;
+	/** @var  Request $request */
+	private $request;
 
-    /**
-     * @param Request $request
-     */
-    public function preExecute(Request $request)
-    {
-        $this->uploadService = $this->container->get('UploadService');
-        $this->request = $request;
-    }
-    
-    public function registerAction(Request $request)
-    {
-        $user = new User();
-        $user->setEnabled(true);
-        $animal = new Animal();
-        $user->setAnimal($animal);
+	/**
+	 * @param Request $request
+	*/
+	public function preExecute(Request $request)
+	{
+		$this->uploadService = $this->container->get('UploadService');
+		$this->request = $request;
+	}
 
-        $form = $this->createForm(RegistrationFormType::class, $user);
-        $form->handleRequest($request);
+	public function registerAction(Request $request)
+	{
+		$user = new User();
+		$user->setEnabled(true);
+		$animal = new Animal();
+		$user->setAnimal($animal);
 
-        if ($form->isValid()) {
-            $file = $form->get('picture')->getData();
-            $fileAnimal = $form->get('animal')->get('picture')->getData();
+		$form = $this->createForm(RegistrationFormType::class, $user);
+		$form->handleRequest($request);
 
-            if(!empty($file)) {
-                $uniqueFileName = $this->uploadService->uploadFile($file);
-                $user->setPictureName($uniqueFileName);
-            }
-            if(!empty($fileAnimal)) {
-                $uniqueFileNameAnimal = $this->uploadService->uploadFile($file);
-                $user->getAnimal()->setPictureName($uniqueFileNameAnimal);
-            }
+		if ($form->isValid()) {
+			$file = $form->get('picture')->getData();
+			$fileAnimal = $form->get('animal')->get('picture')->getData();
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+			if(!empty($file)) {
+				$uniqueFileName = $this->uploadService->uploadFile($file);
+				$user->setPictureName($uniqueFileName);
+			}
+			if(!empty($fileAnimal)) {
+				$uniqueFileNameAnimal = $this->uploadService->uploadFile($fileAnimal);
+				$user->getAnimal()->setPictureName($uniqueFileNameAnimal);
+			}
 
-            return $this->redirect($this->generateUrl('fos_user_profile_show'));
-        }
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($user);
+			$em->flush();
 
-        return $this->render('UserBundle:Registration:register.html.twig', array(
-            'form' => $form->createView(),
-        ));
-    }
+			return $this->redirect($this->generateUrl('fos_user_profile_show'));
+		}
+
+		return $this->render('UserBundle:Registration:register.html.twig', array(
+			'form' => $form->createView(),
+			'errors' => $form->getErrors(true)
+			));
+	}
+
 }

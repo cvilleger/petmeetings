@@ -2,17 +2,145 @@
 
 {% trans_default_domain 'UserBundle' %}
 
-{% block app_title %}{{ parent() }} Inscription{% endblock app_title %}
+{% block app_title %} Vous inscrire sur PetMeeting {% endblock app_title %}
+
+{% block app_background %}couplebg{% endblock app_background %}
+{% block header %} {% endblock header %}
 
 {% block body %}
 
-    <h1>Inscription</h1>
+<div class="container ">
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_rest(form) }}
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
-    {{ form_end(form) }}
 
-    <p>Vous êtes déjà inscrit ? <a href="{{ path("fos_user_security_login") }}">Cliquez ici</a>.</p>
+	{{ form_start(form) }}
+	<div class="row ">
+
+		<div class="row ">
+			<div class="col s4 offset-s4">
+				<img src="{{ asset('images/logo.png') }}" class="responsive-img" alt="" id="logo">
+			</div>
+		</div>
+
+		{% if errors is not empty %}
+		<div id="" class="red card">
+			<h5>Une ou plusieurs erreurs sont présentes dans le formulaire</h5>
+			<ul>
+				{% for error in errors %}
+				<li>{{ error.message }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endif %}
+
+		<h3 class="blue card"> <span class="fa fa-user"> </span> Présentez-vous</h3>
+		<div class="row white card">
+			<div class="col s6  ">
+				<div class="input-field ">
+					{{ form_label(form.firstname) }}
+					{{ form_widget(form.firstname) }}
+				</div>
+				<div class="input-field ">
+					{{ form_label(form.lastname) }}
+					{{ form_widget(form.lastname) }}
+				</div>
+				<div class="input-field ">
+					{{ form_label(form.city) }}
+					{{ form_widget(form.city) }}
+				</div>
+				<div class="input-field ">
+					{{ form_label(form.birthday) }}
+					{{ form_widget(form.birthday) }}
+				</div>
+				<div class="input-field ">
+					{{ form_label(form.biography) }}
+					{{ form_widget(form.biography) }}
+				</div>
+			</div>
+			<div class="col s6">
+				<div class="input-field ">
+
+					{{ form_label(form.picture) }}
+					{{ form_widget(form.picture) }}
+				</div>
+				<br>
+				<br>
+				{{ form_label(form.gender) }}
+				{{ form_widget(form.gender) }}
+				<div class="input-field ">
+					{{ form_label(form.size) }}
+					{{ form_widget(form.size) }}
+				</div>
+				<div class="input-field ">
+					{{ form_label(form.weight) }}
+					{{ form_widget(form.weight) }}
+				</div>
+				<div class="input-field ">
+
+					{{ form_label(form.orientation) }}
+					{{ form_widget(form.orientation) }}
+				</div>
+				<div class="input-field ">
+
+					{{ form_label(form.meetingtype) }}
+					{{ form_widget(form.meetingtype) }}
+				</div>
+
+			</div>
+		</div>
+
+		<h3 class="pink card"> <span class="fa fa-paw"></span> Votre animal</h3>
+		<div class="row white card">
+			<div class="col s6">
+				<div class="input-field ">
+					{{ form_label(form.animal.name) }}
+					{{ form_widget(form.animal.name) }}
+				</div>
+				{{ form_label(form.animal.picture) }}
+				{{ form_widget(form.animal.picture) }}
+				<div class="input-field ">
+					{{ form_label(form.animal.age) }}
+					{{ form_widget(form.animal.age) }}
+				</div>
+			</div>
+			<div class="col s6">
+				{{ form_label(form.animal.gender) }}
+				{{ form_widget(form.animal.gender) }}
+				<div class="input-field ">
+					{{ form_label(form.animal.kind) }}
+					{{ form_widget(form.animal.kind) }}
+				</div>
+				<div class="input-field ">
+					{{ form_label(form.animal.race) }}
+					{{ form_widget(form.animal.race) }}
+				</div>
+			</div>
+		</div>
+
+		<h3 class="blue card"> <span class="fa fa-user"></span> Identifiants</h3>
+
+		<div class="row white card">
+			<div class="col s6">
+				<div class="input-field ">
+					{{ form_label(form.username) }}
+					{{ form_widget(form.username) }}
+				</div>
+				<div class="input-field ">
+					{{ form_label(form.email) }}
+					{{ form_widget(form.email) }}
+				</div>
+			</div>
+			<div class="col s6">
+
+				{{ form_label(form.plainPassword) }}
+				{{ form_widget(form.plainPassword) }}
+			</div>
+			<input type="submit" class="btn" value="{{ 'registration.submit'|trans }}" />
+		</div>
+		{{ form_end(form) }}
+	</div>
+
+
+	<p>Vous êtes déjà inscrit ? <a href="{{ path("fos_user_security_login") }}">Cliquez ici</a>.</p>
+</div>
+
 {% endblock body %}

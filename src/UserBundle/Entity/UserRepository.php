@@ -12,4 +12,54 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+	public function findUsersByParameters($data)
+	{
+		$i = 0;
+
+		$query = $this->createQueryBuilder('u')
+		->leftJoin('u.animal', 'a');
+		foreach($data as $key => $value) {
+			$i++;
+			if($key == 'animal') {
+				foreach($value as $keyAnimal => $valueAnimal) {
+					if($i > 1)
+						$query->where('a.' .$keyAnimal. ' = :value');
+					else
+						$query->andWhere('a.' .$keyAnimal. ' = :value');
+					$query->setParameter('value', $valueAnimal);
+				}
+			}
+			else if($key == 'between') {
+				foreach($value as $keyBetween => $valueBetween) {
+					$valueBetween = explode(',', $valueBetween);
+					if($i > 1)
+						$query->where('u.' .$keyBetween. ' between :valueMin and :valueMax');
+					else
+						$query->andWhere('u.' .$keyBetween. ' between :valueMin and :valueMax');
+					$query->setParameters(array('valueMin'=>$valueBetween[0],'valueMax'=>$valueBetween[1]));
+				}
+			}
+			else {
+				if($i > 1)
+					$query->where('u.' .$key. ' = :value');
+				else
+					$query->andWhere('u.' .$key. ' = :value');
+				$query->setParameter('value', $value);
+			}
+		}
+		return $query->getQuery()->getResult();
+	}
+	public function findUsersByOneParameter($data)
+	{
+		$query = $this->createQueryBuilder('u')
+		->leftJoin('u.animal', 'a')
+		->where("u.username LIKE '%$data%'")
+		->orWhere("u.firstname LIKE '%$data%'")
+		->orWhere("u.lastname LIKE '%$data%'")
+		->orWhere("u.email LIKE '%$data%'")
+		->orWhere("u.gender LIKE '%$data%'")
+		->orWhere("a.kind LIKE '%$data%'")
+		->orWhere("a.race LIKE '%$data%'");
+		return $query->getQuery()->getResult();
+	}
 }

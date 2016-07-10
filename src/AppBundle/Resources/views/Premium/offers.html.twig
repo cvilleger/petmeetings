@@ -2,16 +2,18 @@
 
 {% block body %}
 
-    <div>
-        <h1> Notre offre: </h1>
-        <div class="col s12 card-panel">
-            <a href="{{ path('app_subscribe_premium', {'offer':"boostedLover"} ) }}">
-                <span> Boosted Lover </span>
-                <p> Les bénéficiaires de cette offre peuvent envoyer cinq “woof” par jour au lieu d’un.
-                    Un “woof” est un moyen pour un utilisateur de signifier à un autre que son profil l'intéresse et qu’il souhaite commencer à communiquer.
-                    L’objectif est de permettre à un utilisateur d’augmenter ses chances de rencontrer quelqu’un. </p>
-            </a>
-        </div>
-    </div>
+<div>
+	<h1> Notre offre: </h1>
+	<div class="col s12 card-panel">
+		<a href="{{ path('app_subscribe_premium', {'offer':"boostedLover"} ) }}">
+			<span> Boosted Lover </span>
+			<p>
+				Les bénéficiaires de cette offre peuvent envoyer cinq “woof” par jour au lieu d’un.
+				Un “woof” est un moyen pour un utilisateur de signifier à un autre que son profil l'intéresse et qu’il souhaite commencer à communiquer.
+				L’objectif est de permettre à un utilisateur d’augmenter ses chances de rencontrer quelqu’un.
+			</p>
+		</a>
+	</div>
+</div>
 
 {% endblock %}
