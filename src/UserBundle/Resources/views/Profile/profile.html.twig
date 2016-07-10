@@ -106,7 +106,7 @@
 			</div>
 			<div class="col s6 informationValue">
 				<span>{{ user.animal.name }}</span>
-				<span>{{ user.animal.age }}</span>
+				<span>{{ user.animal.age|number_format }} ans</span>
 				<span>{{ user.animal.gender|trans }}</span>
 				<span>{{ user.animal.kind|trans }}</span>
 				<span>{{ user.animal.race }}</span>
