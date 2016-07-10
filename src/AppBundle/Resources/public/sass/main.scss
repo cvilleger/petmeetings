@@ -76,12 +76,15 @@ nav {
 }
 
 .profilBioTitle {
+
 	span {
 
 	}
 	.name {
+		padding: 0.5rem;
 		font-size: 1.5rem;
 		font-weight: bold;
+		text-transform: uppercase;
 	}
 
 	.subProfil {
@@ -118,15 +121,9 @@ nav {
 }
 
 #likes {
-	.fa {
-		font-weight: 500;
-		font-size: 2rem;
-		color: darken($primary-color, 5%) ;
-		margin: 0 0.5rem ;
-	}
 	.cpt {
 		font-weight: 700;
-		font-size: 2.6rem;
+		font-size: 2rem;
 	}
 }
 

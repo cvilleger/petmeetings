@@ -13,14 +13,14 @@
 	<br><br>
 	<div class="row">
 		<div class="col s4 offset-s2 profilPhotos">
-			<img src="{{ asset('bundles/app/images/photo1.jpg') }}" alt="" id="profilPhoto">
-			<img src="{{ asset('bundles/app/images/chat1.png') }}" alt="" id="petPhoto">
+			<img src="{{ asset('uploads/' ~ user.pictureName) }}" alt="" id="profilPhoto">
+			<img src="{{ asset('uploads/' ~ user.animal.pictureName ) }}" alt="" id="petPhoto">
 		</div>
 
 		<div class="col s4 ">
+			<br><br>
 			<div class="profilBioTitle bleu">
-				<span class="iam">Salut, je suis</span><br>
-				<span class="name">
+				<span class="name pink lighten-4">
 					{% if user.firstname is defined %}
 					{{ user.firstname }}
 					{% else %}
@@ -29,25 +29,19 @@
 				</span>
 			</div>
 			<br>
-
 			<div class="profilBioTitle rose">
-				<span class="iam">Accompagné de</span><br>
-				<span class="name">{{ user.animal.name }}</span>
+				<span class="name blue lighten-4">{{ user.animal.name }}</span>
 			</div>
-			<span class="subProfil"><b>{{ user.animal.kind|trans }} {{ user.animal.race }}</b></span>
-			<span class="subProfil bleu">On habite à <b>{{ user.city }}</b></span>
 			<div class="col s12 card-panel">
 				{{ user.biography }}
 			</div>
 			<div id="likes" >
 				<div id="cptLikes">
 					<span class="cpt">
-						{{ user.woofs }}
-					</span>
-					<span class="fa fa-thumbs-o-up fa-4x">
+
 					</span>
 				</div>
-				<a href="{{ path('app_send_woof', {'id': user.id}) }}" class="waves-effect waves-light btn-large" id="likeBtn"> Je Woof !</a>
+				<a href="{{ path('app_send_woof', {'id': user.id}) }}" class="btn waves-effect waves-light" id="likeBtn">	{{ user.woofs }} -	Je Woof ! <span class="fa fa-heart-o">	</span> </a>
 			</div>
 		</div>
 

@@ -32,6 +32,7 @@
 
 	<h3 class="card blue lighten-1"><span class="fa undo"> </span> Derniers inscrits</h3>
 	<div class="row">
+
 		{% for profile in listUsers %}
 		<div class="col s4 profilPhotos">
 			<img src="{{ asset('uploads/' ~ profile.pictureName) }}" alt="" id="profilPhoto">
