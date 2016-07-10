@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Repository\AcceptedWoofRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\MeetingService;
@@ -11,10 +12,10 @@ use AppBundle\Entity\Mail;
 use AppBundle\Form\WriteMailType;
 
 class MeetingController extends Controller {
+    /** @var MeetingService $meetingService */
 	protected $meetingService;
 
 	public function preExecute(){
-		/** @var MeetingService meetingService */
 		$this->meetingService = $this->container->get('MeetingService');
 	}
 

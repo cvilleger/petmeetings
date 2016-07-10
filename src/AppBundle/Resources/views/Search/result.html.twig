@@ -9,23 +9,21 @@
 	<div class="row">
 		<div class="col s10 offset-s1">
 			{% if listUsers is defined and listUsers is not empty %}
-			{% for user in listUsers %}
-			<ul class="collection">
-				<li class="collection-item avatar" style="color: black;">
-					<img src={{ asset("uploads/"~user.pictureName) }} alt={{ user.username}} class="circle">
-					<span class="title"><b>{{ user.firstname|capitalize }} </b>de {{ user.city }}.</span>
-					<p>
-						Accompagné par <b> {{ user.animal.name|upper }} </b>({{ user.animal.kind|trans }})
-						{{ user.animal.age|number_format }}ans
-					</p>
-					<a href="{{ path('user_find', {'id': user.id}) }}" class="btn waves-effect secondary-content">Découvrir {{ user.firstname|capitalize }} </a>
-				</li>
-			</ul>
-			{% endfor %}
+				<ul class="collection">
+				{% for user in listUsers %}
+					<li class="collection-item avatar" style="color: black;">
+						<img src={{ asset("uploads/"~user.pictureName) }} alt={{ user.username}} class="circle">
+						<span class="title"><b>{{ user.firstname|capitalize }} </b>de {{ user.city }}.</span>
+						<p>
+							Accompagné par <b> {{ user.animal.name|upper }} </b>({{ user.animal.kind|trans }})
+							{{ user.animal.age|number_format }}ans
+						</p>
+						<a href="{{ path('user_find', {'id': user.id}) }}" class="btn waves-effect secondary-content">Découvrir {{ user.firstname|capitalize }} </a>
+					</li>
+				{% endfor %}
+				</ul>
 			{% else %}
 			<center>
-
-
 				<div class="col s12 ">
 					<h3 class="card red lighten-1">Aucun résultat n'a été trouvé pour votre recherche</h3>
 				</div>
