@@ -10,11 +10,11 @@ On s'intéresse à votre profil :
 {% for sender in user.awaitingWoof %}
 	<li class="collection-item avatar" style="color: black;">
 		<a href="{{ path('user_find', {'id':sender.id}) }}" style="color: black;">
-			<img src={{ asset("uploads/"~user.pictureName) }} alt={{ user.username}} class="circle">
-			<span class="title"><b>{{ user.firstname|capitalize }} </b>de {{ user.city }} voudrait discuter avec vous.</span>
+			<img src={{ asset("uploads/"~sender.pictureName) }} alt={{ sender.username}} class="circle">
+			<span class="title"><b>{{ sender.firstname|capitalize }} </b>de {{ sender.city }} voudrait discuter avec vous.</span>
 			<p>
-				Accompagné par <b> {{ user.animal.name|upper }} </b>({{ user.animal.kind|trans }})
-				{{ user.animal.age|number_format }}ans
+				Accompagné par <b> {{ sender.animal.name|upper }} </b>({{ sender.animal.kind|trans }})
+				{{ sender.animal.age|number_format }}ans
 			</p>
 		</a>
 		<a href="{{ path('app_answer_woof', {'id':sender.id, 'answer':'yes'}) }}" class="btn waves-effect blue ">Accepter sa demande</a>
