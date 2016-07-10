@@ -50,7 +50,11 @@
 	{% if app.user %}
 	<h3 class="card blue lighten-1"><span class="fa fa-star-o"> </span> L'offre Boosted Lover</h3>
 	<div class="row card-panel">
-		<div class="col s12 ">
+		<div class="col s3 ">
+			<img src="{{ asset("images/success.gif") }} " id="profilPhoto" class="responsive-img" alt="">
+
+		</div>
+		<div class="col s9 ">
 			<p>
 				Les bénéficiaires de cette offre peuvent envoyer cinq “woof” par jour au lieu d’un.
 				Un “woof” est un moyen pour un utilisateur de signifier à un autre que son profil l'intéresse et qu’il souhaite commencer à communiquer.
@@ -59,7 +63,7 @@
 		<!--	<a href="{{ path('app_subscribe_premium', {'offer':"boostedLover"} ) }}">
 				<button class="btn btn-large" data-target="modal1" class="btn modal-trigger">Devenir premium</button>
 			</a>-->
-			<button class="btn btn-large waves-effect waves-light btn modal-trigger" href="#modal1">Devenir premium</button>
+			<button class="btn waves-effect waves-light btn modal-trigger" href="#modal1">Devenir premium</button>
 		</div>
 	</div>
 	{% endif %}
