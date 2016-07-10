@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Form\AdvancedSearchType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use UserBundle\Entity\UserRepository;
 
 class SearchController extends Controller
 {
@@ -14,16 +15,19 @@ class SearchController extends Controller
 		 */
 		public function searchAction(Request $request)
 		{
-			$param = $request->get('search');
+			$param = $request->get('slug');
 
 			$em = $this->getDoctrine()->getManager();
-			$listUsers = $em->getRepository('UserBundle:User')->findUsersByOneParameter($param);
-				// Remove current user
-			unset($listUsers[array_search($this->getUser(), $listUsers)]);
+			/** @var UserRepository $repository */
+			$userRepository = $em->getRepository('UserBundle:User');
+			$listUsers = $userRepository->findUsersByOneParameter($param);
+
+			// Remove current user
+			// unset($listUsers[array_search($this->getUser(), $listUsers)]); @Todo Not Working, ça efface tout
 
 			return $this->render('AppBundle:Search:result.html.twig', array(
 				'listUsers' => $listUsers
-				));
+			));
 		}
 
 		/**
